@@ -1,0 +1,982 @@
+{
+  "generatedAt": "2026-06-12T09:22:31.542Z",
+  "datasetPage": "https://data.taipei/dataset/detail?id=b796f87a-0ed8-4e57-89f6-225a4941b1ed",
+  "resources": [
+    {
+      "id": "9b2d0333-e8ee-4055-915b-d06ba67b0879",
+      "url": "https://data.taipei/api/v1/dataset/9b2d0333-e8ee-4055-915b-d06ba67b0879?scope=resourceAquire",
+      "fileName": "open1999-9b2d0333-e8ee-4055-915b-d06ba67b0879.csv",
+      "downloadedAt": "2026-06-12T09:02:45.535Z",
+      "sha256": "cd7ab20fc223fc80ac4c71f2ff39ee85b4b6cbfc8cb95fd843f135a6c7461f6c",
+      "bytes": 1438420
+    },
+    {
+      "id": "131e3e00-790d-472d-bd2c-326c62268d4e",
+      "url": "https://data.taipei/api/v1/dataset/131e3e00-790d-472d-bd2c-326c62268d4e?scope=resourceAquire",
+      "fileName": "open1999-131e3e00-790d-472d-bd2c-326c62268d4e.csv",
+      "downloadedAt": "2026-06-12T09:02:55.988Z",
+      "sha256": "5e1ab97ab4d35842934bd8976acf7302c56f8e4324a5de3d18ecdf17033d4c43",
+      "bytes": 1350583
+    },
+    {
+      "id": "8aec2bb2-b334-4572-9cbe-b0dfd3aae8fa",
+      "url": "https://data.taipei/api/v1/dataset/8aec2bb2-b334-4572-9cbe-b0dfd3aae8fa?scope=resourceAquire",
+      "fileName": "open1999-8aec2bb2-b334-4572-9cbe-b0dfd3aae8fa.csv",
+      "downloadedAt": "2026-06-12T09:03:05.590Z",
+      "sha256": "b5409b99e4a0b4fa4113bcc1c1cfc41db43db0a6e11005a02d0fb4928eecdda7",
+      "bytes": 1842695
+    },
+    {
+      "id": "92c728b9-9154-4e70-855c-389d5ba26533",
+      "url": "https://data.taipei/api/v1/dataset/92c728b9-9154-4e70-855c-389d5ba26533?scope=resourceAquire",
+      "fileName": "open1999-92c728b9-9154-4e70-855c-389d5ba26533.csv",
+      "downloadedAt": "2026-06-12T09:03:15.200Z",
+      "sha256": "3c2bb8864128b61100e5890cf9782188fbd49ab67dff23a3ddc0055bf7ddfd25",
+      "bytes": 1677440
+    },
+    {
+      "id": "db4342a0-7c03-4714-9a08-b5233d257997",
+      "url": "https://data.taipei/api/v1/dataset/db4342a0-7c03-4714-9a08-b5233d257997?scope=resourceAquire",
+      "fileName": "open1999-db4342a0-7c03-4714-9a08-b5233d257997.csv",
+      "downloadedAt": "2026-06-12T09:03:24.937Z",
+      "sha256": "14f6a3bb7042ba6965ca5200f027f887becee3082f45b16d83d45bf95f39c43a",
+      "bytes": 1612775
+    },
+    {
+      "id": "72709006-c0d5-4924-be4c-3ad4460d5294",
+      "url": "https://data.taipei/api/v1/dataset/72709006-c0d5-4924-be4c-3ad4460d5294?scope=resourceAquire",
+      "fileName": "open1999-72709006-c0d5-4924-be4c-3ad4460d5294.csv",
+      "downloadedAt": "2026-06-12T09:03:34.837Z",
+      "sha256": "6248125b858a46944edef05b103916e2702addca414580434575b17f3899b01a",
+      "bytes": 1530978
+    },
+    {
+      "id": "8e11e7c2-9c8d-4143-a557-11997fdab5fa",
+      "url": "https://data.taipei/api/v1/dataset/8e11e7c2-9c8d-4143-a557-11997fdab5fa?scope=resourceAquire",
+      "fileName": "open1999-8e11e7c2-9c8d-4143-a557-11997fdab5fa.csv",
+      "downloadedAt": "2026-06-12T09:03:45.247Z",
+      "sha256": "1455cdd1f1b53863c6729a4131ecccd1a72e95f4f67022647db674b4b654ee69",
+      "bytes": 1410684
+    },
+    {
+      "id": "7a92a9b9-3898-40a4-b1df-6986cb62a9eb",
+      "url": "https://data.taipei/api/v1/dataset/7a92a9b9-3898-40a4-b1df-6986cb62a9eb?scope=resourceAquire",
+      "fileName": "open1999-7a92a9b9-3898-40a4-b1df-6986cb62a9eb.csv",
+      "downloadedAt": "2026-06-12T09:04:00.320Z",
+      "sha256": "645da3a1f2f862162ae9d62c80f8175d80fb44617dd399dba430025228787415",
+      "bytes": 1759377
+    },
+    {
+      "id": "df579d7f-5d29-4d00-9964-1a99b26a1a1e",
+      "url": "https://data.taipei/api/v1/dataset/df579d7f-5d29-4d00-9964-1a99b26a1a1e?scope=resourceAquire",
+      "fileName": "open1999-df579d7f-5d29-4d00-9964-1a99b26a1a1e.csv",
+      "downloadedAt": "2026-06-12T09:04:16.883Z",
+      "sha256": "3e1c3d380db141a947f62699f40585f33d4dc6ef2bb0f5e76b9554743b148d03",
+      "bytes": 1813475
+    },
+    {
+      "id": "95e364a7-4fc6-4f02-b248-876a7a76333a",
+      "url": "https://data.taipei/api/v1/dataset/95e364a7-4fc6-4f02-b248-876a7a76333a?scope=resourceAquire",
+      "fileName": "open1999-95e364a7-4fc6-4f02-b248-876a7a76333a.csv",
+      "downloadedAt": "2026-06-12T09:04:27.327Z",
+      "sha256": "476f76a2deacdd9103d3bee2273edf55ee7e1a356f08d0b94d95be84f8cf29d7",
+      "bytes": 1752348
+    },
+    {
+      "id": "85a89da5-5172-4b67-ab76-0c0d90705de6",
+      "url": "https://data.taipei/api/v1/dataset/85a89da5-5172-4b67-ab76-0c0d90705de6?scope=resourceAquire",
+      "fileName": "open1999-85a89da5-5172-4b67-ab76-0c0d90705de6.csv",
+      "downloadedAt": "2026-06-12T09:04:36.910Z",
+      "sha256": "646e39399e0e06fbebd45e02e13c1743b1bcacf9baec6ac4415e8e01ffab4ad9",
+      "bytes": 1677673
+    },
+    {
+      "id": "9ba3579a-f7c3-4cd2-acbf-c0b6bb7da3f9",
+      "url": "https://data.taipei/api/v1/dataset/9ba3579a-f7c3-4cd2-acbf-c0b6bb7da3f9?scope=resourceAquire",
+      "fileName": "open1999-9ba3579a-f7c3-4cd2-acbf-c0b6bb7da3f9.csv",
+      "downloadedAt": "2026-06-12T09:04:45.608Z",
+      "sha256": "91035c2dae12621ed88d125a4b23b25f2bc0516fe256144233808a4613306fcb",
+      "bytes": 1593471
+    },
+    {
+      "id": "02da3244-ea59-42c8-b203-b7181c79bdfb",
+      "url": "https://data.taipei/api/v1/dataset/02da3244-ea59-42c8-b203-b7181c79bdfb?scope=resourceAquire",
+      "fileName": "open1999-02da3244-ea59-42c8-b203-b7181c79bdfb.csv",
+      "downloadedAt": "2026-06-12T09:04:56.012Z",
+      "sha256": "3569e7aa1149e39f26c958f85381f3c6a970d8e945d05a4d5085c3d2f14cefbb",
+      "bytes": 1809863
+    },
+    {
+      "id": "95149de4-7e37-4953-88b1-092925743946",
+      "url": "https://data.taipei/api/v1/dataset/95149de4-7e37-4953-88b1-092925743946?scope=resourceAquire",
+      "fileName": "open1999-95149de4-7e37-4953-88b1-092925743946.csv",
+      "downloadedAt": "2026-06-12T09:05:05.439Z",
+      "sha256": "d1e14ff3637fe3a35eed5d234c0f15f3bff04a6183ac17223a6933832cbc9983",
+      "bytes": 1715826
+    },
+    {
+      "id": "1de4b6f9-993d-4faa-9f77-fe71efe5560d",
+      "url": "https://data.taipei/api/v1/dataset/1de4b6f9-993d-4faa-9f77-fe71efe5560d?scope=resourceAquire",
+      "fileName": "open1999-1de4b6f9-993d-4faa-9f77-fe71efe5560d.csv",
+      "downloadedAt": "2026-06-12T09:05:14.726Z",
+      "sha256": "30b803a7d7c335308d69c56f04a7240ab79056cb28734663d6e8886c9b3760de",
+      "bytes": 1670835
+    },
+    {
+      "id": "0764fe05-e0da-4045-8dd8-17ce3b6ccdcd",
+      "url": "https://data.taipei/api/v1/dataset/0764fe05-e0da-4045-8dd8-17ce3b6ccdcd?scope=resourceAquire",
+      "fileName": "open1999-0764fe05-e0da-4045-8dd8-17ce3b6ccdcd.csv",
+      "downloadedAt": "2026-06-12T09:05:23.378Z",
+      "sha256": "bf2d7fe682c5ddd5b1a6692f9ec08e55866ded1bb39c0b04f1f37751cf9121b5",
+      "bytes": 1560836
+    },
+    {
+      "id": "16a0aa64-5600-4401-9ca1-f223218aaf69",
+      "url": "https://data.taipei/api/v1/dataset/16a0aa64-5600-4401-9ca1-f223218aaf69?scope=resourceAquire",
+      "fileName": "open1999-16a0aa64-5600-4401-9ca1-f223218aaf69.csv",
+      "downloadedAt": "2026-06-12T09:05:31.732Z",
+      "sha256": "b4843ef68739e6675a7a7135a7aa1e08a59c8ee547aeb88968be870ea8056427",
+      "bytes": 1534112
+    },
+    {
+      "id": "0b891a1a-8aa5-497f-b1be-3a5b17c1b153",
+      "url": "https://data.taipei/api/v1/dataset/0b891a1a-8aa5-497f-b1be-3a5b17c1b153?scope=resourceAquire",
+      "fileName": "open1999-0b891a1a-8aa5-497f-b1be-3a5b17c1b153.csv",
+      "downloadedAt": "2026-06-12T09:05:39.276Z",
+      "sha256": "2dd094efe7e6672588329f25cbf652af76d663d9ab88bb439d7401feea4272f3",
+      "bytes": 1276218
+    },
+    {
+      "id": "dda4fe1c-2c63-457d-ae18-7fb2d5040760",
+      "url": "https://data.taipei/api/v1/dataset/dda4fe1c-2c63-457d-ae18-7fb2d5040760?scope=resourceAquire",
+      "fileName": "open1999-dda4fe1c-2c63-457d-ae18-7fb2d5040760.csv",
+      "downloadedAt": "2026-06-12T09:05:50.473Z",
+      "sha256": "8e3f96d71e6f028695c582eb4f52253cce2641ef18d64cb0532c93bb7067b769",
+      "bytes": 1863554
+    },
+    {
+      "id": "c3dc227b-1353-439b-8161-0ad5829a3962",
+      "url": "https://data.taipei/api/v1/dataset/c3dc227b-1353-439b-8161-0ad5829a3962?scope=resourceAquire",
+      "fileName": "open1999-c3dc227b-1353-439b-8161-0ad5829a3962.csv",
+      "downloadedAt": "2026-06-12T09:06:01.612Z",
+      "sha256": "d2e5d894cb17625934b17a792ec32e27a1c8907304e63eb2a36449efc11ce58b",
+      "bytes": 1983651
+    },
+    {
+      "id": "f6a0f083-bba2-4573-a2e4-72b1e2da4346",
+      "url": "https://data.taipei/api/v1/dataset/f6a0f083-bba2-4573-a2e4-72b1e2da4346?scope=resourceAquire",
+      "fileName": "open1999-f6a0f083-bba2-4573-a2e4-72b1e2da4346.csv",
+      "downloadedAt": "2026-06-12T09:06:10.442Z",
+      "sha256": "3a637a99be29fae05f6455288ef7bffcb8a770cf72a3a0b4112d85db0a624a7b",
+      "bytes": 1503327
+    },
+    {
+      "id": "a648d593-cd89-4a03-9c65-be87e6f616cb",
+      "url": "https://data.taipei/api/v1/dataset/a648d593-cd89-4a03-9c65-be87e6f616cb?scope=resourceAquire",
+      "fileName": "open1999-a648d593-cd89-4a03-9c65-be87e6f616cb.csv",
+      "downloadedAt": "2026-06-12T09:06:19.081Z",
+      "sha256": "8b9997b6a12a7196487563ee4242aebcb5959339f53e6866fec317c17aee759d",
+      "bytes": 1508161
+    },
+    {
+      "id": "eb5c47a5-79a6-4e2e-983a-8d393f982ffb",
+      "url": "https://data.taipei/api/v1/dataset/eb5c47a5-79a6-4e2e-983a-8d393f982ffb?scope=resourceAquire",
+      "fileName": "open1999-eb5c47a5-79a6-4e2e-983a-8d393f982ffb.csv",
+      "downloadedAt": "2026-06-12T09:06:29.077Z",
+      "sha256": "c3cce33ace99bbae6c48e5132a02b26f1b767a1d871dd20c05015ac0c9a8b1a4",
+      "bytes": 1653871
+    },
+    {
+      "id": "890df355-cf64-4700-98c2-7db69690b737",
+      "url": "https://data.taipei/api/v1/dataset/890df355-cf64-4700-98c2-7db69690b737?scope=resourceAquire",
+      "fileName": "open1999-890df355-cf64-4700-98c2-7db69690b737.csv",
+      "downloadedAt": "2026-06-12T09:06:38.218Z",
+      "sha256": "0b51727bff274d1023c993ca155f162a858b67f5bc47c42b371843ec31a83dc5",
+      "bytes": 1656366
+    },
+    {
+      "id": "8aa49553-561d-4d16-bf15-8c533a416acb",
+      "url": "https://data.taipei/api/v1/dataset/8aa49553-561d-4d16-bf15-8c533a416acb?scope=resourceAquire",
+      "fileName": "open1999-8aa49553-561d-4d16-bf15-8c533a416acb.csv",
+      "downloadedAt": "2026-06-12T09:06:48.109Z",
+      "sha256": "52da1849c1fed8d5fff8627e5b28cc45c638cac9baa8d71404cd0a19301f15c4",
+      "bytes": 1616317
+    },
+    {
+      "id": "cd812962-c5b2-4921-82a9-12f0bea4b28c",
+      "url": "https://data.taipei/api/v1/dataset/cd812962-c5b2-4921-82a9-12f0bea4b28c?scope=resourceAquire",
+      "fileName": "open1999-cd812962-c5b2-4921-82a9-12f0bea4b28c.csv",
+      "downloadedAt": "2026-06-12T09:06:57.295Z",
+      "sha256": "9d693391427746c183d8791698cb5c59e86ad56b320c8a45226ca429197592a2",
+      "bytes": 1581593
+    },
+    {
+      "id": "4356709d-fe56-41a5-9f1b-3a1ee62d1b31",
+      "url": "https://data.taipei/api/v1/dataset/4356709d-fe56-41a5-9f1b-3a1ee62d1b31?scope=resourceAquire",
+      "fileName": "open1999-4356709d-fe56-41a5-9f1b-3a1ee62d1b31.csv",
+      "downloadedAt": "2026-06-12T09:07:07.552Z",
+      "sha256": "685804cae75d7156bf7c447bfcc92f1f977f01aff200935ce877c3ac725b10b2",
+      "bytes": 1628251
+    },
+    {
+      "id": "f771f4a4-f5d3-4ed0-942d-fba88774ce6f",
+      "url": "https://data.taipei/api/v1/dataset/f771f4a4-f5d3-4ed0-942d-fba88774ce6f?scope=resourceAquire",
+      "fileName": "open1999-f771f4a4-f5d3-4ed0-942d-fba88774ce6f.csv",
+      "downloadedAt": "2026-06-12T09:07:17.177Z",
+      "sha256": "2755b3ef1d97a1d1ee77b1267579912ca4023c9a83520f5415620b6bedb51d52",
+      "bytes": 1338745
+    },
+    {
+      "id": "0ab341b7-1d7e-45f5-b3cb-5d1153c8d0f2",
+      "url": "https://data.taipei/api/v1/dataset/0ab341b7-1d7e-45f5-b3cb-5d1153c8d0f2?scope=resourceAquire",
+      "fileName": "open1999-0ab341b7-1d7e-45f5-b3cb-5d1153c8d0f2.csv",
+      "downloadedAt": "2026-06-12T09:07:26.612Z",
+      "sha256": "b00304c30b7ae2f39b5138468581f7b7298af6dc6de565692b853bf10c3c768e",
+      "bytes": 1372969
+    },
+    {
+      "id": "dcceda37-0146-42df-8e38-dbf8d921d25f",
+      "url": "https://data.taipei/api/v1/dataset/dcceda37-0146-42df-8e38-dbf8d921d25f?scope=resourceAquire",
+      "fileName": "open1999-dcceda37-0146-42df-8e38-dbf8d921d25f.csv",
+      "downloadedAt": "2026-06-12T09:07:37.915Z",
+      "sha256": "4a8316aaae21893ab0c525c657039e99b707a9cc84ec8384fb53e691d2d4686b",
+      "bytes": 1518284
+    },
+    {
+      "id": "140f286a-fc30-4be4-9774-6304274c5fc3",
+      "url": "https://data.taipei/api/v1/dataset/140f286a-fc30-4be4-9774-6304274c5fc3?scope=resourceAquire",
+      "fileName": "open1999-140f286a-fc30-4be4-9774-6304274c5fc3.csv",
+      "downloadedAt": "2026-06-12T09:07:48.279Z",
+      "sha256": "29670527125e90e3e0a72dc6c702f197e5caafe4167a1d97f9f47f2ba8be030a",
+      "bytes": 1439562
+    },
+    {
+      "id": "dc1f2f16-360d-4a4e-86fb-2c62f88501de",
+      "url": "https://data.taipei/api/v1/dataset/dc1f2f16-360d-4a4e-86fb-2c62f88501de?scope=resourceAquire",
+      "fileName": "open1999-dc1f2f16-360d-4a4e-86fb-2c62f88501de.csv",
+      "downloadedAt": "2026-06-12T09:08:04.304Z",
+      "sha256": "c39a3c666ab86a26acfc68371d4a28eaa8a4fb71c51d697fe09e3dc98bc6177a",
+      "bytes": 1395061
+    },
+    {
+      "id": "f70b102a-660b-44ce-9dad-c161e57a2436",
+      "url": "https://data.taipei/api/v1/dataset/f70b102a-660b-44ce-9dad-c161e57a2436?scope=resourceAquire",
+      "fileName": "open1999-f70b102a-660b-44ce-9dad-c161e57a2436.csv",
+      "downloadedAt": "2026-06-12T09:08:14.872Z",
+      "sha256": "62425dd9920c67a34459c597db05d858f25fb89e42aa2d2bc438dc9320dbad1e",
+      "bytes": 1361394
+    },
+    {
+      "id": "e10dfa90-67e4-47fc-b4af-d719eaf5bf7c",
+      "url": "https://data.taipei/api/v1/dataset/e10dfa90-67e4-47fc-b4af-d719eaf5bf7c?scope=resourceAquire",
+      "fileName": "open1999-e10dfa90-67e4-47fc-b4af-d719eaf5bf7c.csv",
+      "downloadedAt": "2026-06-12T09:08:25.706Z",
+      "sha256": "d8a7438a332cd45ab1bf28d3bfaa49b344422cf9982f10bb42fcb2573b0a9bf1",
+      "bytes": 1343006
+    },
+    {
+      "id": "65304b8c-bac6-40db-a13b-cd97828772d9",
+      "url": "https://data.taipei/api/v1/dataset/65304b8c-bac6-40db-a13b-cd97828772d9?scope=resourceAquire",
+      "fileName": "open1999-65304b8c-bac6-40db-a13b-cd97828772d9.csv",
+      "downloadedAt": "2026-06-12T09:08:36.060Z",
+      "sha256": "5961d839185f15afe79c89b013b5502e49db51442cfedfd824c0e186752d8965",
+      "bytes": 1525945
+    },
+    {
+      "id": "f31811d5-b9ee-474d-bdff-204c47fa2935",
+      "url": "https://data.taipei/api/v1/dataset/f31811d5-b9ee-474d-bdff-204c47fa2935?scope=resourceAquire",
+      "fileName": "open1999-f31811d5-b9ee-474d-bdff-204c47fa2935.csv",
+      "downloadedAt": "2026-06-12T09:08:47.109Z",
+      "sha256": "f480cb1f9eef686786d8cbda3ba96b507800a940a4eff9e330eac4f77f7e8527",
+      "bytes": 1535698
+    },
+    {
+      "id": "2cb2095e-6265-4b41-a4fe-74adedcb31e0",
+      "url": "https://data.taipei/api/v1/dataset/2cb2095e-6265-4b41-a4fe-74adedcb31e0?scope=resourceAquire",
+      "fileName": "open1999-2cb2095e-6265-4b41-a4fe-74adedcb31e0.csv",
+      "downloadedAt": "2026-06-12T09:08:57.380Z",
+      "sha256": "89b927e66682fcb3cecfc353fdebbc606c7c4c18c33de63160076b06bede5918",
+      "bytes": 1426780
+    },
+    {
+      "id": "4cb9c807-1040-4f57-8e98-132140e4ceda",
+      "url": "https://data.taipei/api/v1/dataset/4cb9c807-1040-4f57-8e98-132140e4ceda?scope=resourceAquire",
+      "fileName": "open1999-4cb9c807-1040-4f57-8e98-132140e4ceda.csv",
+      "downloadedAt": "2026-06-12T09:09:08.779Z",
+      "sha256": "61f9ac30cfe91026226dacab507fc48ebf0df1b4b6b8559dd3178e8adc887ea3",
+      "bytes": 1422597
+    },
+    {
+      "id": "9af3807a-b3d1-41ba-8269-387c943a93e7",
+      "url": "https://data.taipei/api/v1/dataset/9af3807a-b3d1-41ba-8269-387c943a93e7?scope=resourceAquire",
+      "fileName": "open1999-9af3807a-b3d1-41ba-8269-387c943a93e7.csv",
+      "downloadedAt": "2026-06-12T09:09:18.085Z",
+      "sha256": "43a7d9eff8083defbe2cdef3e1cb8a3e3ac5189820a5a8cc21e5e0e3ba751f59",
+      "bytes": 1342648
+    },
+    {
+      "id": "fe08ea62-9f33-4ca7-bf05-2bd4b07a1aa0",
+      "url": "https://data.taipei/api/v1/dataset/fe08ea62-9f33-4ca7-bf05-2bd4b07a1aa0?scope=resourceAquire",
+      "fileName": "open1999-fe08ea62-9f33-4ca7-bf05-2bd4b07a1aa0.csv",
+      "downloadedAt": "2026-06-12T09:09:27.949Z",
+      "sha256": "14a3b08f4eedc8a9ef98de231a4bcd1239ef7bb44111eb18927c055e6535d0f9",
+      "bytes": 1441920
+    },
+    {
+      "id": "98f1090a-1c7f-4496-a4c4-4b1bdce43915",
+      "url": "https://data.taipei/api/v1/dataset/98f1090a-1c7f-4496-a4c4-4b1bdce43915?scope=resourceAquire",
+      "fileName": "open1999-98f1090a-1c7f-4496-a4c4-4b1bdce43915.csv",
+      "downloadedAt": "2026-06-12T09:09:41.025Z",
+      "sha256": "a3b13aa22186ff9c1da36171d800ea457308d5c2967c9fcddeba52156af75dca",
+      "bytes": 1143966
+    },
+    {
+      "id": "c1d7422f-4f23-4ff9-bdec-95b19262fb76",
+      "url": "https://data.taipei/api/v1/dataset/c1d7422f-4f23-4ff9-bdec-95b19262fb76?scope=resourceAquire",
+      "fileName": "open1999-c1d7422f-4f23-4ff9-bdec-95b19262fb76.csv",
+      "downloadedAt": "2026-06-12T09:09:54.408Z",
+      "sha256": "d58b1a0f4690766472540c02734205b68e767f1d4f802f65fb58840faccf2522",
+      "bytes": 1497461
+    },
+    {
+      "id": "cc809488-13a0-4366-9a9f-7c9d18212827",
+      "url": "https://data.taipei/api/v1/dataset/cc809488-13a0-4366-9a9f-7c9d18212827?scope=resourceAquire",
+      "fileName": "open1999-cc809488-13a0-4366-9a9f-7c9d18212827.csv",
+      "downloadedAt": "2026-06-12T09:10:03.429Z",
+      "sha256": "3f69c0eda8bf1ed43c68f88c4c1002bfea5064695810e0502e4c4609d3324fc1",
+      "bytes": 1389494
+    },
+    {
+      "id": "8ae96d6b-6ead-420e-96b0-26de3107292a",
+      "url": "https://data.taipei/api/v1/dataset/8ae96d6b-6ead-420e-96b0-26de3107292a?scope=resourceAquire",
+      "fileName": "open1999-8ae96d6b-6ead-420e-96b0-26de3107292a.csv",
+      "downloadedAt": "2026-06-12T09:10:11.831Z",
+      "sha256": "14bc163749410d15a8061864687fefe0369dd29fcc24bdecd20d37687fd95406",
+      "bytes": 1393967
+    },
+    {
+      "id": "4d847f52-812f-45d2-ba49-08a0113eba26",
+      "url": "https://data.taipei/api/v1/dataset/4d847f52-812f-45d2-ba49-08a0113eba26?scope=resourceAquire",
+      "fileName": "open1999-4d847f52-812f-45d2-ba49-08a0113eba26.csv",
+      "downloadedAt": "2026-06-12T09:10:19.892Z",
+      "sha256": "95126b230566855945344cfea9b3c8c990885a31575ca3840aeac9bf44c84a20",
+      "bytes": 1343002
+    },
+    {
+      "id": "da2c6801-a74e-496e-be64-beb45b56f030",
+      "url": "https://data.taipei/api/v1/dataset/da2c6801-a74e-496e-be64-beb45b56f030?scope=resourceAquire",
+      "fileName": "open1999-da2c6801-a74e-496e-be64-beb45b56f030.csv",
+      "downloadedAt": "2026-06-12T09:10:27.666Z",
+      "sha256": "0d12668053b141cab6e9f6c40ab15df469abdcbcfba4cca2de04b37452eb318c",
+      "bytes": 1306584
+    },
+    {
+      "id": "a1632472-a110-46f3-83a8-7e4445d91079",
+      "url": "https://data.taipei/api/v1/dataset/a1632472-a110-46f3-83a8-7e4445d91079?scope=resourceAquire",
+      "fileName": "open1999-a1632472-a110-46f3-83a8-7e4445d91079.csv",
+      "downloadedAt": "2026-06-12T09:10:34.993Z",
+      "sha256": "c67f630d3817d8b653e5722d603f9a7a4578fe23a7f45db585b25e6ade176c2c",
+      "bytes": 1344615
+    },
+    {
+      "id": "0ac52b39-fccb-4bc6-b5f4-d87b8bbbb13d",
+      "url": "https://data.taipei/api/v1/dataset/0ac52b39-fccb-4bc6-b5f4-d87b8bbbb13d?scope=resourceAquire",
+      "fileName": "open1999-0ac52b39-fccb-4bc6-b5f4-d87b8bbbb13d.csv",
+      "downloadedAt": "2026-06-12T09:10:42.615Z",
+      "sha256": "f1cb97763d2bfc06645e1d401afd2d5d4a623485eda78c7de32f4eb231f923c2",
+      "bytes": 1409153
+    },
+    {
+      "id": "8a52488c-4bfd-485a-b48a-d6ad57d53744",
+      "url": "https://data.taipei/api/v1/dataset/8a52488c-4bfd-485a-b48a-d6ad57d53744?scope=resourceAquire",
+      "fileName": "open1999-8a52488c-4bfd-485a-b48a-d6ad57d53744.csv",
+      "downloadedAt": "2026-06-12T09:10:52.310Z",
+      "sha256": "424312386870d1fd20e9bca7a54b8ec290c7ef71a30ddb445903fd8d1142c297",
+      "bytes": 1307523
+    },
+    {
+      "id": "26653bea-37df-433e-997a-4f202f6fd4b4",
+      "url": "https://data.taipei/api/v1/dataset/26653bea-37df-433e-997a-4f202f6fd4b4?scope=resourceAquire",
+      "fileName": "open1999-26653bea-37df-433e-997a-4f202f6fd4b4.csv",
+      "downloadedAt": "2026-06-12T09:10:56.984Z",
+      "sha256": "25e2b7948a2b2c882389eb4441ca8136cc5710c26a6ea5adacc978267ccd6281",
+      "bytes": 661177
+    },
+    {
+      "id": "9aea2032-60b6-4568-8ac0-6239c5a8d91f",
+      "url": "https://data.taipei/api/v1/dataset/9aea2032-60b6-4568-8ac0-6239c5a8d91f?scope=resourceAquire",
+      "fileName": "open1999-9aea2032-60b6-4568-8ac0-6239c5a8d91f.csv",
+      "downloadedAt": "2026-06-12T09:11:03.678Z",
+      "sha256": "79e055f45c7d02efd100fd13e55343b2d344a8dbf9cebd89f668557f1aa459dd",
+      "bytes": 1176693
+    },
+    {
+      "id": "13efb8a6-94ee-460f-b327-bf29fe9eb3dc",
+      "url": "https://data.taipei/api/v1/dataset/13efb8a6-94ee-460f-b327-bf29fe9eb3dc?scope=resourceAquire",
+      "fileName": "open1999-13efb8a6-94ee-460f-b327-bf29fe9eb3dc.csv",
+      "downloadedAt": "2026-06-12T09:11:12.252Z",
+      "sha256": "c7d920a7f80b1dc7501661c8b7e6cd1350fc1e02e7ab0262e24afcd9752e8138",
+      "bytes": 1547011
+    },
+    {
+      "id": "931c5dde-cea2-4fb7-b5d9-1d74f3a83114",
+      "url": "https://data.taipei/api/v1/dataset/931c5dde-cea2-4fb7-b5d9-1d74f3a83114?scope=resourceAquire",
+      "fileName": "open1999-931c5dde-cea2-4fb7-b5d9-1d74f3a83114.csv",
+      "downloadedAt": "2026-06-12T09:11:18.232Z",
+      "sha256": "5dcef5521e1870f45a60d25a1b8b615bffacd4f684d771fae87f5a49c808246b",
+      "bytes": 1105153
+    },
+    {
+      "id": "92cea674-6c89-4365-af10-2183c547aee0",
+      "url": "https://data.taipei/api/v1/dataset/92cea674-6c89-4365-af10-2183c547aee0?scope=resourceAquire",
+      "fileName": "open1999-92cea674-6c89-4365-af10-2183c547aee0.csv",
+      "downloadedAt": "2026-06-12T09:11:28.842Z",
+      "sha256": "fd352a2c31d7e1447292c7df8b1b2fd49c9707e0a9945f6619dde9a0cf9729f5",
+      "bytes": 1762169
+    },
+    {
+      "id": "1cf539c2-68ac-4a2f-bb40-d486216037d4",
+      "url": "https://data.taipei/api/v1/dataset/1cf539c2-68ac-4a2f-bb40-d486216037d4?scope=resourceAquire",
+      "fileName": "open1999-1cf539c2-68ac-4a2f-bb40-d486216037d4.csv",
+      "downloadedAt": "2026-06-12T09:11:37.605Z",
+      "sha256": "217649c7879eca670a85431f601ae841f75c891f9caac28f941ac29b1aab05b0",
+      "bytes": 1489398
+    },
+    {
+      "id": "5ed4f6ab-ff81-4208-9f0b-87ac2f86eec2",
+      "url": "https://data.taipei/api/v1/dataset/5ed4f6ab-ff81-4208-9f0b-87ac2f86eec2?scope=resourceAquire",
+      "fileName": "open1999-5ed4f6ab-ff81-4208-9f0b-87ac2f86eec2.csv",
+      "downloadedAt": "2026-06-12T09:11:45.970Z",
+      "sha256": "dc97f98c744da73ef73e7e132e244dc70adb10a0ce3f746e1b7bba9d26c963f8",
+      "bytes": 1521046
+    },
+    {
+      "id": "c665bf54-05b3-42ab-862a-058355a5fecb",
+      "url": "https://data.taipei/api/v1/dataset/c665bf54-05b3-42ab-862a-058355a5fecb?scope=resourceAquire",
+      "fileName": "open1999-c665bf54-05b3-42ab-862a-058355a5fecb.csv",
+      "downloadedAt": "2026-06-12T09:11:54.506Z",
+      "sha256": "4cd6bc81addb9f95ee82d564de9f28d79f509ee4e1da8110f41bfbe6eb386d18",
+      "bytes": 1469449
+    },
+    {
+      "id": "588e56a7-7c50-49f4-8bc3-949649b68728",
+      "url": "https://data.taipei/api/v1/dataset/588e56a7-7c50-49f4-8bc3-949649b68728?scope=resourceAquire",
+      "fileName": "open1999-588e56a7-7c50-49f4-8bc3-949649b68728.csv",
+      "downloadedAt": "2026-06-12T09:12:02.555Z",
+      "sha256": "769899ecc67a348ee207b1d376c38daf03a5f61d2c2d57a806583d01f04aa5c0",
+      "bytes": 1369241
+    },
+    {
+      "id": "df8b6bef-4016-4502-ae8d-4cdffbab8988",
+      "url": "https://data.taipei/api/v1/dataset/df8b6bef-4016-4502-ae8d-4cdffbab8988?scope=resourceAquire",
+      "fileName": "open1999-df8b6bef-4016-4502-ae8d-4cdffbab8988.csv",
+      "downloadedAt": "2026-06-12T09:12:12.131Z",
+      "sha256": "fa6589ccfd389ca9fed0ac8bb899ac2321d89628211a9cbf0baa89b79f9dc5e8",
+      "bytes": 1541846
+    },
+    {
+      "id": "9c626ce2-c840-4e5c-ae14-0352ce4d0a5f",
+      "url": "https://data.taipei/api/v1/dataset/9c626ce2-c840-4e5c-ae14-0352ce4d0a5f?scope=resourceAquire",
+      "fileName": "open1999-9c626ce2-c840-4e5c-ae14-0352ce4d0a5f.csv",
+      "downloadedAt": "2026-06-12T09:12:20.330Z",
+      "sha256": "d9d34147f9d34fda9eb392973b460d44dfc616435ab3f372861637a4e47af801",
+      "bytes": 1428654
+    },
+    {
+      "id": "7313d5d6-2a9a-47a2-ab69-231c26f36ae9",
+      "url": "https://data.taipei/api/v1/dataset/7313d5d6-2a9a-47a2-ab69-231c26f36ae9?scope=resourceAquire",
+      "fileName": "open1999-7313d5d6-2a9a-47a2-ab69-231c26f36ae9.csv",
+      "downloadedAt": "2026-06-12T09:12:27.667Z",
+      "sha256": "638af11ba8ddcdbf88db61bb7e541a9b029b9a4aa2682f291cbb66e82214650a",
+      "bytes": 1228685
+    },
+    {
+      "id": "248b52c1-b57e-4791-955a-79e616decf4b",
+      "url": "https://data.taipei/api/v1/dataset/248b52c1-b57e-4791-955a-79e616decf4b?scope=resourceAquire",
+      "fileName": "open1999-248b52c1-b57e-4791-955a-79e616decf4b.csv",
+      "downloadedAt": "2026-06-12T09:12:35.779Z",
+      "sha256": "e8c953a089c6111a1b8404f32e15b9cd2f64a601bc70c02583129006b8558f39",
+      "bytes": 1341637
+    },
+    {
+      "id": "2dc19c52-7fa8-485a-9407-fe09a9528c1a",
+      "url": "https://data.taipei/api/v1/dataset/2dc19c52-7fa8-485a-9407-fe09a9528c1a?scope=resourceAquire",
+      "fileName": "open1999-2dc19c52-7fa8-485a-9407-fe09a9528c1a.csv",
+      "downloadedAt": "2026-06-12T09:12:44.411Z",
+      "sha256": "3adda6650605ac111a49d812ab62d9bf52265af62ee9f6f2a1ca90fdbb77c577",
+      "bytes": 1512365
+    },
+    {
+      "id": "bade56b2-5dad-4056-a9f2-160f36f48b28",
+      "url": "https://data.taipei/api/v1/dataset/bade56b2-5dad-4056-a9f2-160f36f48b28?scope=resourceAquire",
+      "fileName": "open1999-bade56b2-5dad-4056-a9f2-160f36f48b28.csv",
+      "downloadedAt": "2026-06-12T09:12:53.243Z",
+      "sha256": "45c1ec75f3eaffadc20ccdc76f704d7800fb77b43bbe764e73e03335344ed5e6",
+      "bytes": 1510280
+    },
+    {
+      "id": "416cccc7-ded9-47e5-85d7-21f9e9e8cf1d",
+      "url": "https://data.taipei/api/v1/dataset/416cccc7-ded9-47e5-85d7-21f9e9e8cf1d?scope=resourceAquire",
+      "fileName": "open1999-416cccc7-ded9-47e5-85d7-21f9e9e8cf1d.csv",
+      "downloadedAt": "2026-06-12T09:13:02.515Z",
+      "sha256": "4ea5bae7cc018550c53d54bf5c8f14922a4303996e693ef3ad602a24972e5189",
+      "bytes": 1640076
+    },
+    {
+      "id": "7daffaed-4b8d-419c-a08f-8f9d25941c8c",
+      "url": "https://data.taipei/api/v1/dataset/7daffaed-4b8d-419c-a08f-8f9d25941c8c?scope=resourceAquire",
+      "fileName": "open1999-7daffaed-4b8d-419c-a08f-8f9d25941c8c.csv",
+      "downloadedAt": "2026-06-12T09:13:12.133Z",
+      "sha256": "447e8474f1219a59d72ce1a6227de7e02b7203d377925dc740f16621e45300a6",
+      "bytes": 1731208
+    },
+    {
+      "id": "b7a7e880-41f6-48d8-809f-fd1eb58f05c5",
+      "url": "https://data.taipei/api/v1/dataset/b7a7e880-41f6-48d8-809f-fd1eb58f05c5?scope=resourceAquire",
+      "fileName": "open1999-b7a7e880-41f6-48d8-809f-fd1eb58f05c5.csv",
+      "downloadedAt": "2026-06-12T09:13:22.605Z",
+      "sha256": "53341bf5b9709ae664e995d3d45c719b54fba2764655f4f7558f393874522e3a",
+      "bytes": 1676120
+    },
+    {
+      "id": "6f07979a-267b-4e37-8b68-fecfabde8314",
+      "url": "https://data.taipei/api/v1/dataset/6f07979a-267b-4e37-8b68-fecfabde8314?scope=resourceAquire",
+      "fileName": "open1999-6f07979a-267b-4e37-8b68-fecfabde8314.csv",
+      "downloadedAt": "2026-06-12T09:13:31.488Z",
+      "sha256": "3110b034b020b89fd10f3d4f19edfdb7c6a016ea1e95096ebbb1b08c0629c43f",
+      "bytes": 1528972
+    },
+    {
+      "id": "24da92c3-a900-48cb-8996-e0330370e4af",
+      "url": "https://data.taipei/api/v1/dataset/24da92c3-a900-48cb-8996-e0330370e4af?scope=resourceAquire",
+      "fileName": "open1999-24da92c3-a900-48cb-8996-e0330370e4af.csv",
+      "downloadedAt": "2026-06-12T09:13:41.463Z",
+      "sha256": "a0630a5eb4b88058b88e477ead6587e19b5706b7b7ba03bf2328295e7a8ef1f9",
+      "bytes": 1618375
+    },
+    {
+      "id": "586acb5e-5383-42ff-810a-171e6a22ac8d",
+      "url": "https://data.taipei/api/v1/dataset/586acb5e-5383-42ff-810a-171e6a22ac8d?scope=resourceAquire",
+      "fileName": "open1999-586acb5e-5383-42ff-810a-171e6a22ac8d.csv",
+      "downloadedAt": "2026-06-12T09:13:49.921Z",
+      "sha256": "f48eb4eab82655e47e0eb849ed6f0115bc6f7215e5ad35f46411d475f90b2abd",
+      "bytes": 1485387
+    },
+    {
+      "id": "e218f254-e6c2-4f69-8066-8784f06cc619",
+      "url": "https://data.taipei/api/v1/dataset/e218f254-e6c2-4f69-8066-8784f06cc619?scope=resourceAquire",
+      "fileName": "open1999-e218f254-e6c2-4f69-8066-8784f06cc619.csv",
+      "downloadedAt": "2026-06-12T09:13:59.275Z",
+      "sha256": "693fe6e37d48eafb0f212604f376fc2bd347f6b34ad6e1ec0893b56e34e69d66",
+      "bytes": 1612176
+    },
+    {
+      "id": "9cc0fa0e-e74a-4f14-8caf-3a1151da6b50",
+      "url": "https://data.taipei/api/v1/dataset/9cc0fa0e-e74a-4f14-8caf-3a1151da6b50?scope=resourceAquire",
+      "fileName": "open1999-9cc0fa0e-e74a-4f14-8caf-3a1151da6b50.csv",
+      "downloadedAt": "2026-06-12T09:14:08.448Z",
+      "sha256": "cba19742762e4914272dfd4cece2cb366dc8370ae32ee2a915244897316851b9",
+      "bytes": 1643327
+    },
+    {
+      "id": "81168b00-4e96-49eb-a7d3-a7006737e92c",
+      "url": "https://data.taipei/api/v1/dataset/81168b00-4e96-49eb-a7d3-a7006737e92c?scope=resourceAquire",
+      "fileName": "open1999-81168b00-4e96-49eb-a7d3-a7006737e92c.csv",
+      "downloadedAt": "2026-06-12T09:14:17.808Z",
+      "sha256": "3046cb8a94e0d7d9bc33c43cb556f6902912bc27f57fb0e274c2e237d271d7d2",
+      "bytes": 1546159
+    },
+    {
+      "id": "a7956cda-cfd5-4f71-ab7e-62ea760e3c09",
+      "url": "https://data.taipei/api/v1/dataset/a7956cda-cfd5-4f71-ab7e-62ea760e3c09?scope=resourceAquire",
+      "fileName": "open1999-a7956cda-cfd5-4f71-ab7e-62ea760e3c09.csv",
+      "downloadedAt": "2026-06-12T09:14:29.506Z",
+      "sha256": "2721d85b8aa5ab84cd64dc852456ff1f91cf60409a280527b89d92e8e8984ee2",
+      "bytes": 1564040
+    },
+    {
+      "id": "26f65a3b-ac84-45f2-ba47-c39bd65081a8",
+      "url": "https://data.taipei/api/v1/dataset/26f65a3b-ac84-45f2-ba47-c39bd65081a8?scope=resourceAquire",
+      "fileName": "open1999-26f65a3b-ac84-45f2-ba47-c39bd65081a8.csv",
+      "downloadedAt": "2026-06-12T09:14:36.420Z",
+      "sha256": "f1fc20c27c05e812be297d363c7907453b91c3fabb69e6de515f80f6ef5998eb",
+      "bytes": 1334839
+    },
+    {
+      "id": "f14e431e-4af3-4973-b3d9-302bf763d9eb",
+      "url": "https://data.taipei/api/v1/dataset/f14e431e-4af3-4973-b3d9-302bf763d9eb?scope=resourceAquire",
+      "fileName": "open1999-f14e431e-4af3-4973-b3d9-302bf763d9eb.csv",
+      "downloadedAt": "2026-06-12T09:14:42.904Z",
+      "sha256": "a796317498b67cd0367ccbcb5b0b361fab4c1c410dd04cb117e483556ae3204e",
+      "bytes": 1238682
+    },
+    {
+      "id": "76b6f315-4db7-447f-9b70-16e8d2266fe7",
+      "url": "https://data.taipei/api/v1/dataset/76b6f315-4db7-447f-9b70-16e8d2266fe7?scope=resourceAquire",
+      "fileName": "open1999-76b6f315-4db7-447f-9b70-16e8d2266fe7.csv",
+      "downloadedAt": "2026-06-12T09:14:52.808Z",
+      "sha256": "bd46ddbf023e9f7bb335b54e97bcb09404a719797ef10208aadcbdb771f56ec6",
+      "bytes": 1472809
+    },
+    {
+      "id": "60a32fb9-aaeb-480b-a949-b8715661938f",
+      "url": "https://data.taipei/api/v1/dataset/60a32fb9-aaeb-480b-a949-b8715661938f?scope=resourceAquire",
+      "fileName": "open1999-60a32fb9-aaeb-480b-a949-b8715661938f.csv",
+      "downloadedAt": "2026-06-12T09:15:01.637Z",
+      "sha256": "bff98082ea030cba1992fe0bb5c4073a9a2f430c7514a97ca8c9911d5f9f36c3",
+      "bytes": 1535809
+    },
+    {
+      "id": "e2995818-36da-4b67-b78b-4b407056c6f7",
+      "url": "https://data.taipei/api/v1/dataset/e2995818-36da-4b67-b78b-4b407056c6f7?scope=resourceAquire",
+      "fileName": "open1999-e2995818-36da-4b67-b78b-4b407056c6f7.csv",
+      "downloadedAt": "2026-06-12T09:15:09.659Z",
+      "sha256": "34a9bb6321546611ce21b2103b88c2976eb3e969ab2fc719c05c02632f30a325",
+      "bytes": 1332956
+    },
+    {
+      "id": "2eb67080-c200-49e7-b360-c65ba0f92a3d",
+      "url": "https://data.taipei/api/v1/dataset/2eb67080-c200-49e7-b360-c65ba0f92a3d?scope=resourceAquire",
+      "fileName": "open1999-2eb67080-c200-49e7-b360-c65ba0f92a3d.csv",
+      "downloadedAt": "2026-06-12T09:15:18.526Z",
+      "sha256": "4165a1b743adf9655564b53e7886647970154770a91ada2b341bc9b2a8d4251a",
+      "bytes": 1434798
+    },
+    {
+      "id": "a9dbadde-b52b-48e5-84eb-6124f494e226",
+      "url": "https://data.taipei/api/v1/dataset/a9dbadde-b52b-48e5-84eb-6124f494e226?scope=resourceAquire",
+      "fileName": "open1999-a9dbadde-b52b-48e5-84eb-6124f494e226.csv",
+      "downloadedAt": "2026-06-12T09:15:26.583Z",
+      "sha256": "108e862d0d3446953dc15fec73f6c3fe3b62ce8d1bcc89a2600ed5cd80779daf",
+      "bytes": 1330057
+    },
+    {
+      "id": "07f5237b-1b88-4846-bf76-0510eccd02ae",
+      "url": "https://data.taipei/api/v1/dataset/07f5237b-1b88-4846-bf76-0510eccd02ae?scope=resourceAquire",
+      "fileName": "open1999-07f5237b-1b88-4846-bf76-0510eccd02ae.csv",
+      "downloadedAt": "2026-06-12T09:15:35.413Z",
+      "sha256": "7ef5cef17cbe5cf5352c88b00f592ab406c3164800d598d862b68046cc2e4cc8",
+      "bytes": 1481272
+    },
+    {
+      "id": "1468a9a8-bb4e-41b7-88de-3359c344f852",
+      "url": "https://data.taipei/api/v1/dataset/1468a9a8-bb4e-41b7-88de-3359c344f852?scope=resourceAquire",
+      "fileName": "open1999-1468a9a8-bb4e-41b7-88de-3359c344f852.csv",
+      "downloadedAt": "2026-06-12T09:15:45.980Z",
+      "sha256": "35307558e057c4c602e6934b7581221f696367547d64994d88318d89cc1e8ee9",
+      "bytes": 1792867
+    },
+    {
+      "id": "de35c663-fa0c-4e10-a13a-6aa6f296f15a",
+      "url": "https://data.taipei/api/v1/dataset/de35c663-fa0c-4e10-a13a-6aa6f296f15a?scope=resourceAquire",
+      "fileName": "open1999-de35c663-fa0c-4e10-a13a-6aa6f296f15a.csv",
+      "downloadedAt": "2026-06-12T09:15:56.289Z",
+      "sha256": "42a6fa952eeb6e087a0f70ebebc7c7a3f7beb1ebb24a816d77ef5a31f1110c72",
+      "bytes": 1713007
+    },
+    {
+      "id": "aaf15e59-7927-4bbe-9c47-bf03eb2f4c07",
+      "url": "https://data.taipei/api/v1/dataset/aaf15e59-7927-4bbe-9c47-bf03eb2f4c07?scope=resourceAquire",
+      "fileName": "open1999-aaf15e59-7927-4bbe-9c47-bf03eb2f4c07.csv",
+      "downloadedAt": "2026-06-12T09:16:06.131Z",
+      "sha256": "3941d94dd1cfa7133f4e5607e3420c437caed5ef5a2cc2aa9826d0b6a70729da",
+      "bytes": 1625173
+    },
+    {
+      "id": "f598e412-bc4a-4d1f-8ff2-243eeebb521a",
+      "url": "https://data.taipei/api/v1/dataset/f598e412-bc4a-4d1f-8ff2-243eeebb521a?scope=resourceAquire",
+      "fileName": "open1999-f598e412-bc4a-4d1f-8ff2-243eeebb521a.csv",
+      "downloadedAt": "2026-06-12T09:16:16.101Z",
+      "sha256": "b7f2e9689fc1fa2726b7f88fa5144e1570f2d7a070db50efabda630a865c7a32",
+      "bytes": 1461706
+    },
+    {
+      "id": "aef4966f-28c2-4e02-88ce-ea7a6181f202",
+      "url": "https://data.taipei/api/v1/dataset/aef4966f-28c2-4e02-88ce-ea7a6181f202?scope=resourceAquire",
+      "fileName": "open1999-aef4966f-28c2-4e02-88ce-ea7a6181f202.csv",
+      "downloadedAt": "2026-06-12T09:16:24.822Z",
+      "sha256": "e9308e16550eb2670e5aa66f39cc38ce40c458be01e738be042fe9edd00f41f1",
+      "bytes": 1388025
+    },
+    {
+      "id": "87d4130d-518e-48e0-890a-945d55a3cd82",
+      "url": "https://data.taipei/api/v1/dataset/87d4130d-518e-48e0-890a-945d55a3cd82?scope=resourceAquire",
+      "fileName": "open1999-87d4130d-518e-48e0-890a-945d55a3cd82.csv",
+      "downloadedAt": "2026-06-12T09:16:31.799Z",
+      "sha256": "b58866c425a9e97d98a51240d48d0f3cae85e691714e0e8318ed976ff612c467",
+      "bytes": 1171054
+    },
+    {
+      "id": "0517527c-d2ef-4437-a97c-7b0c03bcfa44",
+      "url": "https://data.taipei/api/v1/dataset/0517527c-d2ef-4437-a97c-7b0c03bcfa44?scope=resourceAquire",
+      "fileName": "open1999-0517527c-d2ef-4437-a97c-7b0c03bcfa44.csv",
+      "downloadedAt": "2026-06-12T09:16:43.676Z",
+      "sha256": "bb935b9198513356612bc96ba5ca98d4dde346153277d153f232fee5240ec604",
+      "bytes": 1927724
+    },
+    {
+      "id": "3b735955-4f93-480c-ab72-3d0a12b9a6d3",
+      "url": "https://data.taipei/api/v1/dataset/3b735955-4f93-480c-ab72-3d0a12b9a6d3?scope=resourceAquire",
+      "fileName": "open1999-3b735955-4f93-480c-ab72-3d0a12b9a6d3.csv",
+      "downloadedAt": "2026-06-12T09:16:52.058Z",
+      "sha256": "7ebeb3672510269da375a4f25c972db600aa65aa3deb134673877ad736d7d826",
+      "bytes": 1391466
+    },
+    {
+      "id": "79f08324-5d34-400f-8e7e-5d2f5b3ff5ff",
+      "url": "https://data.taipei/api/v1/dataset/79f08324-5d34-400f-8e7e-5d2f5b3ff5ff?scope=resourceAquire",
+      "fileName": "open1999-79f08324-5d34-400f-8e7e-5d2f5b3ff5ff.csv",
+      "downloadedAt": "2026-06-12T09:17:00.345Z",
+      "sha256": "e52b5cf7cc1780a56c5568fc2d5edfa6b1453db1e3ef695683070ef728c973ae",
+      "bytes": 1449001
+    },
+    {
+      "id": "59cceb29-b505-4a46-b0ef-3493af4055a7",
+      "url": "https://data.taipei/api/v1/dataset/59cceb29-b505-4a46-b0ef-3493af4055a7?scope=resourceAquire",
+      "fileName": "open1999-59cceb29-b505-4a46-b0ef-3493af4055a7.csv",
+      "downloadedAt": "2026-06-12T09:17:10.032Z",
+      "sha256": "3688f4fef4efe629fab351a915333e02290f9098662d9ad530f40fd3c5fecbe5",
+      "bytes": 1481867
+    },
+    {
+      "id": "ee9fabfc-1eda-4038-93cb-8923e5372578",
+      "url": "https://data.taipei/api/v1/dataset/ee9fabfc-1eda-4038-93cb-8923e5372578?scope=resourceAquire",
+      "fileName": "open1999-ee9fabfc-1eda-4038-93cb-8923e5372578.csv",
+      "downloadedAt": "2026-06-12T09:17:18.906Z",
+      "sha256": "3230a4f00b41904630bbd7efedf0846311e76e08535896702dead8578e5d8772",
+      "bytes": 1353833
+    },
+    {
+      "id": "2db2f90a-e4c9-4d10-ae9c-05764fe81455",
+      "url": "https://data.taipei/api/v1/dataset/2db2f90a-e4c9-4d10-ae9c-05764fe81455?scope=resourceAquire",
+      "fileName": "open1999-2db2f90a-e4c9-4d10-ae9c-05764fe81455.csv",
+      "downloadedAt": "2026-06-12T09:17:28.232Z",
+      "sha256": "9bddc0c717b4628a05048f9e139a40bf8ac5cb6a87345bc627b7f4c26d43b6da",
+      "bytes": 1076261
+    },
+    {
+      "id": "2f25f41d-78ab-4f19-a059-3ce46eade39c",
+      "url": "https://data.taipei/api/v1/dataset/2f25f41d-78ab-4f19-a059-3ce46eade39c?scope=resourceAquire",
+      "fileName": "open1999-2f25f41d-78ab-4f19-a059-3ce46eade39c.csv",
+      "downloadedAt": "2026-06-12T09:17:37.054Z",
+      "sha256": "24b1b6ab910f1af2eff7c1752b41eaa811ae20663acd26dcd51b6607e0675fea",
+      "bytes": 1106216
+    },
+    {
+      "id": "0b92e228-8561-4f5f-b41c-6fd02e25ac94",
+      "url": "https://data.taipei/api/v1/dataset/0b92e228-8561-4f5f-b41c-6fd02e25ac94?scope=resourceAquire",
+      "fileName": "open1999-0b92e228-8561-4f5f-b41c-6fd02e25ac94.csv",
+      "downloadedAt": "2026-06-12T09:17:46.124Z",
+      "sha256": "1f0b61c9384c458aca47190ef87b9ad4f2d9db661d088d05e0ee808748285277",
+      "bytes": 1040905
+    },
+    {
+      "id": "8f192863-9013-46e5-b4f1-3691ee084ef0",
+      "url": "https://data.taipei/api/v1/dataset/8f192863-9013-46e5-b4f1-3691ee084ef0?scope=resourceAquire",
+      "fileName": "open1999-8f192863-9013-46e5-b4f1-3691ee084ef0.csv",
+      "downloadedAt": "2026-06-12T09:17:54.997Z",
+      "sha256": "dec44f9ebc893870a0a01776c73943e79cadf397cde49bd9553fb9fc444eceed",
+      "bytes": 1143739
+    },
+    {
+      "id": "4a9f944f-e796-44d6-9ab5-40095455101b",
+      "url": "https://data.taipei/api/v1/dataset/4a9f944f-e796-44d6-9ab5-40095455101b?scope=resourceAquire",
+      "fileName": "open1999-4a9f944f-e796-44d6-9ab5-40095455101b.csv",
+      "downloadedAt": "2026-06-12T09:18:03.933Z",
+      "sha256": "509d98d1f0599b106db3e1b6439c629b2c1c29cdb5f7493bf4368679d603505b",
+      "bytes": 1036502
+    },
+    {
+      "id": "fc74e7d5-59de-4def-bd5c-9dc2de751179",
+      "url": "https://data.taipei/api/v1/dataset/fc74e7d5-59de-4def-bd5c-9dc2de751179?scope=resourceAquire",
+      "fileName": "open1999-fc74e7d5-59de-4def-bd5c-9dc2de751179.csv",
+      "downloadedAt": "2026-06-12T09:18:11.812Z",
+      "sha256": "db2cde65ba20510d2423f22637886ae66fc2ebab724944d635fea56ecda0553d",
+      "bytes": 1084141
+    },
+    {
+      "id": "e7a4d619-1ed9-46eb-8d04-7696c0a990be",
+      "url": "https://data.taipei/api/v1/dataset/e7a4d619-1ed9-46eb-8d04-7696c0a990be?scope=resourceAquire",
+      "fileName": "open1999-e7a4d619-1ed9-46eb-8d04-7696c0a990be.csv",
+      "downloadedAt": "2026-06-12T09:18:20.574Z",
+      "sha256": "e26f6b9f17c96b8ed81ed1ddd1af050f87395269a6200863767ea8c9fd0d8db2",
+      "bytes": 1125475
+    },
+    {
+      "id": "6e39f833-c693-496c-9660-a775db28ea78",
+      "url": "https://data.taipei/api/v1/dataset/6e39f833-c693-496c-9660-a775db28ea78?scope=resourceAquire",
+      "fileName": "open1999-6e39f833-c693-496c-9660-a775db28ea78.csv",
+      "downloadedAt": "2026-06-12T09:18:34.208Z",
+      "sha256": "5a5eb406a4ab763105074a58a3ef7501e24011ac338bda0371c7c74a2784a9ea",
+      "bytes": 1193413
+    },
+    {
+      "id": "cf557672-fa45-40ec-8d26-fdf75c45c5ba",
+      "url": "https://data.taipei/api/v1/dataset/cf557672-fa45-40ec-8d26-fdf75c45c5ba?scope=resourceAquire",
+      "fileName": "open1999-cf557672-fa45-40ec-8d26-fdf75c45c5ba.csv",
+      "downloadedAt": "2026-06-12T09:18:45.510Z",
+      "sha256": "f2e59e9b1d7a34fb34821f1a98dce385dc6231ed833496a6e7dc0c36ec36efa5",
+      "bytes": 1121934
+    },
+    {
+      "id": "2ec6e089-a5f5-4ffb-bcc4-98868c4446bf",
+      "url": "https://data.taipei/api/v1/dataset/2ec6e089-a5f5-4ffb-bcc4-98868c4446bf?scope=resourceAquire",
+      "fileName": "open1999-2ec6e089-a5f5-4ffb-bcc4-98868c4446bf.csv",
+      "downloadedAt": "2026-06-12T09:18:54.011Z",
+      "sha256": "fa42d0d8282f2361c0161358e56f33eb463b831ea2dfc80bf71a0a4c38f3f1bb",
+      "bytes": 1071433
+    },
+    {
+      "id": "e3dea2f1-f597-4a4c-a42a-cc89df21272f",
+      "url": "https://data.taipei/api/v1/dataset/e3dea2f1-f597-4a4c-a42a-cc89df21272f?scope=resourceAquire",
+      "fileName": "open1999-e3dea2f1-f597-4a4c-a42a-cc89df21272f.csv",
+      "downloadedAt": "2026-06-12T09:19:02.637Z",
+      "sha256": "89e8d9759a20eb2bae617bb188851b7f60893d598ca6e49f206bbf8caa0e4b3f",
+      "bytes": 1069013
+    },
+    {
+      "id": "b47527d5-5940-4393-9800-4df97dea4a6a",
+      "url": "https://data.taipei/api/v1/dataset/b47527d5-5940-4393-9800-4df97dea4a6a?scope=resourceAquire",
+      "fileName": "open1999-b47527d5-5940-4393-9800-4df97dea4a6a.csv",
+      "downloadedAt": "2026-06-12T09:19:10.432Z",
+      "sha256": "7be3ef3cf0f9793c28af004132c602b9e16c51b3b60d1da63a5256be7800cdbf",
+      "bytes": 1052357
+    },
+    {
+      "id": "0aca41a5-da94-4a6c-8318-b1069fdac75d",
+      "url": "https://data.taipei/api/v1/dataset/0aca41a5-da94-4a6c-8318-b1069fdac75d?scope=resourceAquire",
+      "fileName": "open1999-0aca41a5-da94-4a6c-8318-b1069fdac75d.csv",
+      "downloadedAt": "2026-06-12T09:19:19.291Z",
+      "sha256": "4818f4e878ae72764a76239dc57c51b98a466f14d58356c86f8f400196362fe8",
+      "bytes": 1144280
+    },
+    {
+      "id": "ecab61a6-6ea6-499f-bf0e-86d5a9ab1102",
+      "url": "https://data.taipei/api/v1/dataset/ecab61a6-6ea6-499f-bf0e-86d5a9ab1102?scope=resourceAquire",
+      "fileName": "open1999-ecab61a6-6ea6-499f-bf0e-86d5a9ab1102.csv",
+      "downloadedAt": "2026-06-12T09:19:28.910Z",
+      "sha256": "9f340c48d92e566997703a03e581f6eeb15342752ed41c8bbd194bb85d2d3a7a",
+      "bytes": 1177971
+    },
+    {
+      "id": "96060fd2-0062-42ae-bd6b-d37cdfadcfe9",
+      "url": "https://data.taipei/api/v1/dataset/96060fd2-0062-42ae-bd6b-d37cdfadcfe9?scope=resourceAquire",
+      "fileName": "open1999-96060fd2-0062-42ae-bd6b-d37cdfadcfe9.csv",
+      "downloadedAt": "2026-06-12T09:19:37.993Z",
+      "sha256": "6c9adf1bb8a6c8d0783a46b72e1d58ab38ac7d12b68801aab4d6cbe5255892cb",
+      "bytes": 1223372
+    },
+    {
+      "id": "1a9ac830-f4ae-49fe-ae75-4ec9adf8ac70",
+      "url": "https://data.taipei/api/v1/dataset/1a9ac830-f4ae-49fe-ae75-4ec9adf8ac70?scope=resourceAquire",
+      "fileName": "open1999-1a9ac830-f4ae-49fe-ae75-4ec9adf8ac70.csv",
+      "downloadedAt": "2026-06-12T09:19:47.143Z",
+      "sha256": "db3ad1c1039856f72d881d9c2f888722d1de23a92416fa876a5546e9d7fcc487",
+      "bytes": 962758
+    },
+    {
+      "id": "2b9fc5fb-a88b-4a5c-981a-c0feb31c0143",
+      "url": "https://data.taipei/api/v1/dataset/2b9fc5fb-a88b-4a5c-981a-c0feb31c0143?scope=resourceAquire",
+      "fileName": "open1999-2b9fc5fb-a88b-4a5c-981a-c0feb31c0143.csv",
+      "downloadedAt": "2026-06-12T09:19:56.686Z",
+      "sha256": "2f422bbecef6dd7881549a3b3a4a7cf01c9fc3b509299dc93ca68ebba14e60d3",
+      "bytes": 941791
+    },
+    {
+      "id": "056fcf52-1691-4ffa-b9be-0f7cccd6e53b",
+      "url": "https://data.taipei/api/v1/dataset/056fcf52-1691-4ffa-b9be-0f7cccd6e53b?scope=resourceAquire",
+      "fileName": "open1999-056fcf52-1691-4ffa-b9be-0f7cccd6e53b.csv",
+      "downloadedAt": "2026-06-12T09:20:04.648Z",
+      "sha256": "39cfb6635cf2f9616cb29271c662247d0ad2face57f90d4fb100ebc6ce1017a1",
+      "bytes": 1050631
+    },
+    {
+      "id": "2d94a508-c03e-4830-8791-575fd07690f8",
+      "url": "https://data.taipei/api/v1/dataset/2d94a508-c03e-4830-8791-575fd07690f8?scope=resourceAquire",
+      "fileName": "open1999-2d94a508-c03e-4830-8791-575fd07690f8.csv",
+      "downloadedAt": "2026-06-12T09:20:10.966Z",
+      "sha256": "cc3da157d7363126dddff338568ae7e06529266989c22dcc3ce59289b0f74547",
+      "bytes": 855434
+    },
+    {
+      "id": "518ce7d4-44df-44e5-bb1e-2316e8f71e65",
+      "url": "https://data.taipei/api/v1/dataset/518ce7d4-44df-44e5-bb1e-2316e8f71e65?scope=resourceAquire",
+      "fileName": "open1999-518ce7d4-44df-44e5-bb1e-2316e8f71e65.csv",
+      "downloadedAt": "2026-06-12T09:20:18.950Z",
+      "sha256": "e7e3c5742aecfaf1428221a9eda22998d9affd13126ee7e2b88b8ed1a1176750",
+      "bytes": 1112117
+    },
+    {
+      "id": "89d8f276-b259-4f2d-99da-1e9466cc0486",
+      "url": "https://data.taipei/api/v1/dataset/89d8f276-b259-4f2d-99da-1e9466cc0486?scope=resourceAquire",
+      "fileName": "open1999-89d8f276-b259-4f2d-99da-1e9466cc0486.csv",
+      "downloadedAt": "2026-06-12T09:20:39.779Z",
+      "sha256": "93f20ca1ac7c2787a268a7a9b9cb3a199b2b8a5cedcc9bc79956d65b9a8be6ee",
+      "bytes": 1829840
+    },
+    {
+      "id": "1af8d0c3-8b6d-4b45-996f-b67314b9a5d5",
+      "url": "https://data.taipei/api/v1/dataset/1af8d0c3-8b6d-4b45-996f-b67314b9a5d5?scope=resourceAquire",
+      "fileName": "open1999-1af8d0c3-8b6d-4b45-996f-b67314b9a5d5.csv",
+      "downloadedAt": "2026-06-12T09:20:56.105Z",
+      "sha256": "b8c8dfe2590dd8a042e6f765038431ba3a16f42470c4f5360c374666f1b041fc",
+      "bytes": 1839505
+    },
+    {
+      "id": "e0dd882a-8124-43af-ae03-a84f250ed953",
+      "url": "https://data.taipei/api/v1/dataset/e0dd882a-8124-43af-ae03-a84f250ed953?scope=resourceAquire",
+      "fileName": "open1999-e0dd882a-8124-43af-ae03-a84f250ed953.csv",
+      "downloadedAt": "2026-06-12T09:21:09.429Z",
+      "sha256": "c697b79ee470d02eb5b336dfaf0f5622bdc4469f2c60cff9d76f963fe2206cb8",
+      "bytes": 1685561
+    },
+    {
+      "id": "1fa5e1d2-e3b7-4703-a3fd-7540f0ade881",
+      "url": "https://data.taipei/api/v1/dataset/1fa5e1d2-e3b7-4703-a3fd-7540f0ade881?scope=resourceAquire",
+      "fileName": "open1999-1fa5e1d2-e3b7-4703-a3fd-7540f0ade881.csv",
+      "downloadedAt": "2026-06-12T09:21:23.588Z",
+      "sha256": "f9e65f3c9e2002c859934f5a81efe0bf2a02c80ca26e9740b641a141023547c4",
+      "bytes": 1706688
+    },
+    {
+      "id": "c3e8d4ca-226d-461a-81f1-7dfdcf99cfaa",
+      "url": "https://data.taipei/api/v1/dataset/c3e8d4ca-226d-461a-81f1-7dfdcf99cfaa?scope=resourceAquire",
+      "fileName": "open1999-c3e8d4ca-226d-461a-81f1-7dfdcf99cfaa.csv",
+      "downloadedAt": "2026-06-12T09:21:36.835Z",
+      "sha256": "9d0cb45acf62d7edcf3b8bb7550dbb4fad3d5ddb860f1ec387a30d55a0a8aafc",
+      "bytes": 1590193
+    },
+    {
+      "id": "90b3f0ba-3a37-41ad-81cd-2bbc90f3c934",
+      "url": "https://data.taipei/api/v1/dataset/90b3f0ba-3a37-41ad-81cd-2bbc90f3c934?scope=resourceAquire",
+      "fileName": "open1999-90b3f0ba-3a37-41ad-81cd-2bbc90f3c934.csv",
+      "downloadedAt": "2026-06-12T09:21:50.811Z",
+      "sha256": "daf425c10b6cf0d3dea40cb5a0ec579cca512f2581846f38689245f74754606c",
+      "bytes": 1573621
+    },
+    {
+      "id": "62854583-e217-45bb-a334-09f3aaffad21",
+      "url": "https://data.taipei/api/v1/dataset/62854583-e217-45bb-a334-09f3aaffad21?scope=resourceAquire",
+      "fileName": "open1999-62854583-e217-45bb-a334-09f3aaffad21.csv",
+      "downloadedAt": "2026-06-12T09:22:03.074Z",
+      "sha256": "aabb523c04fab7c118574e500d9c3a5c99f06cf292404e8e588e8e2d84ca9536",
+      "bytes": 1446414
+    },
+    {
+      "id": "a3ed1444-1b34-4b95-8ad0-c8c93ec28000",
+      "url": "https://data.taipei/api/v1/dataset/a3ed1444-1b34-4b95-8ad0-c8c93ec28000?scope=resourceAquire",
+      "fileName": "open1999-a3ed1444-1b34-4b95-8ad0-c8c93ec28000.csv",
+      "downloadedAt": "2026-06-12T09:22:16.504Z",
+      "sha256": "c30f718535d5cccdeea05c401704fa5b664fcbd004e811105954a13a1f427d8d",
+      "bytes": 1652112
+    },
+    {
+      "id": "b7f17d01-30b0-4978-840b-e039b98103af",
+      "url": "https://data.taipei/api/v1/dataset/b7f17d01-30b0-4978-840b-e039b98103af?scope=resourceAquire",
+      "fileName": "open1999-b7f17d01-30b0-4978-840b-e039b98103af.csv",
+      "downloadedAt": "2026-06-12T09:22:31.436Z",
+      "sha256": "28d7d5cc1e7e703aa75484adf9a26486bf95ff513bc9bb511c71ee8b5c0e6ca9",
+      "bytes": 1761718
+    }
+  ]
+}

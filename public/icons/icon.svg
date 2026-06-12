@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Taipei 1999">
+  <rect width="128" height="128" rx="24" fill="#1f2937"/>
+  <circle cx="64" cy="58" r="34" fill="#f8fafc"/>
+  <path d="M64 26c16 0 29 13 29 29 0 23-29 48-29 48S35 78 35 55c0-16 13-29 29-29z" fill="#0f766e"/>
+  <circle cx="64" cy="55" r="11" fill="#f8fafc"/>
+  <text x="64" y="119" text-anchor="middle" font-size="22" font-family="Arial, sans-serif" font-weight="700" fill="#f8fafc">1999</text>
+</svg>

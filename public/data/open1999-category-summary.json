@@ -1,0 +1,85 @@
+[
+  {
+    "serviceGroup": "waste_cleaning",
+    "totalCount": 86989,
+    "byServiceItem": {
+      "大型廢棄物清運聯繫": 80307,
+      "鄰里無主垃圾清運": 6682
+    }
+  },
+  {
+    "serviceGroup": "noise_pollution",
+    "totalCount": 19644,
+    "byServiceItem": {
+      "場所與設施噪音舉發": 19644
+    }
+  },
+  {
+    "serviceGroup": "environment_pollution",
+    "totalCount": 9499,
+    "byServiceItem": {
+      "污染舉發": 9499
+    }
+  },
+  {
+    "serviceGroup": "road_traffic",
+    "totalCount": 18640,
+    "byServiceItem": {
+      "市區道路坑洞處理": 2635,
+      "道路散落物或油漬處理": 7536,
+      "交通號誌異常": 3448,
+      "人孔蓋(含周邊)破損、遺失處理": 698,
+      "河濱公園自行車道及堤外便道破損、散落物、油漬及樹倒": 18,
+      "交通標誌及設施物損壞(含汙損)、傾斜": 2241,
+      "道路側溝溝蓋(含周邊)損壞遺失": 1143,
+      "交通號誌電纜線垂落及設施損壞": 566,
+      "橋梁、隧道、車(人)行地下道及涵洞積淹水": 108,
+      "道路邊坡坍方": 47,
+      "道路掏空": 100,
+      "道路側溝內溝牆(底)破損": 42,
+      "河濱公園自??道及堤外?道破損、散?物、油漬及樹倒": 47,
+      "河濱公園自行車道及堤外便道破損、散落物、油漬及樹倒": 11
+    }
+  },
+  {
+    "serviceGroup": "streetlight",
+    "totalCount": 7794,
+    "byServiceItem": {
+      "路燈不亮或損壞": 7794
+    }
+  },
+  {
+    "serviceGroup": "water",
+    "totalCount": 2277,
+    "byServiceItem": {
+      "用戶無水、漏水報修": 2277
+    }
+  },
+  {
+    "serviceGroup": "animal",
+    "totalCount": 2946,
+    "byServiceItem": {
+      "動物救援": 2946
+    }
+  },
+  {
+    "serviceGroup": "tree_park",
+    "totalCount": 1161,
+    "byServiceItem": {
+      "路樹處理": 1161
+    }
+  },
+  {
+    "serviceGroup": "drainage_flooding",
+    "totalCount": 1050,
+    "byServiceItem": {
+      "雨水下水道側溝清淤": 1002,
+      "路面積淹水": 48
+    }
+  },
+  {
+    "serviceGroup": "other",
+    "totalCount": 0,
+    "byServiceItem": {}
+  }
+]

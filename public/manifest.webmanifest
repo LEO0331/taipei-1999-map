@@ -1,0 +1,15 @@
+{
+  "name": "台北1999派工地圖",
+  "short_name": "1999派工地圖",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1f2937",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
