@@ -349,7 +349,9 @@ function topServiceItems(records: Open1999Record[]): Array<{ label: string; coun
 
 function buildStats(records: Open1999Record[], language: Language) {
   const districts = aggregateByDistrict(records);
-  const categories = aggregateByCategory(records).sort((a, b) => b.totalCount - a.totalCount);
+  const categories = aggregateByCategory(records)
+    .filter((category) => category.totalCount > 0)
+    .sort((a, b) => b.totalCount - a.totalCount);
   const items = topServiceItems(records);
   const days = aggregateByDay(records).sort((a, b) => b.count - a.count);
   const hours = aggregateByHour(records).sort((a, b) => b.count - a.count);

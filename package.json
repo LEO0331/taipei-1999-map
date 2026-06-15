@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "build:pages": "tsc --noEmit && vite build --base /taipei-1999-map/",
     "preview": "vite preview",
     "test": "vitest run",
     "convert:data": "tsx scripts/convertOpen1999.ts",

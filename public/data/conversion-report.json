@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T09:27:04.324Z",
+  "generatedAt": "2026-06-15T00:11:27.522Z",
   "sourceFiles": [
     "OPEN1999_202604.csv",
     "open1999-02da3244-ea59-42c8-b203-b7181c79bdfb.csv",
@@ -127,14 +127,15 @@
   ],
   "inputRecords": 1645064,
   "outputRecords": 150000,
-  "skippedRecords": 2905,
+  "skippedRecords": 348793,
   "period": {
-    "start": "2025-08-06",
+    "start": "2025-07-07",
     "end": "2026-05-31"
   },
   "notes": [
     "Public UI should use displayLocation and summaries, not originalAddress.",
     "Coordinates are district centroids unless a cached anonymized hotspot coordinate is available.",
-    "Raw CSV rows retained locally under data/raw/open1999. Public JSON contains 150,000 sanitized latest records for mobile performance."
+    "Raw CSV rows retained locally under data/raw/open1999. Public JSON contains 150,000 sanitized latest records for mobile performance.",
+    "Removed 345,888 duplicate case ID record(s) before publishing."
   ]
 }

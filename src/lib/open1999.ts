@@ -127,8 +127,8 @@ export function parseTime(raw: string): string {
     second = Number(padded.slice(4, 6) || '0');
   }
 
-  if ([hour, minute, second].some((part) => Number.isNaN(part))) throw new Error(`Unsupported time: ${raw}`);
-  return `${pad(Math.min(hour, 23))}:${pad(Math.min(minute, 59))}:${pad(Math.min(second, 59))}`;
+  assertValidTime(hour, minute, second, raw);
+  return `${pad(hour)}:${pad(minute)}:${pad(second)}`;
 }
 
 export function buildCreatedAt(date: string, time: string): string {
@@ -210,6 +210,17 @@ export function buildOpen1999Record(row: Record<string, unknown>, sourceFile: st
     hour: Number(createdTime.slice(0, 2)),
     sourceFile
   };
+}
+
+export function deduplicateRecords(records: Open1999Record[]): Open1999Record[] {
+  const seen = new Set<string>();
+  const deduplicated: Open1999Record[] = [];
+  for (const record of records) {
+    if (seen.has(record.caseId)) continue;
+    seen.add(record.caseId);
+    deduplicated.push(record);
+  }
+  return deduplicated;
 }
 
 export function aggregateByDistrict(records: Open1999Record[]): Open1999DistrictSummary[] {
@@ -374,4 +385,16 @@ function assertValidDate(year: number, month: number, day: number, raw: string):
     date.getUTCMonth() === month - 1 &&
     date.getUTCDate() === day;
   if (!valid) throw new Error(`Unsupported date: ${raw}`);
+}
+
+function assertValidTime(hour: number, minute: number, second: number, raw: string): void {
+  const valid =
+    [hour, minute, second].every(Number.isInteger) &&
+    hour >= 0 &&
+    hour <= 23 &&
+    minute >= 0 &&
+    minute <= 59 &&
+    second >= 0 &&
+    second <= 59;
+  if (!valid) throw new Error(`Unsupported time: ${raw}`);
 }

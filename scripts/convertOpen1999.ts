@@ -8,7 +8,8 @@ import {
   aggregateByHotspot,
   aggregateByTime,
   buildConversionReport,
-  buildOpen1999Record
+  buildOpen1999Record,
+  deduplicateRecords
 } from '../src/lib/open1999';
 import type { Open1999Record } from '../src/types/open1999';
 
@@ -45,13 +46,16 @@ async function main(): Promise<void> {
     });
   }
 
-  const publicRecords = records
+  const deduplicatedRecords = deduplicateRecords(records);
+  const duplicateRecords = records.length - deduplicatedRecords.length;
+  const publicRecords = deduplicatedRecords
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
     .slice(0, publicRecordLimit > 0 ? publicRecordLimit : undefined)
     .map(({ originalAddress: _originalAddress, ...record }) => record);
-  const report = buildConversionReport(publicRecords, files, inputRecords, skippedRecords);
+  const report = buildConversionReport(publicRecords, files, inputRecords, skippedRecords + duplicateRecords);
   report.notes.push(
-    `Raw CSV rows retained locally under data/raw/open1999. Public JSON contains ${publicRecords.length.toLocaleString()} sanitized latest records for mobile performance.`
+    `Raw CSV rows retained locally under data/raw/open1999. Public JSON contains ${publicRecords.length.toLocaleString()} sanitized latest records for mobile performance.`,
+    `Removed ${duplicateRecords.toLocaleString()} duplicate case ID record(s) before publishing.`
   );
   await writeJson('open1999-records.json', publicRecords);
   await writeJson('open1999-district-summary.json', aggregateByDistrict(publicRecords));

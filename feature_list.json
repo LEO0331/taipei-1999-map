@@ -1,0 +1,44 @@
+{
+  "features": [
+    {
+      "id": "feat-001",
+      "name": "Project setup and baseline verification",
+      "description": "Install dependencies, verify tests/build, and keep the Vite React app restartable from a clean checkout.",
+      "dependencies": [],
+      "status": "done",
+      "evidence": "npm test and npm run build passed before harness creation; init.sh runs the same checks."
+    },
+    {
+      "id": "feat-002",
+      "name": "Taipei 1999 data ingestion and privacy-preserving UI",
+      "description": "Convert local/fetched Open1999 data, publish sanitized JSON, and render district, hotspot, list, and dashboard views.",
+      "dependencies": ["feat-001"],
+      "status": "done",
+      "evidence": "public/data contains sanitized generated JSON; browser verification confirmed map/district circles render without console errors."
+    },
+    {
+      "id": "feat-003",
+      "name": "GitHub Pages deployment workflow",
+      "description": "Build, test, upload, and deploy the static Vite app through GitHub Pages on main pushes and manual dispatches.",
+      "dependencies": ["feat-001", "feat-002"],
+      "status": "done",
+      "evidence": ".github/workflows/deploy-pages.yml added; npm run build:pages passed and dist/index.html uses /taipei-1999-map/ asset paths."
+    },
+    {
+      "id": "feat-004",
+      "name": "Agent harness and handoff maintenance",
+      "description": "Keep AGENTS.md, feature_list.json, progress.md, init.sh, and session-handoff.md current for future coding-agent sessions.",
+      "dependencies": ["feat-001"],
+      "status": "done",
+      "evidence": "Harness validation scored 100/100; ./init.sh passed npm test and npm run build."
+    },
+    {
+      "id": "feat-005",
+      "name": "Review and cleanup pass",
+      "description": "Run code review and anti-slop cleanup on the deployment/data changes while preserving behavior.",
+      "dependencies": ["feat-003", "feat-004"],
+      "status": "done",
+      "evidence": "Invalid time parsing, duplicate case ID publishing, and empty top-group display were fixed; 12 tests passed."
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import {
   aggregateByHotspot,
   buildCreatedAt,
   classifyServiceGroup,
+  deduplicateRecords,
   extractDistrict,
   extractRoadOrBroadLocation,
   maskPrivateAddress,
@@ -31,6 +32,11 @@ describe('Open1999 normalization', () => {
   it('parses compact and colon time strings', () => {
     expect(parseTime('0930')).toBe('09:30:00');
     expect(parseTime('18:07')).toBe('18:07:00');
+  });
+
+  it('rejects invalid times instead of clamping them', () => {
+    expect(() => parseTime('2460')).toThrow('Unsupported time');
+    expect(() => parseTime('99:00')).toThrow('Unsupported time');
   });
 
   it('builds a local ISO datetime from parsed date and time', () => {
@@ -86,6 +92,14 @@ describe('Open1999 grouping and aggregation', () => {
         totalCount: 2
       })
     );
+  });
+
+  it('deduplicates overlapping local and fetched monthly records by case ID', () => {
+    const first = makeRecord('1', '大安區', '大安區 信義路四段', '道路坑洞', 'road_traffic');
+    const duplicate = { ...first, id: 'duplicate-source-1', sourceFile: 'fetched.csv' };
+    const second = makeRecord('2', '中山區', '中山區 復興北路', '噪音稽查', 'noise_pollution');
+
+    expect(deduplicateRecords([first, duplicate, second])).toEqual([first, second]);
   });
 });
 
