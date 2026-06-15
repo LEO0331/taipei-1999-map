@@ -1,13 +1,14 @@
 const CACHE_NAME = 'taipei-1999-map-v1';
+const scopePath = new URL(self.registration.scope).pathname;
 const ASSETS = [
-  '/',
-  '/manifest.webmanifest',
-  '/data/open1999-records.json',
-  '/data/open1999-district-summary.json',
-  '/data/open1999-category-summary.json',
-  '/data/open1999-hotspots.json',
-  '/data/open1999-time-summary.json'
-];
+  '',
+  'manifest.webmanifest',
+  'data/open1999-records.json',
+  'data/open1999-district-summary.json',
+  'data/open1999-category-summary.json',
+  'data/open1999-hotspots.json',
+  'data/open1999-time-summary.json'
+].map((asset) => `${scopePath}${asset}`);
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS).catch(() => undefined)));

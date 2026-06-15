@@ -2,7 +2,7 @@
 
 ## Current State
 
-**Last Updated:** 2026-06-15 08:12 CST  
+**Last Updated:** 2026-06-15 08:40 CST  
 **Active Feature:** none - requested deployment, harness, review, and cleanup work complete
 
 ## Status
@@ -14,6 +14,7 @@
 - [x] Created a minimal agent harness: `AGENTS.md`, `feature_list.json`, `progress.md`, `init.sh`, and `session-handoff.md`.
 - [x] Added regression tests for malformed dates, invalid times, address masking, aggregation, and duplicate case IDs.
 - [x] Added GitHub Pages workflow and Vite Pages base-path handling.
+- [x] Refreshed Taipei Open Data resources and regenerated public JSON.
 
 ### What's In Progress
 
@@ -46,12 +47,15 @@
 - `src/App.tsx` - empty dashboard top-group guard.
 - `tests/open1999.test.ts` - regression coverage for invalid times and duplicates.
 - `AGENTS.md`, `feature_list.json`, `progress.md`, `session-handoff.md`, `init.sh` - agent harness.
+- `src/hooks/useOpen1999Data.ts`, `src/main.tsx`, `public/sw.js` - GitHub Pages-safe data and service worker paths.
 
 ## Evidence of Completion
 
 - [x] Tests pass: `./init.sh` ran `npm test` and passed 12 tests.
 - [x] Type check/build clean: `./init.sh` ran `npm run build` and passed.
 - [x] GitHub Pages build mode: `npm run build:pages` passed; `dist/index.html` uses `/taipei-1999-map/` paths.
+- [x] Data refresh: `npm run fetch:data` completed; generated `150,000` public records from `123` CSV files / `122` upstream resources.
+- [x] Pages data path: `dist` contains `dist/data/*.json`; bundled JS fetches `/taipei-1999-map/data/open1999-records.json`.
 
 ## Notes for Next Session
 

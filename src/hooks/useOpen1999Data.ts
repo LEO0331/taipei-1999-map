@@ -41,12 +41,12 @@ export function useOpen1999Data(): Open1999Data {
   useEffect(() => {
     let cancelled = false;
     Promise.all([
-      fetchJson<Open1999Record[]>('/data/open1999-records.json', []),
-      fetchJson<Open1999DistrictSummary[]>('/data/open1999-district-summary.json', []),
-      fetchJson<Open1999CategorySummary[]>('/data/open1999-category-summary.json', []),
-      fetchJson<Open1999Hotspot[]>('/data/open1999-hotspots.json', []),
-      fetchJson<Open1999TimeSummary>('/data/open1999-time-summary.json', emptyTime),
-      fetchJson<ConversionReport | undefined>('/data/conversion-report.json', undefined)
+      fetchJson<Open1999Record[]>(dataUrl('open1999-records.json'), []),
+      fetchJson<Open1999DistrictSummary[]>(dataUrl('open1999-district-summary.json'), []),
+      fetchJson<Open1999CategorySummary[]>(dataUrl('open1999-category-summary.json'), []),
+      fetchJson<Open1999Hotspot[]>(dataUrl('open1999-hotspots.json'), []),
+      fetchJson<Open1999TimeSummary>(dataUrl('open1999-time-summary.json'), emptyTime),
+      fetchJson<ConversionReport | undefined>(dataUrl('conversion-report.json'), undefined)
     ]).then(([records, districts, categories, hotspots, time, report]) => {
       if (!cancelled) setData({ records, districts, categories, hotspots, time, report, loading: false });
     });
@@ -56,6 +56,10 @@ export function useOpen1999Data(): Open1999Data {
   }, []);
 
   return data;
+}
+
+function dataUrl(fileName: string): string {
+  return `${import.meta.env.BASE_URL}data/${fileName}`;
 }
 
 async function fetchJson<T>(url: string, fallback: T): Promise<T> {
