@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T00:39:07.212Z",
+  "generatedAt": "2026-06-25T01:10:02.112Z",
   "sourceFiles": [
     "OPEN1999_202604.csv",
     "open1999-02da3244-ea59-42c8-b203-b7181c79bdfb.csv",
@@ -137,5 +137,33 @@
     "Coordinates are district centroids unless a cached anonymized hotspot coordinate is available.",
     "Raw CSV rows retained locally under data/raw/open1999. Public JSON contains 150,000 sanitized latest records for mobile performance.",
     "Removed 345,888 duplicate case ID record(s) before publishing."
-  ]
+  ],
+  "streetlightRepair": {
+    "source": "臺北市路燈維修資料",
+    "sourceAgency": "臺北市政府工務局公園路燈工程管理處",
+    "sourceFiles": [
+      "streetlight-repairs-744baade-200a-4cc3-a90d-f2a7edd6695d.csv",
+      "streetlight-repairs-83c94967-5c53-4f71-8663-c18f55729168.csv",
+      "路燈維修資料-2021~2023t.csv",
+      "路燈維修資料-2024t.csv"
+    ],
+    "inputRows": 130062,
+    "outputRecords": 65022,
+    "skippedRows": 0,
+    "duplicateRows": 65040,
+    "conflictReportIdExamples": [
+      "11116379"
+    ],
+    "invalidDistrictExamples": [
+      "--",
+      "義信里",
+      "至聖里"
+    ],
+    "outsideTaipeiDistrictExamples": [
+      "非台北市域",
+      "新店"
+    ],
+    "parseWarningExamples": [],
+    "warnings": []
+  }
 }

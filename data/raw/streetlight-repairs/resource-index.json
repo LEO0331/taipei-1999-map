@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-06-25T01:07:53.595Z",
+  "datasetPage": "https://data.taipei/dataset/detail?id=0219b559-c9e4-4efe-93f0-9961360bd7bf",
+  "resources": [
+    {
+      "id": "744baade-200a-4cc3-a90d-f2a7edd6695d",
+      "url": "https://data.taipei/api/v1/dataset/744baade-200a-4cc3-a90d-f2a7edd6695d?scope=resourceAquire",
+      "fileName": "streetlight-repairs-744baade-200a-4cc3-a90d-f2a7edd6695d.csv",
+      "downloadedAt": "2026-06-25T01:07:43.201Z",
+      "sha256": "e22a031f86f5d38c0ae7f0dfff5de6d31bef5fdd2559cf7f1975c46cc1ba0b2b",
+      "bytes": 3020378
+    },
+    {
+      "id": "83c94967-5c53-4f71-8663-c18f55729168",
+      "url": "https://data.taipei/api/v1/dataset/83c94967-5c53-4f71-8663-c18f55729168?scope=resourceAquire",
+      "fileName": "streetlight-repairs-83c94967-5c53-4f71-8663-c18f55729168.csv",
+      "downloadedAt": "2026-06-25T01:07:52.924Z",
+      "sha256": "67d660a0bbb39824f42099b5da555b3ca6d6ecb1dfb5d99219ba3a2f349610e8",
+      "bytes": 6111898
+    }
+  ]
+}

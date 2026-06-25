@@ -2,49 +2,62 @@
 
 ## Current Objective
 
-- Goal: Add GitHub Pages deployment, create a lightweight agent harness, review/fix issues, and run an anti-slop cleanup pass.
+- Goal: Add Taipei streetlight repair data ingestion and a privacy-preserving dashboard module.
 - Current status: Implementation and verification complete.
 - Branch / commit: current working tree, not committed in this session.
 
 ## Completed This Session
 
-- [x] Created minimal agent harness files.
-- [x] Added `.github/workflows/deploy-pages.yml`.
-- [x] Added `npm run build:pages` Vite base-path handling.
-- [x] Added regression tests for invalid times and duplicate case IDs.
-- [x] Fixed invalid time parsing, duplicate publishing, and empty dashboard top-group display.
+- [x] Added streetlight repair fetch and conversion scripts.
+- [x] Copied user-provided CSVs and fetched official Taipei Open Data CSV resources.
+- [x] Generated streetlight record, streetlight summary, service-record summary, and conversion-report JSON.
+- [x] Added a bilingual district-level streetlight repair dashboard with filters, charts, table, and Leaflet bubbles.
+- [x] Added regression tests for streetlight parsing, classification, masking, and deduplication.
 
 ## Verification Evidence
 
 | Check | Command | Result | Notes |
 |---|---|---|---|
-| Regression tests after data fixes | `npm test` | PASS | 12 tests passed before final workflow verification. |
-| Final full verification | `./init.sh` | PASS | Runs `npm test` and `npm run build`. |
-| GitHub Pages build mode | `npm run build:pages` | PASS | `dist/index.html` uses `/taipei-1999-map/` asset paths. |
+| Streetlight fetch | `npm run data:fetch:streetlight` | PASS | Downloaded two official CSV resources. |
+| Streetlight conversion | `npm run data:convert:streetlight` | PASS | Generated 65,022 deduplicated records from four CSV files. |
+| Regression tests | `npm test` | PASS | 17 tests passed across 2 files. |
+| Production build | `npm run build` | PASS | Vite build completed; local Node version warning only. |
+| GitHub Pages build mode | `npm run build:pages` | PASS | Pages build completed with copied data files. |
+| Static browser smoke test | local static `dist` server | PASS | Streetlight tab rendered 12 district circles, 100 rows, summary cards, and no console errors/overflow. |
 
 ## Files Changed
 
-- `.github/workflows/deploy-pages.yml`
-- `vite.config.ts`
-- `src/lib/open1999.ts`
-- `scripts/convertOpen1999.ts`
+- `README.md`
+- `package.json`
+- `public/sw.js`
+- `public/data/conversion-report.json`
+- `public/data/streetlight-repairs.json`
+- `public/data/streetlight-repair-summary.json`
+- `public/data/service-records-summary.json`
+- `data/raw/streetlight-repairs/`
+- `scripts/fetchStreetlightRepairs.ts`
+- `scripts/convertStreetlightRepairs.ts`
 - `src/App.tsx`
-- `tests/open1999.test.ts`
-- `AGENTS.md`
+- `src/lib/i18n.ts`
+- `src/lib/streetlight.ts`
+- `src/types/streetlight.ts`
+- `src/hooks/useStreetlightData.ts`
+- `src/components/StreetlightRepairs.tsx`
+- `tests/streetlight.test.ts`
 - `feature_list.json`
 - `progress.md`
 - `session-handoff.md`
-- `init.sh`
 
 ## Decisions Made
 
-- Use `npm run build:pages` to force `/taipei-1999-map/` asset paths in the GitHub Pages workflow.
-- Keep public JSON capped and sanitized; raw CSVs remain local data artifacts.
-- Deduplicate records by `caseId` before publishing public JSON.
+- Keep streetlight maps district-level only; the dataset does not provide reliable coordinates.
+- Keep product language historical and descriptive; do not imply real-time outage status or repair-performance metrics.
+- Let `convertStreetlightRepairs.ts` emit the record JSON, streetlight summary, combined service summary, and conversion report in one pass.
 
 ## Blockers / Risks
 
-- GitHub Pages must be configured to deploy from GitHub Actions in repository settings.
+- Local `npm run dev` fails under Node 20.2.0 because Vite expects `crypto.hash`; static build verification passed. Use Node 22 or a supported Node 20 patch release for dev-server work.
+- `public/data/streetlight-repairs.json` is about 56 MB. Dashboard summary data is small, but the full table payload remains large.
 
 ## Next Session Startup
 
@@ -55,4 +68,4 @@
 
 ## Recommended Next Step
 
-- Enable GitHub Pages from Actions in repository settings, then commit with a Lore-protocol commit message.
+- Commit the completed streetlight module with a Lore-protocol commit message.

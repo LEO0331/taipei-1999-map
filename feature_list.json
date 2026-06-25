@@ -39,6 +39,14 @@
       "dependencies": ["feat-003", "feat-004"],
       "status": "done",
       "evidence": "Invalid time parsing, duplicate case ID publishing, and empty top-group display were fixed; 12 tests passed."
+    },
+    {
+      "id": "feat-006",
+      "name": "Taipei streetlight repair data module",
+      "description": "Fetch, convert, summarize, and display Taipei streetlight repair records as a privacy-preserving district-level service data module.",
+      "dependencies": ["feat-001", "feat-002"],
+      "status": "done",
+      "evidence": "Fetched official streetlight CSV resources, converted 65,022 deduplicated records, added React/Leaflet module, and verified with npm test, npm run build, npm run build:pages, and static browser smoke testing."
     }
   ]
 }

@@ -3,9 +3,11 @@ import { CircleMarker, MapContainer, Popup, TileLayer } from 'react-leaflet';
 import { aggregateByCategory, aggregateByDay, aggregateByDistrict, aggregateByHotspot, aggregateByHour, SERVICE_GROUPS, TAIPEI_DISTRICTS } from './lib/open1999';
 import { serviceGroupLabel, translations, type Language } from './lib/i18n';
 import { useOpen1999Data } from './hooks/useOpen1999Data';
+import { StreetlightRepairs } from './components/StreetlightRepairs';
 import type { Open1999Record, Open1999ServiceGroup } from './types/open1999';
 
 type MapMode = 'district' | 'hotspot' | 'list';
+type ActiveModule = 'open1999' | 'streetlight';
 type TimePeriod = 'all' | 'morning' | 'afternoon' | 'evening' | 'late';
 type DayType = 'all' | 'weekday' | 'weekend';
 
@@ -32,6 +34,7 @@ export function App() {
   const data = useOpen1999Data();
   const [language, setLanguage] = usePersistedLanguage();
   const [mode, setMode] = useState<MapMode>('district');
+  const [activeModule, setActiveModule] = useState<ActiveModule>('open1999');
   const t = translations[language];
   const dateBounds = useMemo(() => getDateBounds(data.records), [data.records]);
   const [filters, setFilters] = useState<Filters>({
@@ -69,7 +72,7 @@ export function App() {
         <div>
           <p className="kicker">1999 Open Data</p>
           <h1>{t.appTitle}</h1>
-          <p>{t.appSubtitle}</p>
+          <p>{activeModule === 'streetlight' ? t.streetlightSubtitle : t.appSubtitle}</p>
         </div>
         <button className="language-toggle" onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')} type="button">
           {language === 'zh' ? 'EN' : '繁中'}
@@ -77,6 +80,19 @@ export function App() {
       </header>
 
       <main>
+        <div className="mode-toggle module-toggle" role="tablist" aria-label="Data module">
+          <button className={activeModule === 'open1999' ? 'active' : ''} onClick={() => setActiveModule('open1999')} type="button">
+            {t.dispatch1999}
+          </button>
+          <button className={activeModule === 'streetlight' ? 'active' : ''} onClick={() => setActiveModule('streetlight')} type="button">
+            {t.streetlightRepairs}
+          </button>
+        </div>
+
+        {activeModule === 'streetlight' ? (
+          <StreetlightRepairs language={language} />
+        ) : (
+          <>
         <section className="notice-band">
           <strong>{t.dataMinimizationNotice}</strong>
           <span>{t.dataDisclaimer}</span>
@@ -199,6 +215,8 @@ export function App() {
             />
           </div>
         </section>
+          </>
+        )}
       </main>
 
       <footer>{t.footer}</footer>

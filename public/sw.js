@@ -7,7 +7,11 @@ const ASSETS = [
   'data/open1999-district-summary.json',
   'data/open1999-category-summary.json',
   'data/open1999-hotspots.json',
-  'data/open1999-time-summary.json'
+  'data/open1999-time-summary.json',
+  'data/streetlight-repairs.json',
+  'data/streetlight-repair-summary.json',
+  'data/service-records-summary.json',
+  'data/conversion-report.json'
 ].map((asset) => `${scopePath}${asset}`);
 
 self.addEventListener('install', (event) => {

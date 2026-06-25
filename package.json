@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "test": "vitest run",
     "convert:data": "tsx scripts/convertOpen1999.ts",
-    "fetch:data": "tsx scripts/fetchOpen1999Resources.ts"
+    "fetch:data": "tsx scripts/fetchOpen1999Resources.ts",
+    "data:fetch:streetlight": "tsx scripts/fetchStreetlightRepairs.ts",
+    "data:convert:streetlight": "tsx scripts/convertStreetlightRepairs.ts"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.2",

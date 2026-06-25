@@ -1,0 +1,910 @@
+{
+  "totalRecords": 65022,
+  "uniqueReportIdCount": 65021,
+  "minReportedAt": "2021-01-01T03:56:00+08:00",
+  "maxReportedAt": "2024-12-31T22:12:00+08:00",
+  "yearCount": 4,
+  "districtCount": 12,
+  "invalidDistrictCount": 9,
+  "missingLocationCount": 8,
+  "missingIssueDescriptionCount": 4,
+  "urgentRecordCount": 571,
+  "byYear": [
+    {
+      "year": 2021,
+      "recordCount": 12893
+    },
+    {
+      "year": 2022,
+      "recordCount": 15374
+    },
+    {
+      "year": 2023,
+      "recordCount": 16089
+    },
+    {
+      "year": 2024,
+      "recordCount": 20666
+    }
+  ],
+  "byMonth": [
+    {
+      "periodKey": "2021-01",
+      "year": 2021,
+      "month": 1,
+      "recordCount": 910,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2021-02",
+      "year": 2021,
+      "month": 2,
+      "recordCount": 713,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2021-03",
+      "year": 2021,
+      "month": 3,
+      "recordCount": 871,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2021-04",
+      "year": 2021,
+      "month": 4,
+      "recordCount": 782,
+      "urgentRecordCount": 1
+    },
+    {
+      "periodKey": "2021-05",
+      "year": 2021,
+      "month": 5,
+      "recordCount": 1040,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2021-06",
+      "year": 2021,
+      "month": 6,
+      "recordCount": 1102,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2021-07",
+      "year": 2021,
+      "month": 7,
+      "recordCount": 1097,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2021-08",
+      "year": 2021,
+      "month": 8,
+      "recordCount": 1530,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2021-09",
+      "year": 2021,
+      "month": 9,
+      "recordCount": 1212,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2021-10",
+      "year": 2021,
+      "month": 10,
+      "recordCount": 1364,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2021-11",
+      "year": 2021,
+      "month": 11,
+      "recordCount": 1259,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2021-12",
+      "year": 2021,
+      "month": 12,
+      "recordCount": 1013,
+      "urgentRecordCount": 1
+    },
+    {
+      "periodKey": "2022-01",
+      "year": 2022,
+      "month": 1,
+      "recordCount": 982,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2022-02",
+      "year": 2022,
+      "month": 2,
+      "recordCount": 993,
+      "urgentRecordCount": 1
+    },
+    {
+      "periodKey": "2022-03",
+      "year": 2022,
+      "month": 3,
+      "recordCount": 1227,
+      "urgentRecordCount": 1
+    },
+    {
+      "periodKey": "2022-04",
+      "year": 2022,
+      "month": 4,
+      "recordCount": 1074,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2022-05",
+      "year": 2022,
+      "month": 5,
+      "recordCount": 1104,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2022-06",
+      "year": 2022,
+      "month": 6,
+      "recordCount": 1644,
+      "urgentRecordCount": 1
+    },
+    {
+      "periodKey": "2022-07",
+      "year": 2022,
+      "month": 7,
+      "recordCount": 1323,
+      "urgentRecordCount": 1
+    },
+    {
+      "periodKey": "2022-08",
+      "year": 2022,
+      "month": 8,
+      "recordCount": 1229,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2022-09",
+      "year": 2022,
+      "month": 9,
+      "recordCount": 1595,
+      "urgentRecordCount": 0
+    },
+    {
+      "periodKey": "2022-10",
+      "year": 2022,
+      "month": 10,
+      "recordCount": 1628,
+      "urgentRecordCount": 10
+    },
+    {
+      "periodKey": "2022-11",
+      "year": 2022,
+      "month": 11,
+      "recordCount": 1439,
+      "urgentRecordCount": 17
+    },
+    {
+      "periodKey": "2022-12",
+      "year": 2022,
+      "month": 12,
+      "recordCount": 1136,
+      "urgentRecordCount": 12
+    },
+    {
+      "periodKey": "2023-01",
+      "year": 2023,
+      "month": 1,
+      "recordCount": 916,
+      "urgentRecordCount": 12
+    },
+    {
+      "periodKey": "2023-02",
+      "year": 2023,
+      "month": 2,
+      "recordCount": 937,
+      "urgentRecordCount": 12
+    },
+    {
+      "periodKey": "2023-03",
+      "year": 2023,
+      "month": 3,
+      "recordCount": 1056,
+      "urgentRecordCount": 28
+    },
+    {
+      "periodKey": "2023-04",
+      "year": 2023,
+      "month": 4,
+      "recordCount": 1069,
+      "urgentRecordCount": 15
+    },
+    {
+      "periodKey": "2023-05",
+      "year": 2023,
+      "month": 5,
+      "recordCount": 1179,
+      "urgentRecordCount": 22
+    },
+    {
+      "periodKey": "2023-06",
+      "year": 2023,
+      "month": 6,
+      "recordCount": 1408,
+      "urgentRecordCount": 19
+    },
+    {
+      "periodKey": "2023-07",
+      "year": 2023,
+      "month": 7,
+      "recordCount": 1654,
+      "urgentRecordCount": 23
+    },
+    {
+      "periodKey": "2023-08",
+      "year": 2023,
+      "month": 8,
+      "recordCount": 2455,
+      "urgentRecordCount": 20
+    },
+    {
+      "periodKey": "2023-09",
+      "year": 2023,
+      "month": 9,
+      "recordCount": 1533,
+      "urgentRecordCount": 18
+    },
+    {
+      "periodKey": "2023-10",
+      "year": 2023,
+      "month": 10,
+      "recordCount": 1347,
+      "urgentRecordCount": 23
+    },
+    {
+      "periodKey": "2023-11",
+      "year": 2023,
+      "month": 11,
+      "recordCount": 1195,
+      "urgentRecordCount": 15
+    },
+    {
+      "periodKey": "2023-12",
+      "year": 2023,
+      "month": 12,
+      "recordCount": 1340,
+      "urgentRecordCount": 16
+    },
+    {
+      "periodKey": "2024-01",
+      "year": 2024,
+      "month": 1,
+      "recordCount": 937,
+      "urgentRecordCount": 23
+    },
+    {
+      "periodKey": "2024-02",
+      "year": 2024,
+      "month": 2,
+      "recordCount": 687,
+      "urgentRecordCount": 17
+    },
+    {
+      "periodKey": "2024-03",
+      "year": 2024,
+      "month": 3,
+      "recordCount": 1093,
+      "urgentRecordCount": 12
+    },
+    {
+      "periodKey": "2024-04",
+      "year": 2024,
+      "month": 4,
+      "recordCount": 1357,
+      "urgentRecordCount": 31
+    },
+    {
+      "periodKey": "2024-05",
+      "year": 2024,
+      "month": 5,
+      "recordCount": 1120,
+      "urgentRecordCount": 16
+    },
+    {
+      "periodKey": "2024-06",
+      "year": 2024,
+      "month": 6,
+      "recordCount": 1920,
+      "urgentRecordCount": 27
+    },
+    {
+      "periodKey": "2024-07",
+      "year": 2024,
+      "month": 7,
+      "recordCount": 2477,
+      "urgentRecordCount": 21
+    },
+    {
+      "periodKey": "2024-08",
+      "year": 2024,
+      "month": 8,
+      "recordCount": 2451,
+      "urgentRecordCount": 24
+    },
+    {
+      "periodKey": "2024-09",
+      "year": 2024,
+      "month": 9,
+      "recordCount": 2090,
+      "urgentRecordCount": 23
+    },
+    {
+      "periodKey": "2024-10",
+      "year": 2024,
+      "month": 10,
+      "recordCount": 1770,
+      "urgentRecordCount": 35
+    },
+    {
+      "periodKey": "2024-11",
+      "year": 2024,
+      "month": 11,
+      "recordCount": 3359,
+      "urgentRecordCount": 49
+    },
+    {
+      "periodKey": "2024-12",
+      "year": 2024,
+      "month": 12,
+      "recordCount": 1405,
+      "urgentRecordCount": 25
+    }
+  ],
+  "byDistrict": [
+    {
+      "district": "文山區",
+      "latitude": 24.9886,
+      "longitude": 121.5736,
+      "recordCount": 7855,
+      "urgentRecordCount": 45,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 6167
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 1283
+        },
+        {
+          "issueType": "other",
+          "count": 1040
+        }
+      ]
+    },
+    {
+      "district": "北投區",
+      "latitude": 25.131,
+      "longitude": 121.501,
+      "recordCount": 7232,
+      "urgentRecordCount": 56,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 5441
+        },
+        {
+          "issueType": "other",
+          "count": 1166
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 1099
+        }
+      ]
+    },
+    {
+      "district": "士林區",
+      "latitude": 25.095,
+      "longitude": 121.5246,
+      "recordCount": 6495,
+      "urgentRecordCount": 59,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 5001
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 962
+        },
+        {
+          "issueType": "other",
+          "count": 924
+        }
+      ]
+    },
+    {
+      "district": "內湖區",
+      "latitude": 25.0837,
+      "longitude": 121.5924,
+      "recordCount": 6305,
+      "urgentRecordCount": 69,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 4642
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 929
+        },
+        {
+          "issueType": "other",
+          "count": 916
+        }
+      ]
+    },
+    {
+      "district": "大安區",
+      "latitude": 25.0268,
+      "longitude": 121.543,
+      "recordCount": 6233,
+      "urgentRecordCount": 56,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 4763
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 989
+        },
+        {
+          "issueType": "other",
+          "count": 954
+        }
+      ]
+    },
+    {
+      "district": "中山區",
+      "latitude": 25.0642,
+      "longitude": 121.5335,
+      "recordCount": 5683,
+      "urgentRecordCount": 81,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 4180
+        },
+        {
+          "issueType": "other",
+          "count": 891
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 852
+        }
+      ]
+    },
+    {
+      "district": "信義區",
+      "latitude": 25.033,
+      "longitude": 121.5668,
+      "recordCount": 5021,
+      "urgentRecordCount": 47,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 3772
+        },
+        {
+          "issueType": "other",
+          "count": 783
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 683
+        }
+      ]
+    },
+    {
+      "district": "中正區",
+      "latitude": 25.0324,
+      "longitude": 121.5199,
+      "recordCount": 4693,
+      "urgentRecordCount": 47,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 3567
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 846
+        },
+        {
+          "issueType": "other",
+          "count": 670
+        }
+      ]
+    },
+    {
+      "district": "萬華區",
+      "latitude": 25.033,
+      "longitude": 121.497,
+      "recordCount": 4342,
+      "urgentRecordCount": 28,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 3462
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 801
+        },
+        {
+          "issueType": "other",
+          "count": 532
+        }
+      ]
+    },
+    {
+      "district": "南港區",
+      "latitude": 25.0327,
+      "longitude": 121.6112,
+      "recordCount": 4111,
+      "urgentRecordCount": 27,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 3212
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 599
+        },
+        {
+          "issueType": "other",
+          "count": 548
+        }
+      ]
+    },
+    {
+      "district": "松山區",
+      "latitude": 25.0497,
+      "longitude": 121.5778,
+      "recordCount": 3618,
+      "urgentRecordCount": 21,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 2798
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 518
+        },
+        {
+          "issueType": "other",
+          "count": 500
+        }
+      ]
+    },
+    {
+      "district": "大同區",
+      "latitude": 25.0634,
+      "longitude": 121.513,
+      "recordCount": 3425,
+      "urgentRecordCount": 35,
+      "topIssueTypes": [
+        {
+          "issueType": "light_out",
+          "count": 2674
+        },
+        {
+          "issueType": "multiple_lights",
+          "count": 441
+        },
+        {
+          "issueType": "other",
+          "count": 432
+        }
+      ]
+    }
+  ],
+  "byIssueType": [
+    {
+      "issueType": "light_out",
+      "count": 49682
+    },
+    {
+      "issueType": "multiple_lights",
+      "count": 10003
+    },
+    {
+      "issueType": "other",
+      "count": 9359
+    },
+    {
+      "issueType": "pole_or_fixture_damage",
+      "count": 3445
+    },
+    {
+      "issueType": "cover_or_lamp_damage",
+      "count": 1675
+    },
+    {
+      "issueType": "wire_or_electrical",
+      "count": 1257
+    },
+    {
+      "issueType": "urgent",
+      "count": 571
+    },
+    {
+      "issueType": "always_on",
+      "count": 300
+    },
+    {
+      "issueType": "unclear",
+      "count": 4
+    }
+  ],
+  "byHour": [
+    {
+      "hour": 0,
+      "recordCount": 1261
+    },
+    {
+      "hour": 1,
+      "recordCount": 742
+    },
+    {
+      "hour": 2,
+      "recordCount": 367
+    },
+    {
+      "hour": 3,
+      "recordCount": 238
+    },
+    {
+      "hour": 4,
+      "recordCount": 312
+    },
+    {
+      "hour": 5,
+      "recordCount": 358
+    },
+    {
+      "hour": 6,
+      "recordCount": 501
+    },
+    {
+      "hour": 7,
+      "recordCount": 618
+    },
+    {
+      "hour": 8,
+      "recordCount": 1571
+    },
+    {
+      "hour": 9,
+      "recordCount": 2542
+    },
+    {
+      "hour": 10,
+      "recordCount": 2442
+    },
+    {
+      "hour": 11,
+      "recordCount": 2141
+    },
+    {
+      "hour": 12,
+      "recordCount": 1300
+    },
+    {
+      "hour": 13,
+      "recordCount": 1464
+    },
+    {
+      "hour": 14,
+      "recordCount": 1646
+    },
+    {
+      "hour": 15,
+      "recordCount": 1759
+    },
+    {
+      "hour": 16,
+      "recordCount": 1833
+    },
+    {
+      "hour": 17,
+      "recordCount": 3551
+    },
+    {
+      "hour": 18,
+      "recordCount": 9117
+    },
+    {
+      "hour": 19,
+      "recordCount": 11776
+    },
+    {
+      "hour": 20,
+      "recordCount": 7999
+    },
+    {
+      "hour": 21,
+      "recordCount": 5730
+    },
+    {
+      "hour": 22,
+      "recordCount": 3782
+    },
+    {
+      "hour": 23,
+      "recordCount": 1972
+    }
+  ],
+  "byWeekday": [
+    {
+      "weekday": 0,
+      "recordCount": 6576
+    },
+    {
+      "weekday": 1,
+      "recordCount": 10968
+    },
+    {
+      "weekday": 2,
+      "recordCount": 10279
+    },
+    {
+      "weekday": 3,
+      "recordCount": 9456
+    },
+    {
+      "weekday": 4,
+      "recordCount": 9687
+    },
+    {
+      "weekday": 5,
+      "recordCount": 10138
+    },
+    {
+      "weekday": 6,
+      "recordCount": 7918
+    }
+  ],
+  "byRoadName": [
+    {
+      "roadName": "水源路",
+      "recordCount": 252
+    },
+    {
+      "roadName": "松山路",
+      "recordCount": 225
+    },
+    {
+      "roadName": "碧山路",
+      "recordCount": 199
+    },
+    {
+      "roadName": "老泉街45巷",
+      "recordCount": 191
+    },
+    {
+      "roadName": "竹子湖路",
+      "recordCount": 141
+    },
+    {
+      "roadName": "福德街221巷",
+      "recordCount": 131
+    },
+    {
+      "roadName": "復興北路",
+      "recordCount": 125
+    },
+    {
+      "roadName": "福德街251巷",
+      "recordCount": 120
+    },
+    {
+      "roadName": "塔悠路",
+      "recordCount": 115
+    },
+    {
+      "roadName": "新生南路二段",
+      "recordCount": 114
+    },
+    {
+      "roadName": "民權西路",
+      "recordCount": 114
+    },
+    {
+      "roadName": "濱江街",
+      "recordCount": 112
+    },
+    {
+      "roadName": "紗帽路",
+      "recordCount": 111
+    },
+    {
+      "roadName": "中正路",
+      "recordCount": 103
+    },
+    {
+      "roadName": "信義路五段150巷",
+      "recordCount": 101
+    },
+    {
+      "roadName": "敦化南路二段",
+      "recordCount": 100
+    },
+    {
+      "roadName": "崇德街",
+      "recordCount": 96
+    },
+    {
+      "roadName": "泉源路",
+      "recordCount": 95
+    },
+    {
+      "roadName": "潭美街",
+      "recordCount": 94
+    },
+    {
+      "roadName": "登山路",
+      "recordCount": 93
+    },
+    {
+      "roadName": "康樂街",
+      "recordCount": 90
+    },
+    {
+      "roadName": "北安路",
+      "recordCount": 88
+    },
+    {
+      "roadName": "青年公園",
+      "recordCount": 88
+    },
+    {
+      "roadName": "松江路",
+      "recordCount": 87
+    },
+    {
+      "roadName": "環河南路三段",
+      "recordCount": 86
+    },
+    {
+      "roadName": "民大道四段",
+      "recordCount": 84
+    },
+    {
+      "roadName": "溫泉路",
+      "recordCount": 84
+    },
+    {
+      "roadName": "新光路二段",
+      "recordCount": 83
+    },
+    {
+      "roadName": "湖底路",
+      "recordCount": 82
+    },
+    {
+      "roadName": "敦化北路",
+      "recordCount": 82
+    }
+  ]
+}
