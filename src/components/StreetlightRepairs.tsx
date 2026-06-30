@@ -153,7 +153,7 @@ export function StreetlightRepairs({ language }: { language: Language }) {
 
         <section className="map-panel">
           <MapContainer center={[25.055, 121.55]} zoom={12} minZoom={10} scrollWheelZoom className="map">
-            <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
             {districtRows.map((row) => (
               <CircleMarker key={row.district} center={[row.latitude, row.longitude]} radius={10 + (row.recordCount / maxDistrict) * 34} pathOptions={{ color: '#854d0e', fillColor: '#facc15', fillOpacity: 0.5, weight: 2 }}>
                 <Popup>

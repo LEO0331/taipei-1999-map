@@ -2,7 +2,7 @@
 
 ## Current Objective
 
-- Goal: Add Taipei streetlight repair data ingestion and a privacy-preserving dashboard module.
+- Goal: Fix Leaflet base map tiles not displaying on GitHub Pages.
 - Current status: Implementation and verification complete.
 - Branch / commit: current working tree, not committed in this session.
 
@@ -13,6 +13,7 @@
 - [x] Generated streetlight record, streetlight summary, service-record summary, and conversion-report JSON.
 - [x] Added a bilingual district-level streetlight repair dashboard with filters, charts, table, and Leaflet bubbles.
 - [x] Added regression tests for streetlight parsing, classification, masking, and deduplication.
+- [x] Replaced failing OpenStreetMap tile endpoint with CARTO light tiles in the 1999 and streetlight maps.
 
 ## Verification Evidence
 
@@ -24,6 +25,7 @@
 | Production build | `npm run build` | PASS | Vite build completed; local Node version warning only. |
 | GitHub Pages build mode | `npm run build:pages` | PASS | Pages build completed with copied data files. |
 | Static browser smoke test | local static `dist` server | PASS | Streetlight tab rendered 12 district circles, 100 rows, summary cards, and no console errors/overflow. |
+| Map tile smoke test | local static `dist` server | PASS | 1999 district, 1999 hotspot, and streetlight maps loaded 12/12 CARTO tile images with no console warnings. |
 
 ## Files Changed
 
@@ -53,6 +55,7 @@
 - Keep streetlight maps district-level only; the dataset does not provide reliable coordinates.
 - Keep product language historical and descriptive; do not imply real-time outage status or repair-performance metrics.
 - Let `convertStreetlightRepairs.ts` emit the record JSON, streetlight summary, combined service summary, and conversion report in one pass.
+- Use CARTO light tiles for the Leaflet base layer because the previous OSM tile endpoint produced marker-only gray maps on GitHub Pages.
 
 ## Blockers / Risks
 
@@ -68,4 +71,4 @@
 
 ## Recommended Next Step
 
-- Commit the completed streetlight module with a Lore-protocol commit message.
+- Commit the map tile fix with the completed streetlight module when ready.

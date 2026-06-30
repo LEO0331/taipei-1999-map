@@ -228,7 +228,7 @@ function Open1999Map({ mode, districts, hotspots, language, period }: { mode: Ma
   const max = Math.max(1, ...districts.map((district) => district.totalCount), ...hotspots.map((hotspot) => hotspot.totalCount));
   return (
     <MapContainer center={[25.055, 121.55]} zoom={12} minZoom={10} scrollWheelZoom className="map">
-      <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
       {mode === 'district' &&
         districts.map((district) => (
           <CircleMarker key={district.district} center={[district.latitude, district.longitude]} radius={10 + (district.totalCount / max) * 34} pathOptions={{ color: '#0f766e', fillColor: '#14b8a6', fillOpacity: 0.48, weight: 2 }}>

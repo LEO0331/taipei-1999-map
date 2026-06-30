@@ -2,8 +2,8 @@
 
 ## Current State
 
-**Last Updated:** 2026-06-25 09:12 CST  
-**Active Feature:** none - streetlight repair data module complete
+**Last Updated:** 2026-06-30 15:12 CST
+**Active Feature:** none - map tile rendering fix complete
 
 ## Status
 
@@ -17,11 +17,12 @@
 - [x] Refreshed Taipei Open Data resources and regenerated public JSON.
 - [x] Added Taipei streetlight repair ingestion, summary generation, and a district-level Leaflet dashboard module.
 - [x] Downloaded official streetlight repair CSV resources and deduplicated them against the user-provided sample CSVs.
+- [x] Fixed missing Leaflet base map tiles on GitHub Pages by replacing the failing OSM tile endpoint with CARTO light tiles in both map components.
 
 ### What's In Progress
 
-- [x] Streetlight repair module verification.
-  - Details: `npm test`, `npm run build`, `npm run build:pages`, and static browser smoke testing passed.
+- [x] Map tile rendering verification.
+  - Details: `./init.sh`, `npm run build:pages`, and static browser smoke testing passed.
   - Blockers: none.
 
 ### What's Next
@@ -44,6 +45,9 @@
 - **Render streetlight repairs as district-level service records**:
   - Context: the public dataset has no reliable coordinates and should not imply exact outage locations or real-time status.
   - Alternatives considered: exact markers/geocoding; rejected because it would create misleading precision and extra operational claims.
+- **Use CARTO light tiles for Leaflet base maps**:
+  - Context: GitHub Pages rendered markers but OSM tile images loaded with zero natural size, leaving a gray map background.
+  - Alternatives considered: keep `*.tile.openstreetmap.org`; rejected because the tile endpoint failed while CARTO tiles loaded successfully.
 
 ## Files Modified This Session
 
@@ -57,6 +61,7 @@
 - `src/hooks/useOpen1999Data.ts`, `src/main.tsx`, `public/sw.js` - GitHub Pages-safe data and service worker paths.
 - `scripts/fetchStreetlightRepairs.ts`, `scripts/convertStreetlightRepairs.ts` - streetlight resource download and JSON conversion.
 - `src/lib/streetlight.ts`, `src/types/streetlight.ts`, `src/hooks/useStreetlightData.ts`, `src/components/StreetlightRepairs.tsx` - streetlight parsing, types, data loading, and UI.
+- `src/App.tsx`, `src/components/StreetlightRepairs.tsx` - Leaflet tile layer URL and attribution switched to CARTO light tiles.
 - `tests/streetlight.test.ts` - streetlight parsing, classification, masking, and deduplication coverage.
 - `public/data/streetlight-repairs.json`, `public/data/streetlight-repair-summary.json`, `public/data/service-records-summary.json` - generated streetlight outputs.
 - `data/raw/streetlight-repairs/` - user-provided and fetched source CSVs.
@@ -73,6 +78,7 @@
 - [x] Streetlight tests: `npm test` passed `17` tests across `2` files.
 - [x] Production builds: `npm run build` and `npm run build:pages` passed.
 - [x] Browser smoke test: static `dist` served locally; streetlight tab rendered 12 district circles, 100 table rows, summary cards, disclaimers, and no console errors or horizontal overflow.
+- [x] Map tile fix: static `dist` served locally; 1999 district, 1999 hotspot, and streetlight maps loaded CARTO tile images (`12/12` good tiles) with no console warnings.
 
 ## Notes for Next Session
 
