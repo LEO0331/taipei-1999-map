@@ -2,8 +2,8 @@
 
 ## Current State
 
-**Last Updated:** 2026-06-30 15:12 CST
-**Active Feature:** none - map tile rendering fix complete
+**Last Updated:** 2026-07-01 08:35 CST
+**Active Feature:** none - construction audit module complete
 
 ## Status
 
@@ -18,11 +18,13 @@
 - [x] Added Taipei streetlight repair ingestion, summary generation, and a district-level Leaflet dashboard module.
 - [x] Downloaded official streetlight repair CSV resources and deduplicated them against the user-provided sample CSVs.
 - [x] Fixed missing Leaflet base map tiles on GitHub Pages by replacing the failing OSM tile endpoint with CARTO light tiles in both map components.
+- [x] Added Taipei City Government construction audit ingestion, summary generation, and a no-map public-works oversight dashboard module.
+- [x] Downloaded 17 official quarterly construction audit CSV resources and converted 718 records.
 
 ### What's In Progress
 
-- [x] Map tile rendering verification.
-  - Details: `./init.sh`, `npm run build:pages`, and static browser smoke testing passed.
+- [x] Construction audit module verification.
+  - Details: fetch, convert, tests, builds, and static browser smoke testing passed.
   - Blockers: none.
 
 ### What's Next
@@ -36,6 +38,7 @@
 - [ ] Public JSON is capped to the latest 150,000 sanitized records for browser performance; raw CSVs remain local under `data/raw/open1999/`.
 - [ ] Local `npm run dev` currently fails under Node 20.2.0 because Vite expects `crypto.hash`; build/static verification passed. Use Node 22 or a supported Node 20 patch release for the dev server.
 - [ ] Streetlight public JSON is large (`public/data/streetlight-repairs.json` is about 56 MB) because it includes historical table rows; the summary JSON is much smaller for dashboard views.
+- [ ] Construction audit records are formal audit records, not 1999 complaints, live project status, safety certification, contractor ranking, legal-liability findings, or public-safety warnings.
 
 ## Decisions Made
 
@@ -48,6 +51,9 @@
 - **Use CARTO light tiles for Leaflet base maps**:
   - Context: GitHub Pages rendered markers but OSM tile images loaded with zero natural size, leaving a gray map background.
   - Alternatives considered: keep `*.tile.openstreetmap.org`; rejected because the tile endpoint failed while CARTO tiles loaded successfully.
+- **Keep construction audits standalone and no-map**:
+  - Context: the dataset has no official coordinates, addresses, roads, or reliable shared key with 1999 cases.
+  - Alternatives considered: map markers and automatic 1999 joins; rejected because they would imply unsupported location precision or causation.
 
 ## Files Modified This Session
 
@@ -65,6 +71,11 @@
 - `tests/streetlight.test.ts` - streetlight parsing, classification, masking, and deduplication coverage.
 - `public/data/streetlight-repairs.json`, `public/data/streetlight-repair-summary.json`, `public/data/service-records-summary.json` - generated streetlight outputs.
 - `data/raw/streetlight-repairs/` - user-provided and fetched source CSVs.
+- `scripts/fetchPublicWorksConstructionAuditRecords.ts`, `scripts/convertPublicWorksConstructionAuditRecords.ts` - construction audit fetch and conversion.
+- `src/lib/constructionAudit.ts`, `src/types/constructionAudit.ts`, `src/hooks/useConstructionAuditData.ts`, `src/components/ConstructionAudits.tsx` - construction audit parsing, types, loading, and UI.
+- `tests/constructionAudit.test.ts` - construction audit parser and dedupe coverage.
+- `public/data/public-works-construction-audit-records.json`, `public/data/public-works-construction-audit-summary.json`, `public/data/public-works-construction-audit-latest.json`, `public/data/taipei-1999-dashboard-summary.json` - generated construction audit outputs.
+- `data/raw/public-works-construction-audit-records/` - fetched construction audit CSV resources.
 
 ## Evidence of Completion
 
@@ -79,8 +90,12 @@
 - [x] Production builds: `npm run build` and `npm run build:pages` passed.
 - [x] Browser smoke test: static `dist` served locally; streetlight tab rendered 12 district circles, 100 table rows, summary cards, disclaimers, and no console errors or horizontal overflow.
 - [x] Map tile fix: static `dist` served locally; 1999 district, 1999 hotspot, and streetlight maps loaded CARTO tile images (`12/12` good tiles) with no console warnings.
+- [x] Construction audit fetch: `npm run data:fetch:construction-audits -- --force` downloaded 17 official quarterly resources.
+- [x] Construction audit conversion: `npm run data:convert:construction-audits` generated 718 records spanning 2022-01-12 to 2026-03-27.
+- [x] Construction audit tests: `npm test` passed 22 tests across 3 files.
 
 ## Notes for Next Session
 
 Use `./init.sh` as the standard startup verification. Keep public UI display paths on `displayLocation`; do not expose `originalAddress` in React components.
 For streetlight records, keep maps at district-bubble level unless a future source provides validated coordinates and product language is updated to avoid real-time outage or repair-performance claims.
+For construction audit records, keep the module table/chart based unless a future official source provides validated location fields and a reliable key for linking to 1999 cases.

@@ -1,6 +1,6 @@
 # Taipei 1999 Service Request Map / 台北1999派工地圖
 
-Mobile-first bilingual Vite + React + TypeScript + Leaflet app for exploring Taipei City Government 1999 dispatched service request records and streetlight repair records / 路燈維修資料.
+Mobile-first bilingual Vite + React + TypeScript + Leaflet app for exploring Taipei City Government 1999 dispatched service request records, streetlight repair records, and public works construction audit records.
 
 The app presents historical public-service request records by time, district, service type, and anonymized location. Counts are recorded requests, not severity, confirmed hazards, or real-time status.
 
@@ -13,6 +13,8 @@ The app presents historical public-service request records by time, district, se
 - Dataset: `臺北市路燈維修資料`
 - Taipei Open Data page: <https://data.taipei/dataset/detail?id=0219b559-c9e4-4efe-93f0-9961360bd7bf>
 - Uploaded streetlight samples: `路燈維修資料-2021~2023t.csv`, `路燈維修資料-2024t.csv`
+- Dataset: `臺北市政府施工查核情形一覽表`
+- Taipei Open Data page: <https://data.taipei/dataset/detail?id=a8104214-5416-48d3-8006-c22c18a90283>
 
 ## Data Privacy
 
@@ -28,7 +30,9 @@ The converter:
 
 Streetlight repair records also lack official coordinates. The app shows district-level bubbles, derived issue-type summaries, masked reported locations, and a paged table. It does not show exact streetlight markers, claim real-time outage status, or rank repair performance.
 
-Raw CSV files remain local under `data/raw/open1999/` and `data/raw/streetlight-repairs/` for processing.
+Construction audit records do not provide official coordinates, addresses, roads, or district fields. The app shows audit charts and a searchable table only; it does not create map markers or automatically link rows to 1999 cases.
+
+Raw CSV files remain local under `data/raw/open1999/`, `data/raw/streetlight-repairs/`, and `data/raw/public-works-construction-audit-records/` for processing.
 
 ## Commands
 
@@ -55,6 +59,14 @@ Fetch and convert streetlight repair resources:
 ```bash
 npm run data:fetch:streetlight
 npm run data:convert:streetlight
+```
+
+Fetch and convert public works construction audit resources:
+
+```bash
+npm run data:fetch:construction-audits
+npm run data:convert:construction-audits
+npm run data:summary:construction-audits
 ```
 
 Start the dev server:
@@ -88,6 +100,10 @@ The converter writes:
 - `public/data/streetlight-repairs.json`
 - `public/data/streetlight-repair-summary.json`
 - `public/data/service-records-summary.json`
+- `public/data/public-works-construction-audit-records.json`
+- `public/data/public-works-construction-audit-summary.json`
+- `public/data/public-works-construction-audit-latest.json`
+- `public/data/taipei-1999-dashboard-summary.json`
 
 For mobile performance, `open1999-records.json` is capped to the latest 150,000 sanitized records by default. All downloaded raw CSV resources are retained locally. To change the cap:
 
@@ -106,6 +122,7 @@ Use `OPEN1999_PUBLIC_RECORD_LIMIT=0` only for private/offline analysis; a full h
 - filters for date range, district, service group, dispatch item, time period, weekday/weekend, and search
 - PWA manifest and service worker cache for the app shell and generated JSON files
 - streetlight repair module with district map, year/district/issue filters, derived issue charts, masked-location table, and historical-data disclaimer
+- construction audit module with no-map notice, audit filters, summary cards, charts, searchable audit directory, and relationship note for 1999 cases
 
 ## Limitations
 
@@ -115,3 +132,4 @@ Use `OPEN1999_PUBLIC_RECORD_LIMIT=0` only for private/offline analysis; a full h
 - Official records and field definitions should be checked against Taipei Open Data.
 - Streetlight issue types are derived from text descriptions and are not official categories.
 - Streetlight repair data is historical public data; it does not represent real-time outage status, whether an issue has been fixed, repair performance, or road safety.
+- Construction audit records are formal public works audit records, not 1999 complaints, live construction progress, project completion status, safety certification, contractor rankings, legal liability findings, procurement-fraud evidence, or public-safety warnings.

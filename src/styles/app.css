@@ -110,6 +110,16 @@ main {
   color: #344254;
 }
 
+.filters .check-row {
+  display: flex;
+  align-items: center;
+}
+
+.filters .check-row input {
+  width: auto;
+  min-height: 0;
+}
+
 .filters input,
 .filters select {
   width: 100%;
@@ -152,6 +162,19 @@ main {
   min-height: 420px;
 }
 
+.no-map-panel {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  min-height: 420px;
+  padding: 24px;
+}
+
+.no-map-panel h2,
+.no-map-panel p {
+  margin: 0;
+}
+
 .popup-content {
   display: grid;
   gap: 5px;
@@ -175,6 +198,31 @@ main {
   gap: 6px;
   padding: 14px 16px;
   border-bottom: 1px solid #e2e8f0;
+}
+
+.audit-table {
+  display: grid;
+  max-height: 560px;
+  overflow: auto;
+}
+
+.audit-table article {
+  display: grid;
+  gap: 6px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.audit-table article div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.audit-table p {
+  margin: 0;
+  color: #536173;
 }
 
 .record-list article div {

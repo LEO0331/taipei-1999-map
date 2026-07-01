@@ -4,10 +4,11 @@ import { aggregateByCategory, aggregateByDay, aggregateByDistrict, aggregateByHo
 import { serviceGroupLabel, translations, type Language } from './lib/i18n';
 import { useOpen1999Data } from './hooks/useOpen1999Data';
 import { StreetlightRepairs } from './components/StreetlightRepairs';
+import { ConstructionAudits } from './components/ConstructionAudits';
 import type { Open1999Record, Open1999ServiceGroup } from './types/open1999';
 
 type MapMode = 'district' | 'hotspot' | 'list';
-type ActiveModule = 'open1999' | 'streetlight';
+type ActiveModule = 'open1999' | 'streetlight' | 'constructionAudit';
 type TimePeriod = 'all' | 'morning' | 'afternoon' | 'evening' | 'late';
 type DayType = 'all' | 'weekday' | 'weekend';
 
@@ -72,7 +73,7 @@ export function App() {
         <div>
           <p className="kicker">1999 Open Data</p>
           <h1>{t.appTitle}</h1>
-          <p>{activeModule === 'streetlight' ? t.streetlightSubtitle : t.appSubtitle}</p>
+          <p>{activeModule === 'streetlight' ? t.streetlightSubtitle : activeModule === 'constructionAudit' ? t.constructionAuditSubtitle : t.appSubtitle}</p>
         </div>
         <button className="language-toggle" onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')} type="button">
           {language === 'zh' ? 'EN' : '繁中'}
@@ -87,9 +88,14 @@ export function App() {
           <button className={activeModule === 'streetlight' ? 'active' : ''} onClick={() => setActiveModule('streetlight')} type="button">
             {t.streetlightRepairs}
           </button>
+          <button className={activeModule === 'constructionAudit' ? 'active' : ''} onClick={() => setActiveModule('constructionAudit')} type="button">
+            {t.constructionAudits}
+          </button>
         </div>
 
-        {activeModule === 'streetlight' ? (
+        {activeModule === 'constructionAudit' ? (
+          <ConstructionAudits language={language} />
+        ) : activeModule === 'streetlight' ? (
           <StreetlightRepairs language={language} />
         ) : (
           <>

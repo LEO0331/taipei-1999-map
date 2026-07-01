@@ -2,7 +2,7 @@
 
 ## Current Objective
 
-- Goal: Fix Leaflet base map tiles not displaying on GitHub Pages.
+- Goal: Add Taipei City Government construction audit records as a standalone public-works oversight module.
 - Current status: Implementation and verification complete.
 - Branch / commit: current working tree, not committed in this session.
 
@@ -14,6 +14,11 @@
 - [x] Added a bilingual district-level streetlight repair dashboard with filters, charts, table, and Leaflet bubbles.
 - [x] Added regression tests for streetlight parsing, classification, masking, and deduplication.
 - [x] Replaced failing OpenStreetMap tile endpoint with CARTO light tiles in the 1999 and streetlight maps.
+- [x] Added construction audit fetch and conversion scripts.
+- [x] Downloaded 17 official quarterly construction audit CSV resources.
+- [x] Generated construction audit records, summary, latest, dashboard-summary, and conversion-report JSON.
+- [x] Added a bilingual no-map construction audit dashboard with filters, summary cards, charts, table, and 1999 relationship note.
+- [x] Added regression tests for construction audit date parsing, score bands, amount parsing, district tagging, and deduplication.
 
 ## Verification Evidence
 
@@ -26,6 +31,9 @@
 | GitHub Pages build mode | `npm run build:pages` | PASS | Pages build completed with copied data files. |
 | Static browser smoke test | local static `dist` server | PASS | Streetlight tab rendered 12 district circles, 100 rows, summary cards, and no console errors/overflow. |
 | Map tile smoke test | local static `dist` server | PASS | 1999 district, 1999 hotspot, and streetlight maps loaded 12/12 CARTO tile images with no console warnings. |
+| Construction audit fetch | `npm run data:fetch:construction-audits -- --force` | PASS | Downloaded 17 official quarterly resources. |
+| Construction audit conversion | `npm run data:convert:construction-audits` | PASS | Generated 718 records from 17 CSV files. |
+| Construction audit tests | `npm test` | PASS | 22 tests passed across 3 files. |
 
 ## Files Changed
 
@@ -36,16 +44,28 @@
 - `public/data/streetlight-repairs.json`
 - `public/data/streetlight-repair-summary.json`
 - `public/data/service-records-summary.json`
+- `public/data/public-works-construction-audit-records.json`
+- `public/data/public-works-construction-audit-summary.json`
+- `public/data/public-works-construction-audit-latest.json`
+- `public/data/taipei-1999-dashboard-summary.json`
 - `data/raw/streetlight-repairs/`
+- `data/raw/public-works-construction-audit-records/`
 - `scripts/fetchStreetlightRepairs.ts`
 - `scripts/convertStreetlightRepairs.ts`
+- `scripts/fetchPublicWorksConstructionAuditRecords.ts`
+- `scripts/convertPublicWorksConstructionAuditRecords.ts`
 - `src/App.tsx`
 - `src/lib/i18n.ts`
 - `src/lib/streetlight.ts`
+- `src/lib/constructionAudit.ts`
 - `src/types/streetlight.ts`
+- `src/types/constructionAudit.ts`
 - `src/hooks/useStreetlightData.ts`
+- `src/hooks/useConstructionAuditData.ts`
 - `src/components/StreetlightRepairs.tsx`
+- `src/components/ConstructionAudits.tsx`
 - `tests/streetlight.test.ts`
+- `tests/constructionAudit.test.ts`
 - `feature_list.json`
 - `progress.md`
 - `session-handoff.md`
@@ -56,11 +76,14 @@
 - Keep product language historical and descriptive; do not imply real-time outage status or repair-performance metrics.
 - Let `convertStreetlightRepairs.ts` emit the record JSON, streetlight summary, combined service summary, and conversion report in one pass.
 - Use CARTO light tiles for the Leaflet base layer because the previous OSM tile endpoint produced marker-only gray maps on GitHub Pages.
+- Keep construction audit records standalone and table/chart based; no map markers and no automatic join to 1999 cases without a reliable shared key.
+- Let `convertPublicWorksConstructionAuditRecords.ts` emit records, summary, latest, dashboard-summary, and conversion report in one pass.
 
 ## Blockers / Risks
 
 - Local `npm run dev` fails under Node 20.2.0 because Vite expects `crypto.hash`; static build verification passed. Use Node 22 or a supported Node 20 patch release for dev-server work.
 - `public/data/streetlight-repairs.json` is about 56 MB. Dashboard summary data is small, but the full table payload remains large.
+- Construction audit records are not live progress, project completion status, safety certification, contractor ranking, legal-liability findings, procurement-fraud evidence, or public-safety warnings.
 
 ## Next Session Startup
 
@@ -71,4 +94,4 @@
 
 ## Recommended Next Step
 
-- Commit the map tile fix with the completed streetlight module when ready.
+- Commit the construction audit module when ready.

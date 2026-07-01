@@ -1,0 +1,194 @@
+{
+  "generatedAt": "2026-07-01T00:34:53.237Z",
+  "datasetPage": "https://data.taipei/dataset/detail?id=a8104214-5416-48d3-8006-c22c18a90283",
+  "resources": [
+    {
+      "id": "7e04efe4-7ca3-4745-8ddd-1ec75a1a27f4",
+      "url": "https://data.taipei/api/v1/dataset/7e04efe4-7ca3-4745-8ddd-1ec75a1a27f4?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_115年第1季",
+      "fileName": "臺北市政府施工查核情形一覽表_115年第1季-7e04efe4-7ca3-4745-8ddd-1ec75a1a27f4.csv",
+      "downloadedAt": "2026-07-01T00:34:50.929Z",
+      "sha256": "012e3ff8817bc58d45b1739a8cc9eb8f24996810c66a5dd865d235e4ca2c6a66",
+      "bytes": 8517,
+      "rowCount": 30,
+      "encoding": "utf8"
+    },
+    {
+      "id": "3835ea9d-2bd5-4d25-a621-29b1b209f3cd",
+      "url": "https://data.taipei/api/v1/dataset/3835ea9d-2bd5-4d25-a621-29b1b209f3cd?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_114年第4季",
+      "fileName": "臺北市政府施工查核情形一覽表_114年第4季-3835ea9d-2bd5-4d25-a621-29b1b209f3cd.csv",
+      "downloadedAt": "2026-07-01T00:34:51.033Z",
+      "sha256": "21eeeaec6976a01dc462b407b87cdbf8997fe7a21e243669911c9a92ecf9ed96",
+      "bytes": 11419,
+      "rowCount": 42,
+      "encoding": "utf8"
+    },
+    {
+      "id": "96ef61bc-606d-4fab-8c33-9cbde1ddf258",
+      "url": "https://data.taipei/api/v1/dataset/96ef61bc-606d-4fab-8c33-9cbde1ddf258?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表 _114年第3季",
+      "fileName": "臺北市政府施工查核情形一覽表-_114年第3季-96ef61bc-606d-4fab-8c33-9cbde1ddf258.csv",
+      "downloadedAt": "2026-07-01T00:34:51.141Z",
+      "sha256": "55ca981e89bf16b8311796cef1598a797898e3afb11645169c519e9532ca0735",
+      "bytes": 11494,
+      "rowCount": 42,
+      "encoding": "utf8"
+    },
+    {
+      "id": "6654d618-1bc4-4007-8aee-8ee41bc7345c",
+      "url": "https://data.taipei/api/v1/dataset/6654d618-1bc4-4007-8aee-8ee41bc7345c?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_114年第2季",
+      "fileName": "臺北市政府施工查核情形一覽表_114年第2季-6654d618-1bc4-4007-8aee-8ee41bc7345c.csv",
+      "downloadedAt": "2026-07-01T00:34:51.261Z",
+      "sha256": "3cea5d5fc6a5bf74bc4989e77a0fb8a1d76bffd85b351968c6e0d9088ac50c53",
+      "bytes": 14946,
+      "rowCount": 55,
+      "encoding": "utf8"
+    },
+    {
+      "id": "677dada8-b711-4c80-8de7-f9a5381afc27",
+      "url": "https://data.taipei/api/v1/dataset/677dada8-b711-4c80-8de7-f9a5381afc27?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_114年第1季",
+      "fileName": "臺北市政府施工查核情形一覽表_114年第1季-677dada8-b711-4c80-8de7-f9a5381afc27.csv",
+      "downloadedAt": "2026-07-01T00:34:51.374Z",
+      "sha256": "5eb6a68d794a7f4d0013f9ce5cd9f609adc0590dec36f9593eccac0dfa0ff9da",
+      "bytes": 10316,
+      "rowCount": 39,
+      "encoding": "utf8"
+    },
+    {
+      "id": "c8a63edb-8188-4e62-bca1-f92a1d881949",
+      "url": "https://data.taipei/api/v1/dataset/c8a63edb-8188-4e62-bca1-f92a1d881949?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_113年第4季",
+      "fileName": "臺北市政府施工查核情形一覽表_113年第4季-c8a63edb-8188-4e62-bca1-f92a1d881949.csv",
+      "downloadedAt": "2026-07-01T00:34:51.902Z",
+      "sha256": "e6ca5c669bc607868c7a786e1591ec484d8b9123169b5abc0f146c09b58e20f9",
+      "bytes": 10994,
+      "rowCount": 41,
+      "encoding": "utf8"
+    },
+    {
+      "id": "8ce9817e-8da1-4029-ae50-47b300956c53",
+      "url": "https://data.taipei/api/v1/dataset/8ce9817e-8da1-4029-ae50-47b300956c53?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_113年第 1 季",
+      "fileName": "臺北市政府施工查核情形一覽表_113年第-1-季-8ce9817e-8da1-4029-ae50-47b300956c53.csv",
+      "downloadedAt": "2026-07-01T00:34:52.025Z",
+      "sha256": "f283307340b1e9d3f805e9aa6fe1fd230ca1e49266c53672c2d5906014d16d24",
+      "bytes": 10869,
+      "rowCount": 39,
+      "encoding": "utf8"
+    },
+    {
+      "id": "e47f31bf-edbe-4a43-89f6-cdb806c82ee1",
+      "url": "https://data.taipei/api/v1/dataset/e47f31bf-edbe-4a43-89f6-cdb806c82ee1?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_113年第 2 季",
+      "fileName": "臺北市政府施工查核情形一覽表_113年第-2-季-e47f31bf-edbe-4a43-89f6-cdb806c82ee1.csv",
+      "downloadedAt": "2026-07-01T00:34:52.142Z",
+      "sha256": "2a4136d7760e5e1e599273f44e67241839c4f4186aa8ec28a4b68d3f2a6a8546",
+      "bytes": 14716,
+      "rowCount": 55,
+      "encoding": "utf8"
+    },
+    {
+      "id": "7dc94cca-a178-4b82-b736-4e633c665b4a",
+      "url": "https://data.taipei/api/v1/dataset/7dc94cca-a178-4b82-b736-4e633c665b4a?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表 _113 年第3季",
+      "fileName": "臺北市政府施工查核情形一覽表-_113-年第3季-7dc94cca-a178-4b82-b736-4e633c665b4a.csv",
+      "downloadedAt": "2026-07-01T00:34:52.247Z",
+      "sha256": "b3cdb6c2dff33b7abfcd0ce63ca2eaec8feeaa78c3ef59bbfe79a57473b67fc3",
+      "bytes": 10948,
+      "rowCount": 41,
+      "encoding": "utf8"
+    },
+    {
+      "id": "41d45f54-d743-4128-bea0-6eeb2fc4e0e6",
+      "url": "https://data.taipei/api/v1/dataset/41d45f54-d743-4128-bea0-6eeb2fc4e0e6?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_112 年第4季",
+      "fileName": "臺北市政府施工查核情形一覽表_112-年第4季-41d45f54-d743-4128-bea0-6eeb2fc4e0e6.csv",
+      "downloadedAt": "2026-07-01T00:34:52.355Z",
+      "sha256": "9700015ba30fdda354173b91daa006b07a0bfe880b31af54d3eff7a667fa3148",
+      "bytes": 10876,
+      "rowCount": 41,
+      "encoding": "utf8"
+    },
+    {
+      "id": "d9f61a32-ecd0-4922-8b2a-96153f8c869c",
+      "url": "https://data.taipei/api/v1/dataset/d9f61a32-ecd0-4922-8b2a-96153f8c869c?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_112年第3季",
+      "fileName": "臺北市政府施工查核情形一覽表_112年第3季-d9f61a32-ecd0-4922-8b2a-96153f8c869c.csv",
+      "downloadedAt": "2026-07-01T00:34:52.463Z",
+      "sha256": "c7e356d6eaddcd4c9f32f67872fb32710b6dafc024555747eb069d0ec1e3c94d",
+      "bytes": 11441,
+      "rowCount": 41,
+      "encoding": "utf8"
+    },
+    {
+      "id": "85d40c22-582c-4460-bde1-a3f68378a8f6",
+      "url": "https://data.taipei/api/v1/dataset/85d40c22-582c-4460-bde1-a3f68378a8f6?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_112年第2季",
+      "fileName": "臺北市政府施工查核情形一覽表_112年第2季-85d40c22-582c-4460-bde1-a3f68378a8f6.csv",
+      "downloadedAt": "2026-07-01T00:34:52.575Z",
+      "sha256": "689214a72b207334181f6a20187be5c5fccce60368bfc9d0927f43fc5606d5bf",
+      "bytes": 16941,
+      "rowCount": 62,
+      "encoding": "utf8"
+    },
+    {
+      "id": "6b0aeb3b-4c85-4f87-8883-8e00a76d048c",
+      "url": "https://data.taipei/api/v1/dataset/6b0aeb3b-4c85-4f87-8883-8e00a76d048c?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_112年第1季",
+      "fileName": "臺北市政府施工查核情形一覽表_112年第1季-6b0aeb3b-4c85-4f87-8883-8e00a76d048c.csv",
+      "downloadedAt": "2026-07-01T00:34:52.685Z",
+      "sha256": "1b2997989d012bfadb57ffb7eb675e3c70caeac77e0982bcf6cd324f3b14978c",
+      "bytes": 9638,
+      "rowCount": 34,
+      "encoding": "utf8"
+    },
+    {
+      "id": "a3000173-e9de-483b-9444-1aecf871352c",
+      "url": "https://data.taipei/api/v1/dataset/a3000173-e9de-483b-9444-1aecf871352c?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_111年第4季",
+      "fileName": "臺北市政府施工查核情形一覽表_111年第4季-a3000173-e9de-483b-9444-1aecf871352c.csv",
+      "downloadedAt": "2026-07-01T00:34:52.808Z",
+      "sha256": "d718ff10d16229ce908c175b5ba763ba02f8c7f982c2d94423dffd2675fd48f2",
+      "bytes": 10271,
+      "rowCount": 37,
+      "encoding": "utf8"
+    },
+    {
+      "id": "37bbbbca-7c4b-48e6-a4b8-eb6148a72ba8",
+      "url": "https://data.taipei/api/v1/dataset/37bbbbca-7c4b-48e6-a4b8-eb6148a72ba8?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_111年第3季",
+      "fileName": "臺北市政府施工查核情形一覽表_111年第3季-37bbbbca-7c4b-48e6-a4b8-eb6148a72ba8.csv",
+      "downloadedAt": "2026-07-01T00:34:52.920Z",
+      "sha256": "2b388e0f53a250587c6a979921fafd8d03528f19802ec4e0dade6d56b92e69b4",
+      "bytes": 11460,
+      "rowCount": 43,
+      "encoding": "utf8"
+    },
+    {
+      "id": "d92a6660-f191-4f8b-a6a0-72aaf34f42b6",
+      "url": "https://data.taipei/api/v1/dataset/d92a6660-f191-4f8b-a6a0-72aaf34f42b6?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_111年第2季",
+      "fileName": "臺北市政府施工查核情形一覽表_111年第2季-d92a6660-f191-4f8b-a6a0-72aaf34f42b6.csv",
+      "downloadedAt": "2026-07-01T00:34:53.033Z",
+      "sha256": "ac04859f96486cd906ab61fc51d9c933f52907b28780fc5634eab78a9a9546fa",
+      "bytes": 11488,
+      "rowCount": 42,
+      "encoding": "utf8"
+    },
+    {
+      "id": "c7915cf9-4447-4e67-be53-e5cfb3332dd2",
+      "url": "https://data.taipei/api/v1/dataset/c7915cf9-4447-4e67-be53-e5cfb3332dd2?scope=resourceAquire",
+      "resourceName": "臺北市政府施工查核情形一覽表_111年第1季",
+      "fileName": "臺北市政府施工查核情形一覽表_111年第1季-c7915cf9-4447-4e67-be53-e5cfb3332dd2.csv",
+      "downloadedAt": "2026-07-01T00:34:53.140Z",
+      "sha256": "4ea29875cd6da6a7f2dca8317d56911961f8f48d558faaa28523178c861a28e2",
+      "bytes": 9357,
+      "rowCount": 34,
+      "encoding": "utf8"
+    }
+  ],
+  "warnings": []
+}

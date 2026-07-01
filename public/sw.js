@@ -11,6 +11,10 @@ const ASSETS = [
   'data/streetlight-repairs.json',
   'data/streetlight-repair-summary.json',
   'data/service-records-summary.json',
+  'data/public-works-construction-audit-records.json',
+  'data/public-works-construction-audit-summary.json',
+  'data/public-works-construction-audit-latest.json',
+  'data/taipei-1999-dashboard-summary.json',
   'data/conversion-report.json'
 ].map((asset) => `${scopePath}${asset}`);
 

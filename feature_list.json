@@ -47,6 +47,14 @@
       "dependencies": ["feat-001", "feat-002"],
       "status": "done",
       "evidence": "Fetched official streetlight CSV resources, converted 65,022 deduplicated records, added React/Leaflet module, and verified with npm test, npm run build, npm run build:pages, and static browser smoke testing."
+    },
+    {
+      "id": "feat-007",
+      "name": "Public works construction audit module",
+      "description": "Fetch, convert, summarize, and display Taipei City Government construction audit records as a standalone public-works oversight module.",
+      "dependencies": ["feat-001"],
+      "status": "done",
+      "evidence": "Fetched 17 official quarterly CSV resources, converted 718 construction audit records, added no-map dashboard module, and verified with tests, builds, and browser smoke testing."
     }
   ]
 }

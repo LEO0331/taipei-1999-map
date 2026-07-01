@@ -1,0 +1,465 @@
+{
+  "totalRecords": 718,
+  "minAuditDate": "2022-01-12",
+  "maxAuditDate": "2026-03-27",
+  "latestAuditQuarter": "2026-Q1",
+  "uniqueProjectCount": 583,
+  "responsibleAgencyCount": 173,
+  "contractorCount": 347,
+  "designUnitCount": 267,
+  "supervisionUnitCount": 233,
+  "projectManagementUnitCount": 22,
+  "recordsWithAuditScore": 718,
+  "recordsWithContractAmount": 718,
+  "recordsWithDeductionPoints": 718,
+  "recordsWithNotes": 718,
+  "totalContractAmountThousandNtd": 542683727,
+  "averageContractAmountThousandNtd": 755826.92,
+  "averageAuditScore": 82.49,
+  "medianAuditScore": 82,
+  "totalContractorDeductionPoints": 25,
+  "totalSupervisionDeductionPoints": 25,
+  "totalPcmDeductionPoints": 1,
+  "totalDeductionPoints": 51,
+  "byAuditQuarter": [
+    {
+      "auditQuarter": "2022-Q1",
+      "recordCount": 34,
+      "averageAuditScore": 82.26,
+      "totalContractAmountThousandNtd": 17088467,
+      "totalDeductionPoints": 5
+    },
+    {
+      "auditQuarter": "2022-Q2",
+      "recordCount": 42,
+      "averageAuditScore": 82.36,
+      "totalContractAmountThousandNtd": 56411897,
+      "totalDeductionPoints": 6
+    },
+    {
+      "auditQuarter": "2022-Q3",
+      "recordCount": 43,
+      "averageAuditScore": 82.07,
+      "totalContractAmountThousandNtd": 15322639,
+      "totalDeductionPoints": 5
+    },
+    {
+      "auditQuarter": "2022-Q4",
+      "recordCount": 37,
+      "averageAuditScore": 82.46,
+      "totalContractAmountThousandNtd": 18941023,
+      "totalDeductionPoints": 6
+    },
+    {
+      "auditQuarter": "2023-Q1",
+      "recordCount": 34,
+      "averageAuditScore": 82.74,
+      "totalContractAmountThousandNtd": 40301655,
+      "totalDeductionPoints": 0
+    },
+    {
+      "auditQuarter": "2023-Q2",
+      "recordCount": 62,
+      "averageAuditScore": 82.08,
+      "totalContractAmountThousandNtd": 60144016,
+      "totalDeductionPoints": 0
+    },
+    {
+      "auditQuarter": "2023-Q3",
+      "recordCount": 41,
+      "averageAuditScore": 82.29,
+      "totalContractAmountThousandNtd": 19276302,
+      "totalDeductionPoints": 3
+    },
+    {
+      "auditQuarter": "2023-Q4",
+      "recordCount": 41,
+      "averageAuditScore": 82.41,
+      "totalContractAmountThousandNtd": 13508935,
+      "totalDeductionPoints": 1
+    },
+    {
+      "auditQuarter": "2024-Q1",
+      "recordCount": 39,
+      "averageAuditScore": 82.56,
+      "totalContractAmountThousandNtd": 45613556,
+      "totalDeductionPoints": 4
+    },
+    {
+      "auditQuarter": "2024-Q2",
+      "recordCount": 55,
+      "averageAuditScore": 82.58,
+      "totalContractAmountThousandNtd": 35283913,
+      "totalDeductionPoints": 0
+    },
+    {
+      "auditQuarter": "2024-Q3",
+      "recordCount": 41,
+      "averageAuditScore": 82.59,
+      "totalContractAmountThousandNtd": 3497741,
+      "totalDeductionPoints": 0
+    },
+    {
+      "auditQuarter": "2024-Q4",
+      "recordCount": 41,
+      "averageAuditScore": 82.32,
+      "totalContractAmountThousandNtd": 27049888,
+      "totalDeductionPoints": 0
+    },
+    {
+      "auditQuarter": "2025-Q1",
+      "recordCount": 39,
+      "averageAuditScore": 82.36,
+      "totalContractAmountThousandNtd": 37734003,
+      "totalDeductionPoints": 5
+    },
+    {
+      "auditQuarter": "2025-Q2",
+      "recordCount": 55,
+      "averageAuditScore": 82.65,
+      "totalContractAmountThousandNtd": 51285845,
+      "totalDeductionPoints": 0
+    },
+    {
+      "auditQuarter": "2025-Q3",
+      "recordCount": 42,
+      "averageAuditScore": 82.57,
+      "totalContractAmountThousandNtd": 30122092,
+      "totalDeductionPoints": 0
+    },
+    {
+      "auditQuarter": "2025-Q4",
+      "recordCount": 42,
+      "averageAuditScore": 83.1,
+      "totalContractAmountThousandNtd": 28955246,
+      "totalDeductionPoints": 10
+    },
+    {
+      "auditQuarter": "2026-Q1",
+      "recordCount": 30,
+      "averageAuditScore": 83.2,
+      "totalContractAmountThousandNtd": 42146509,
+      "totalDeductionPoints": 6
+    }
+  ],
+  "byResponsibleAgency": [
+    {
+      "responsibleAgency": "臺北市政府工務局新建工程處",
+      "recordCount": 67,
+      "averageAuditScore": 83.61,
+      "totalContractAmountThousandNtd": 87814636,
+      "totalDeductionPoints": 6
+    },
+    {
+      "responsibleAgency": "臺北市政府工務局水利工程處",
+      "recordCount": 57,
+      "averageAuditScore": 82.6,
+      "totalContractAmountThousandNtd": 24836799,
+      "totalDeductionPoints": 1
+    },
+    {
+      "responsibleAgency": "臺北市政府都市發展局",
+      "recordCount": 43,
+      "averageAuditScore": 82.7,
+      "totalContractAmountThousandNtd": 76505682,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市政府工務局公園路燈工程管理處",
+      "recordCount": 40,
+      "averageAuditScore": 82.7,
+      "totalContractAmountThousandNtd": 1241670,
+      "totalDeductionPoints": 2
+    },
+    {
+      "responsibleAgency": "臺北自來水事業處",
+      "recordCount": 38,
+      "averageAuditScore": 83.08,
+      "totalContractAmountThousandNtd": 20813165,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市政府工務局大地工程處",
+      "recordCount": 35,
+      "averageAuditScore": 83.57,
+      "totalContractAmountThousandNtd": 2756398,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市政府工務局衛生下水道工程處",
+      "recordCount": 33,
+      "averageAuditScore": 83.33,
+      "totalContractAmountThousandNtd": 13657780,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市政府捷運工程局第二區工程處",
+      "recordCount": 18,
+      "averageAuditScore": 84.44,
+      "totalContractAmountThousandNtd": 87063308,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市政府文化局",
+      "recordCount": 15,
+      "averageAuditScore": 81.87,
+      "totalContractAmountThousandNtd": 1333823,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市政府捷運工程局第一區工程處",
+      "recordCount": 14,
+      "averageAuditScore": 84.57,
+      "totalContractAmountThousandNtd": 79515375,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市交通管制工程處",
+      "recordCount": 13,
+      "averageAuditScore": 81.23,
+      "totalContractAmountThousandNtd": 220736,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市市場處",
+      "recordCount": 12,
+      "averageAuditScore": 81.33,
+      "totalContractAmountThousandNtd": 1897740,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北大眾捷運股份有限公司",
+      "recordCount": 12,
+      "averageAuditScore": 81.17,
+      "totalContractAmountThousandNtd": 2693871,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市停車管理工程處",
+      "recordCount": 12,
+      "averageAuditScore": 82.25,
+      "totalContractAmountThousandNtd": 7918819,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市政府捷運工程局機電系統工程處",
+      "recordCount": 9,
+      "averageAuditScore": 83.22,
+      "totalContractAmountThousandNtd": 44566293,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市政府體育局",
+      "recordCount": 8,
+      "averageAuditScore": 81.38,
+      "totalContractAmountThousandNtd": 1348945,
+      "totalDeductionPoints": 3
+    },
+    {
+      "responsibleAgency": "臺北自來水事業處陽明營業分處",
+      "recordCount": 8,
+      "averageAuditScore": 82.25,
+      "totalContractAmountThousandNtd": 240522,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北自來水事業處工程總隊",
+      "recordCount": 8,
+      "averageAuditScore": 83.13,
+      "totalContractAmountThousandNtd": 9601284,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北自來水事業處東區營業分處",
+      "recordCount": 7,
+      "averageAuditScore": 82.29,
+      "totalContractAmountThousandNtd": 279470,
+      "totalDeductionPoints": 0
+    },
+    {
+      "responsibleAgency": "臺北市政府工務局新建工程處東區工務所",
+      "recordCount": 6,
+      "averageAuditScore": 82.33,
+      "totalContractAmountThousandNtd": 598210,
+      "totalDeductionPoints": 0
+    }
+  ],
+  "byContractor": [
+    {
+      "contractor": "大陸工程股份有限公司",
+      "recordCount": 12,
+      "averageAuditScore": 84.5,
+      "totalContractAmountThousandNtd": 62473320,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "曜鼎營造有限公司",
+      "recordCount": 11,
+      "averageAuditScore": 83.45,
+      "totalContractAmountThousandNtd": 294959,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "台正營造有限公司",
+      "recordCount": 11,
+      "averageAuditScore": 83.55,
+      "totalContractAmountThousandNtd": 337957,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "新亞建設開發股份有限公司",
+      "recordCount": 11,
+      "averageAuditScore": 82.09,
+      "totalContractAmountThousandNtd": 18555200,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "福清營造股份有限公司",
+      "recordCount": 10,
+      "averageAuditScore": 84.6,
+      "totalContractAmountThousandNtd": 11586790,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "上溢營造股份有限公司",
+      "recordCount": 9,
+      "averageAuditScore": 83.78,
+      "totalContractAmountThousandNtd": 1499252,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "碧城興業股份有限公司",
+      "recordCount": 9,
+      "averageAuditScore": 82.56,
+      "totalContractAmountThousandNtd": 419885,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "協翔營造工程股份有限公司",
+      "recordCount": 9,
+      "averageAuditScore": 84.44,
+      "totalContractAmountThousandNtd": 384456,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "富士山營造有限公司",
+      "recordCount": 7,
+      "averageAuditScore": 84,
+      "totalContractAmountThousandNtd": 194854,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "稻田營造有限公司",
+      "recordCount": 7,
+      "averageAuditScore": 83,
+      "totalContractAmountThousandNtd": 1004976,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "安宏營造有限公司",
+      "recordCount": 7,
+      "averageAuditScore": 83.71,
+      "totalContractAmountThousandNtd": 342116,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "登煌營造有限公司",
+      "recordCount": 6,
+      "averageAuditScore": 82.67,
+      "totalContractAmountThousandNtd": 77417,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "啟揚環境有限公司",
+      "recordCount": 6,
+      "averageAuditScore": 82,
+      "totalContractAmountThousandNtd": 215000,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "達欣工程股份有限公司",
+      "recordCount": 6,
+      "averageAuditScore": 85.33,
+      "totalContractAmountThousandNtd": 63480000,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "春原營造股份有限公司",
+      "recordCount": 6,
+      "averageAuditScore": 83.83,
+      "totalContractAmountThousandNtd": 10947100,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "東鑫龍營造有限公司",
+      "recordCount": 6,
+      "averageAuditScore": 83,
+      "totalContractAmountThousandNtd": 572920,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "宇力工程有限公司",
+      "recordCount": 6,
+      "averageAuditScore": 82.67,
+      "totalContractAmountThousandNtd": 196493,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "興成營造有限公司",
+      "recordCount": 5,
+      "averageAuditScore": 83.8,
+      "totalContractAmountThousandNtd": 144809,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "品昱營造工程股份有限公司",
+      "recordCount": 5,
+      "averageAuditScore": 83.6,
+      "totalContractAmountThousandNtd": 248309,
+      "totalDeductionPoints": 0
+    },
+    {
+      "contractor": "益廣營造有限公司",
+      "recordCount": 5,
+      "averageAuditScore": 83.6,
+      "totalContractAmountThousandNtd": 148210,
+      "totalDeductionPoints": 0
+    }
+  ],
+  "byScoreBand": [
+    {
+      "auditScoreBand": "excellent",
+      "count": 0
+    },
+    {
+      "auditScoreBand": "good",
+      "count": 694
+    },
+    {
+      "auditScoreBand": "fair",
+      "count": 24
+    },
+    {
+      "auditScoreBand": "needs_attention",
+      "count": 0
+    },
+    {
+      "auditScoreBand": "missing",
+      "count": 0
+    },
+    {
+      "auditScoreBand": "unknown",
+      "count": 0
+    }
+  ],
+  "byNotificationMethod": [
+    {
+      "notificationMethod": "不預先通知",
+      "count": 562
+    },
+    {
+      "notificationMethod": "不預先",
+      "count": 156
+    }
+  ]
+}

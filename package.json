@@ -12,7 +12,10 @@
     "convert:data": "tsx scripts/convertOpen1999.ts",
     "fetch:data": "tsx scripts/fetchOpen1999Resources.ts",
     "data:fetch:streetlight": "tsx scripts/fetchStreetlightRepairs.ts",
-    "data:convert:streetlight": "tsx scripts/convertStreetlightRepairs.ts"
+    "data:convert:streetlight": "tsx scripts/convertStreetlightRepairs.ts",
+    "data:fetch:construction-audits": "tsx scripts/fetchPublicWorksConstructionAuditRecords.ts",
+    "data:convert:construction-audits": "tsx scripts/convertPublicWorksConstructionAuditRecords.ts",
+    "data:summary:construction-audits": "tsx scripts/buildPublicWorksConstructionAuditSummary.ts"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.2",
