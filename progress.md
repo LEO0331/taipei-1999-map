@@ -2,8 +2,8 @@
 
 ## Current State
 
-**Last Updated:** 2026-07-01 08:35 CST
-**Active Feature:** none - construction audit module complete
+**Last Updated:** 2026-07-01 08:56 CST
+**Active Feature:** none - stop/resume work module complete
 
 ## Status
 
@@ -20,10 +20,12 @@
 - [x] Fixed missing Leaflet base map tiles on GitHub Pages by replacing the failing OSM tile endpoint with CARTO light tiles in both map components.
 - [x] Added Taipei City Government construction audit ingestion, summary generation, and a no-map public-works oversight dashboard module.
 - [x] Downloaded 17 official quarterly construction audit CSV resources and converted 718 records.
+- [x] Added Taipei construction stop/resume work ingestion, summary generation, and a no-map labor-safety oversight dashboard module.
+- [x] Downloaded the official stop/resume work CSV and deduplicated it against the uploaded `11005-11504.csv` sample.
 
 ### What's In Progress
 
-- [x] Construction audit module verification.
+- [x] Stop/resume work module verification.
   - Details: fetch, convert, tests, builds, and static browser smoke testing passed.
   - Blockers: none.
 
@@ -39,6 +41,7 @@
 - [ ] Local `npm run dev` currently fails under Node 20.2.0 because Vite expects `crypto.hash`; build/static verification passed. Use Node 22 or a supported Node 20 patch release for the dev server.
 - [ ] Streetlight public JSON is large (`public/data/streetlight-repairs.json` is about 56 MB) because it includes historical table rows; the summary JSON is much smaller for dashboard views.
 - [ ] Construction audit records are formal audit records, not 1999 complaints, live project status, safety certification, contractor ranking, legal-liability findings, or public-safety warnings.
+- [ ] Stop/resume work records are labor-inspection public records, not live construction status, current stop-work/resume status, exact site location, building safety judgment, contractor ranking, legal-liability findings, or public danger warnings.
 
 ## Decisions Made
 
@@ -54,6 +57,9 @@
 - **Keep construction audits standalone and no-map**:
   - Context: the dataset has no official coordinates, addresses, roads, or reliable shared key with 1999 cases.
   - Alternatives considered: map markers and automatic 1999 joins; rejected because they would imply unsupported location precision or causation.
+- **Keep stop/resume work standalone and no-map**:
+  - Context: the dataset has no official coordinates, addresses, roads, or reliable shared key with 1999 cases.
+  - Alternatives considered: map markers and automatic 1999 joins; rejected because they would imply unsupported current-site status, location precision, or causation.
 
 ## Files Modified This Session
 
@@ -76,6 +82,11 @@
 - `tests/constructionAudit.test.ts` - construction audit parser and dedupe coverage.
 - `public/data/public-works-construction-audit-records.json`, `public/data/public-works-construction-audit-summary.json`, `public/data/public-works-construction-audit-latest.json`, `public/data/taipei-1999-dashboard-summary.json` - generated construction audit outputs.
 - `data/raw/public-works-construction-audit-records/` - fetched construction audit CSV resources.
+- `scripts/fetchConstructionStopResumeWorkRecords.ts`, `scripts/convertConstructionStopResumeWorkRecords.ts`, `scripts/buildConstructionStopResumeWorkSummary.ts` - stop/resume work fetch and conversion.
+- `src/lib/stopResumeWork.ts`, `src/types/stopResumeWork.ts`, `src/hooks/useStopResumeWorkData.ts`, `src/components/StopResumeWork.tsx` - stop/resume parsing, types, loading, and UI.
+- `tests/stopResumeWork.test.ts` - stop/resume parser, duration, classification, and dedupe coverage.
+- `public/data/construction-stop-resume-work-records.json`, `public/data/construction-stop-resume-work-summary.json`, `public/data/construction-stop-resume-work-latest.json` - generated stop/resume outputs.
+- `data/raw/construction-stop-resume-work-records/` - uploaded and fetched stop/resume CSV resources.
 
 ## Evidence of Completion
 
@@ -93,9 +104,13 @@
 - [x] Construction audit fetch: `npm run data:fetch:construction-audits -- --force` downloaded 17 official quarterly resources.
 - [x] Construction audit conversion: `npm run data:convert:construction-audits` generated 718 records spanning 2022-01-12 to 2026-03-27.
 - [x] Construction audit tests: `npm test` passed 22 tests across 3 files.
+- [x] Stop/resume fetch: `npm run data:fetch:stop-resume-work` downloaded the official 1,043-row resource.
+- [x] Stop/resume conversion: `npm run data:convert:stop-resume-work` generated 1,043 deduplicated records from 2 raw CSV files.
+- [x] Stop/resume tests: `npm test` passed 27 tests across 4 files.
 
 ## Notes for Next Session
 
 Use `./init.sh` as the standard startup verification. Keep public UI display paths on `displayLocation`; do not expose `originalAddress` in React components.
 For streetlight records, keep maps at district-bubble level unless a future source provides validated coordinates and product language is updated to avoid real-time outage or repair-performance claims.
 For construction audit records, keep the module table/chart based unless a future official source provides validated location fields and a reliable key for linking to 1999 cases.
+For stop/resume work records, missing resume/review dates are missing source fields only; do not label them as current stop-work status.

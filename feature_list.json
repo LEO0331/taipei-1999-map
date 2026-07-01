@@ -55,6 +55,14 @@
       "dependencies": ["feat-001"],
       "status": "done",
       "evidence": "Fetched 17 official quarterly CSV resources, converted 718 construction audit records, added no-map dashboard module, and verified with tests, builds, and browser smoke testing."
+    },
+    {
+      "id": "feat-008",
+      "name": "Construction stop and resume work module",
+      "description": "Fetch, convert, summarize, and display Taipei construction stop/resume work public information as a standalone labor-safety oversight module.",
+      "dependencies": ["feat-001"],
+      "status": "done",
+      "evidence": "Fetched the official CSV, converted 1,043 deduplicated stop/resume records from uploaded and official CSVs, added no-map dashboard module, and verified with tests, builds, and browser smoke testing."
     }
   ]
 }

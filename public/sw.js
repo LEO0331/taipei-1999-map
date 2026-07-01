@@ -14,6 +14,9 @@ const ASSETS = [
   'data/public-works-construction-audit-records.json',
   'data/public-works-construction-audit-summary.json',
   'data/public-works-construction-audit-latest.json',
+  'data/construction-stop-resume-work-records.json',
+  'data/construction-stop-resume-work-summary.json',
+  'data/construction-stop-resume-work-latest.json',
   'data/taipei-1999-dashboard-summary.json',
   'data/conversion-report.json'
 ].map((asset) => `${scopePath}${asset}`);

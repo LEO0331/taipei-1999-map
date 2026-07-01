@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-07-01T00:53:54.292Z",
+  "datasetPage": "https://data.taipei/dataset/detail?id=49802349-ad4e-4551-be78-668e247f4d16",
+  "resources": [
+    {
+      "id": "4d5627ca-17ac-4da9-9464-9e72cef1ee4a",
+      "url": "https://data.taipei/api/v1/dataset/4d5627ca-17ac-4da9-9464-9e72cef1ee4a?scope=resourceAquire",
+      "resourceName": "臺北市停復工公開資訊",
+      "fileName": "construction-stop-resume-work-4d5627ca-17ac-4da9-9464-9e72cef1ee4a.csv",
+      "downloadedAt": "2026-07-01T00:53:53.738Z",
+      "sha256": "ab386475135acb2fae675e9145e2287ee272c57409a8bbf0833a4c34e7b52ded",
+      "bytes": 257954,
+      "rowCount": 1043,
+      "encoding": "utf8"
+    }
+  ],
+  "warnings": []
+}

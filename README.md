@@ -1,6 +1,8 @@
 # Taipei 1999 Service Request Map / 台北1999派工地圖
 
-Mobile-first bilingual Vite + React + TypeScript + Leaflet app for exploring Taipei City Government 1999 dispatched service request records, streetlight repair records, and public works construction audit records.
+Mobile-first bilingual Vite + React + TypeScript + Leaflet app for exploring Taipei City Government 1999 dispatched service request records, streetlight repair records, public works construction audit records, and construction stop / resume work records.
+
+Public works and labor-safety oversight context: construction stop / resume work public records beside 1999 citizen-service data / 公共工程與勞動安全監督背景：停復工公開資訊與1999市民服務資料並列觀察
 
 The app presents historical public-service request records by time, district, service type, and anonymized location. Counts are recorded requests, not severity, confirmed hazards, or real-time status.
 
@@ -15,6 +17,9 @@ The app presents historical public-service request records by time, district, se
 - Uploaded streetlight samples: `路燈維修資料-2021~2023t.csv`, `路燈維修資料-2024t.csv`
 - Dataset: `臺北市政府施工查核情形一覽表`
 - Taipei Open Data page: <https://data.taipei/dataset/detail?id=a8104214-5416-48d3-8006-c22c18a90283>
+- Dataset: `臺北市停復工公開資訊`
+- Taipei Open Data page: <https://data.taipei/dataset/detail?id=49802349-ad4e-4551-be78-668e247f4d16>
+- Uploaded stop/resume sample: `11005-11504.csv`
 
 ## Data Privacy
 
@@ -32,7 +37,9 @@ Streetlight repair records also lack official coordinates. The app shows distric
 
 Construction audit records do not provide official coordinates, addresses, roads, or district fields. The app shows audit charts and a searchable table only; it does not create map markers or automatically link rows to 1999 cases.
 
-Raw CSV files remain local under `data/raw/open1999/`, `data/raw/streetlight-repairs/`, and `data/raw/public-works-construction-audit-records/` for processing.
+Stop / resume work records also lack official location fields. The app parses ROC compact dates, preserves missing resume/review dates as missing source fields, calculates days until resume/review where both dates exist, and shows reason/scope keyword summaries without claiming current site status.
+
+Raw CSV files remain local under `data/raw/open1999/`, `data/raw/streetlight-repairs/`, `data/raw/public-works-construction-audit-records/`, and `data/raw/construction-stop-resume-work-records/` for processing.
 
 ## Commands
 
@@ -69,6 +76,14 @@ npm run data:convert:construction-audits
 npm run data:summary:construction-audits
 ```
 
+Fetch and convert construction stop / resume work resources:
+
+```bash
+npm run data:fetch:stop-resume-work
+npm run data:convert:stop-resume-work
+npm run data:summary:stop-resume-work
+```
+
 Start the dev server:
 
 ```bash
@@ -103,6 +118,9 @@ The converter writes:
 - `public/data/public-works-construction-audit-records.json`
 - `public/data/public-works-construction-audit-summary.json`
 - `public/data/public-works-construction-audit-latest.json`
+- `public/data/construction-stop-resume-work-records.json`
+- `public/data/construction-stop-resume-work-summary.json`
+- `public/data/construction-stop-resume-work-latest.json`
 - `public/data/taipei-1999-dashboard-summary.json`
 
 For mobile performance, `open1999-records.json` is capped to the latest 150,000 sanitized records by default. All downloaded raw CSV resources are retained locally. To change the cap:
@@ -123,6 +141,7 @@ Use `OPEN1999_PUBLIC_RECORD_LIMIT=0` only for private/offline analysis; a full h
 - PWA manifest and service worker cache for the app shell and generated JSON files
 - streetlight repair module with district map, year/district/issue filters, derived issue charts, masked-location table, and historical-data disclaimer
 - construction audit module with no-map notice, audit filters, summary cards, charts, searchable audit directory, and relationship note for 1999 cases
+- stop / resume work module with no-map notice, ROC compact date parsing, business entity filters, reason/scope category charts, missing resume/review summaries, and historical-data disclaimer
 
 ## Limitations
 
@@ -133,3 +152,4 @@ Use `OPEN1999_PUBLIC_RECORD_LIMIT=0` only for private/offline analysis; a full h
 - Streetlight issue types are derived from text descriptions and are not official categories.
 - Streetlight repair data is historical public data; it does not represent real-time outage status, whether an issue has been fixed, repair performance, or road safety.
 - Construction audit records are formal public works audit records, not 1999 complaints, live construction progress, project completion status, safety certification, contractor rankings, legal liability findings, procurement-fraud evidence, or public-safety warnings.
+- Stop / resume work records are labor-inspection public records, not 1999 complaints, live construction status, current stop-work/resume status, exact site location, building safety judgment, contractor ranking, legal liability finding, or public danger warning.

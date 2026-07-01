@@ -15,7 +15,10 @@
     "data:convert:streetlight": "tsx scripts/convertStreetlightRepairs.ts",
     "data:fetch:construction-audits": "tsx scripts/fetchPublicWorksConstructionAuditRecords.ts",
     "data:convert:construction-audits": "tsx scripts/convertPublicWorksConstructionAuditRecords.ts",
-    "data:summary:construction-audits": "tsx scripts/buildPublicWorksConstructionAuditSummary.ts"
+    "data:summary:construction-audits": "tsx scripts/buildPublicWorksConstructionAuditSummary.ts",
+    "data:fetch:stop-resume-work": "tsx scripts/fetchConstructionStopResumeWorkRecords.ts",
+    "data:convert:stop-resume-work": "tsx scripts/convertConstructionStopResumeWorkRecords.ts",
+    "data:summary:stop-resume-work": "tsx scripts/buildConstructionStopResumeWorkSummary.ts"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.2",

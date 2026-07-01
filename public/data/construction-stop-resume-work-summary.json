@@ -1,0 +1,971 @@
+{
+  "totalRecords": 1043,
+  "minStopWorkDate": "2021-05-04",
+  "maxStopWorkDate": "2026-04-27",
+  "latestStopWorkMonth": "2026-04",
+  "uniqueProjectCount": 688,
+  "uniqueBusinessEntityCount": 461,
+  "recordsWithResumeOrReviewDate": 1017,
+  "recordsMissingResumeOrReviewDate": 26,
+  "averageDaysUntilResumeOrReview": 9.48,
+  "medianDaysUntilResumeOrReview": 5,
+  "maxDaysUntilResumeOrReview": 163,
+  "byStopWorkMonth": [
+    {
+      "stopWorkMonthKey": "2021-05",
+      "recordCount": 9,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6.78
+    },
+    {
+      "stopWorkMonthKey": "2021-06",
+      "recordCount": 5,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6
+    },
+    {
+      "stopWorkMonthKey": "2021-07",
+      "recordCount": 14,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 7
+    },
+    {
+      "stopWorkMonthKey": "2021-08",
+      "recordCount": 18,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 7.78
+    },
+    {
+      "stopWorkMonthKey": "2021-09",
+      "recordCount": 17,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 7.71
+    },
+    {
+      "stopWorkMonthKey": "2021-10",
+      "recordCount": 17,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 7.41
+    },
+    {
+      "stopWorkMonthKey": "2021-11",
+      "recordCount": 37,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 4.64
+    },
+    {
+      "stopWorkMonthKey": "2021-12",
+      "recordCount": 27,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 4.33
+    },
+    {
+      "stopWorkMonthKey": "2022-01",
+      "recordCount": 32,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 8.31
+    },
+    {
+      "stopWorkMonthKey": "2022-02",
+      "recordCount": 20,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 5.3
+    },
+    {
+      "stopWorkMonthKey": "2022-03",
+      "recordCount": 20,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6.11
+    },
+    {
+      "stopWorkMonthKey": "2022-04",
+      "recordCount": 18,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 6.59
+    },
+    {
+      "stopWorkMonthKey": "2022-05",
+      "recordCount": 19,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 11.47
+    },
+    {
+      "stopWorkMonthKey": "2022-06",
+      "recordCount": 30,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 4.9
+    },
+    {
+      "stopWorkMonthKey": "2022-07",
+      "recordCount": 32,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 5.94
+    },
+    {
+      "stopWorkMonthKey": "2022-08",
+      "recordCount": 29,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 8.86
+    },
+    {
+      "stopWorkMonthKey": "2022-09",
+      "recordCount": 19,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6.05
+    },
+    {
+      "stopWorkMonthKey": "2022-10",
+      "recordCount": 19,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 5.11
+    },
+    {
+      "stopWorkMonthKey": "2022-11",
+      "recordCount": 26,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 9.56
+    },
+    {
+      "stopWorkMonthKey": "2022-12",
+      "recordCount": 22,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 6.55
+    },
+    {
+      "stopWorkMonthKey": "2023-01",
+      "recordCount": 13,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 48.58
+    },
+    {
+      "stopWorkMonthKey": "2023-02",
+      "recordCount": 17,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 5.88
+    },
+    {
+      "stopWorkMonthKey": "2023-03",
+      "recordCount": 10,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6.8
+    },
+    {
+      "stopWorkMonthKey": "2023-04",
+      "recordCount": 15,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 15.47
+    },
+    {
+      "stopWorkMonthKey": "2023-05",
+      "recordCount": 20,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 11
+    },
+    {
+      "stopWorkMonthKey": "2023-06",
+      "recordCount": 26,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 6.72
+    },
+    {
+      "stopWorkMonthKey": "2023-07",
+      "recordCount": 24,
+      "missingResumeOrReviewDateCount": 2,
+      "averageDaysUntilResumeOrReview": 14.36
+    },
+    {
+      "stopWorkMonthKey": "2023-08",
+      "recordCount": 24,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 11.13
+    },
+    {
+      "stopWorkMonthKey": "2023-09",
+      "recordCount": 15,
+      "missingResumeOrReviewDateCount": 4,
+      "averageDaysUntilResumeOrReview": 5.82
+    },
+    {
+      "stopWorkMonthKey": "2023-10",
+      "recordCount": 9,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 18.88
+    },
+    {
+      "stopWorkMonthKey": "2023-11",
+      "recordCount": 43,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 7.9
+    },
+    {
+      "stopWorkMonthKey": "2023-12",
+      "recordCount": 30,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 9.4
+    },
+    {
+      "stopWorkMonthKey": "2024-01",
+      "recordCount": 16,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 8.67
+    },
+    {
+      "stopWorkMonthKey": "2024-02",
+      "recordCount": 13,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 15.85
+    },
+    {
+      "stopWorkMonthKey": "2024-03",
+      "recordCount": 15,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 12.21
+    },
+    {
+      "stopWorkMonthKey": "2024-04",
+      "recordCount": 7,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 7.71
+    },
+    {
+      "stopWorkMonthKey": "2024-05",
+      "recordCount": 10,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 6.33
+    },
+    {
+      "stopWorkMonthKey": "2024-06",
+      "recordCount": 16,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 11.38
+    },
+    {
+      "stopWorkMonthKey": "2024-07",
+      "recordCount": 19,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6.74
+    },
+    {
+      "stopWorkMonthKey": "2024-08",
+      "recordCount": 22,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 14.68
+    },
+    {
+      "stopWorkMonthKey": "2024-09",
+      "recordCount": 17,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 14.5
+    },
+    {
+      "stopWorkMonthKey": "2024-10",
+      "recordCount": 20,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 9.8
+    },
+    {
+      "stopWorkMonthKey": "2024-11",
+      "recordCount": 33,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 8.61
+    },
+    {
+      "stopWorkMonthKey": "2024-12",
+      "recordCount": 18,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 10
+    },
+    {
+      "stopWorkMonthKey": "2025-01",
+      "recordCount": 14,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 7.79
+    },
+    {
+      "stopWorkMonthKey": "2025-02",
+      "recordCount": 8,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 8.25
+    },
+    {
+      "stopWorkMonthKey": "2025-03",
+      "recordCount": 13,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 15.5
+    },
+    {
+      "stopWorkMonthKey": "2025-04",
+      "recordCount": 10,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 19.3
+    },
+    {
+      "stopWorkMonthKey": "2025-05",
+      "recordCount": 11,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 5.45
+    },
+    {
+      "stopWorkMonthKey": "2025-06",
+      "recordCount": 10,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 24.22
+    },
+    {
+      "stopWorkMonthKey": "2025-07",
+      "recordCount": 7,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 21.57
+    },
+    {
+      "stopWorkMonthKey": "2025-08",
+      "recordCount": 7,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 11.71
+    },
+    {
+      "stopWorkMonthKey": "2025-09",
+      "recordCount": 7,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 6.67
+    },
+    {
+      "stopWorkMonthKey": "2025-10",
+      "recordCount": 6,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 21.5
+    },
+    {
+      "stopWorkMonthKey": "2025-11",
+      "recordCount": 6,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 4.6
+    },
+    {
+      "stopWorkMonthKey": "2025-12",
+      "recordCount": 23,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 12.83
+    },
+    {
+      "stopWorkMonthKey": "2026-01",
+      "recordCount": 8,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 9.14
+    },
+    {
+      "stopWorkMonthKey": "2026-02",
+      "recordCount": 11,
+      "missingResumeOrReviewDateCount": 2,
+      "averageDaysUntilResumeOrReview": 9.22
+    },
+    {
+      "stopWorkMonthKey": "2026-03",
+      "recordCount": 11,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 8.8
+    },
+    {
+      "stopWorkMonthKey": "2026-04",
+      "recordCount": 9,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 3.63
+    }
+  ],
+  "byStopWorkQuarter": [
+    {
+      "stopWorkQuarter": "2021-Q2",
+      "recordCount": 14,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6.5
+    },
+    {
+      "stopWorkQuarter": "2021-Q3",
+      "recordCount": 49,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 7.54
+    },
+    {
+      "stopWorkQuarter": "2021-Q4",
+      "recordCount": 81,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 5.13
+    },
+    {
+      "stopWorkQuarter": "2022-Q1",
+      "recordCount": 72,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6.87
+    },
+    {
+      "stopWorkQuarter": "2022-Q2",
+      "recordCount": 67,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 7.23
+    },
+    {
+      "stopWorkQuarter": "2022-Q3",
+      "recordCount": 80,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 7
+    },
+    {
+      "stopWorkQuarter": "2022-Q4",
+      "recordCount": 67,
+      "missingResumeOrReviewDateCount": 2,
+      "averageDaysUntilResumeOrReview": 7.3
+    },
+    {
+      "stopWorkQuarter": "2023-Q1",
+      "recordCount": 40,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 19.26
+    },
+    {
+      "stopWorkQuarter": "2023-Q2",
+      "recordCount": 61,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 10.33
+    },
+    {
+      "stopWorkQuarter": "2023-Q3",
+      "recordCount": 63,
+      "missingResumeOrReviewDateCount": 6,
+      "averageDaysUntilResumeOrReview": 11.35
+    },
+    {
+      "stopWorkQuarter": "2023-Q4",
+      "recordCount": 82,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 9.56
+    },
+    {
+      "stopWorkQuarter": "2024-Q1",
+      "recordCount": 44,
+      "missingResumeOrReviewDateCount": 2,
+      "averageDaysUntilResumeOrReview": 12.07
+    },
+    {
+      "stopWorkQuarter": "2024-Q2",
+      "recordCount": 33,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 9.16
+    },
+    {
+      "stopWorkQuarter": "2024-Q3",
+      "recordCount": 58,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 11.98
+    },
+    {
+      "stopWorkQuarter": "2024-Q4",
+      "recordCount": 71,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 9.3
+    },
+    {
+      "stopWorkQuarter": "2025-Q1",
+      "recordCount": 35,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 10.62
+    },
+    {
+      "stopWorkQuarter": "2025-Q2",
+      "recordCount": 31,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 15.7
+    },
+    {
+      "stopWorkQuarter": "2025-Q3",
+      "recordCount": 21,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 13.65
+    },
+    {
+      "stopWorkQuarter": "2025-Q4",
+      "recordCount": 35,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 13.15
+    },
+    {
+      "stopWorkQuarter": "2026-Q1",
+      "recordCount": 30,
+      "missingResumeOrReviewDateCount": 4,
+      "averageDaysUntilResumeOrReview": 9.04
+    },
+    {
+      "stopWorkQuarter": "2026-Q2",
+      "recordCount": 9,
+      "missingResumeOrReviewDateCount": 1,
+      "averageDaysUntilResumeOrReview": 3.63
+    }
+  ],
+  "byBusinessEntity": [
+    {
+      "businessEntityName": "華熊營造股份有限公司",
+      "recordCount": 22,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 7.9,
+      "uniqueProjectCount": 18
+    },
+    {
+      "businessEntityName": "大陸工程股份有限公司",
+      "recordCount": 22,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 16.73,
+      "uniqueProjectCount": 12
+    },
+    {
+      "businessEntityName": "地樺營造事業股份有限公司",
+      "recordCount": 17,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 4.88,
+      "uniqueProjectCount": 8
+    },
+    {
+      "businessEntityName": "新亞建設開發股份有限公司",
+      "recordCount": 13,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 5.31,
+      "uniqueProjectCount": 5
+    },
+    {
+      "businessEntityName": "樹盛營造股份有限公司",
+      "recordCount": 13,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 8.62,
+      "uniqueProjectCount": 7
+    },
+    {
+      "businessEntityName": "登山營造股份有限公司",
+      "recordCount": 12,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 4.17,
+      "uniqueProjectCount": 4
+    },
+    {
+      "businessEntityName": "億東營造股份有限公司",
+      "recordCount": 11,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 9.27,
+      "uniqueProjectCount": 7
+    },
+    {
+      "businessEntityName": "宏林營造廠股份有限公司",
+      "recordCount": 10,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6.7,
+      "uniqueProjectCount": 5
+    },
+    {
+      "businessEntityName": "上承營造股份有限公司",
+      "recordCount": 10,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 8.4,
+      "uniqueProjectCount": 2
+    },
+    {
+      "businessEntityName": "弘原營造有限公司",
+      "recordCount": 10,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 5,
+      "uniqueProjectCount": 4
+    },
+    {
+      "businessEntityName": "金盟營造有限公司",
+      "recordCount": 9,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 9.44,
+      "uniqueProjectCount": 5
+    },
+    {
+      "businessEntityName": "合聯營造股份有限公司",
+      "recordCount": 9,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6.89,
+      "uniqueProjectCount": 4
+    },
+    {
+      "businessEntityName": "建坤營造事業股份有限公司",
+      "recordCount": 9,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 10.56,
+      "uniqueProjectCount": 4
+    },
+    {
+      "businessEntityName": "辰豐營造股份有限公司",
+      "recordCount": 9,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 8,
+      "uniqueProjectCount": 5
+    },
+    {
+      "businessEntityName": "瑞助營造股份有限公司",
+      "recordCount": 9,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 9.22,
+      "uniqueProjectCount": 2
+    },
+    {
+      "businessEntityName": "震昌工程股份有限公司",
+      "recordCount": 8,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 8,
+      "uniqueProjectCount": 3
+    },
+    {
+      "businessEntityName": "昶明營造股份有限公司",
+      "recordCount": 8,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 6,
+      "uniqueProjectCount": 6
+    },
+    {
+      "businessEntityName": "璞承營造股份有限公司",
+      "recordCount": 8,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 4.13,
+      "uniqueProjectCount": 6
+    },
+    {
+      "businessEntityName": "森城建設股份有限公司",
+      "recordCount": 8,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 4.25,
+      "uniqueProjectCount": 6
+    },
+    {
+      "businessEntityName": "羱禾營造有限公司",
+      "recordCount": 8,
+      "missingResumeOrReviewDateCount": 0,
+      "averageDaysUntilResumeOrReview": 13.75,
+      "uniqueProjectCount": 1
+    }
+  ],
+  "byProject": [
+    {
+      "projectName": "（108建111）GWT宏築信義集合住宅新建工程",
+      "recordCount": 9,
+      "businessEntityName": "瑞助營造股份有限公司",
+      "firstStopWorkDate": "2023-10-16",
+      "latestStopWorkDate": "2026-02-09",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（111建303）大安區金華段369地號新建工程",
+      "recordCount": 8,
+      "businessEntityName": "羱禾營造有限公司",
+      "firstStopWorkDate": "2024-09-16",
+      "latestStopWorkDate": "2025-07-17",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（107建232）臺北市南港區經貿段15地號土地地上權案總包工程",
+      "recordCount": 7,
+      "businessEntityName": "榮工工程股份有限公司",
+      "firstStopWorkDate": "2021-11-26",
+      "latestStopWorkDate": "2024-03-21",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（108建130）臺北市殯葬管理處第二殯儀館二期整建工程",
+      "recordCount": 6,
+      "businessEntityName": "楊瑞禎聯合建築師事務所",
+      "firstStopWorkDate": "2021-08-12",
+      "latestStopWorkDate": "2022-12-24",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（107建002）岳泰建設萬華區福星段集合住宅新建工程",
+      "recordCount": 6,
+      "businessEntityName": "鵬霖營造股份有限公司",
+      "firstStopWorkDate": "2021-10-12",
+      "latestStopWorkDate": "2022-10-21",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（107建193）士林區陽明段集合住宅新建工程",
+      "recordCount": 6,
+      "businessEntityName": "上承營造股份有限公司",
+      "firstStopWorkDate": "2021-11-03",
+      "latestStopWorkDate": "2023-06-08",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（110建032）三軍總醫院松山分院航空醫學大樓新建統包工程",
+      "recordCount": 6,
+      "businessEntityName": "世久營造探勘工程股份有限公司",
+      "firstStopWorkDate": "2022-06-08",
+      "latestStopWorkDate": "2023-12-05",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（108建009）光復南路集合住宅新建工程",
+      "recordCount": 5,
+      "businessEntityName": "富瑄營造股份有限公司",
+      "firstStopWorkDate": "2021-07-08",
+      "latestStopWorkDate": "2023-08-31",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（108建186）建成綜合大樓改建工程",
+      "recordCount": 5,
+      "businessEntityName": "勁強營造有限公司",
+      "firstStopWorkDate": "2021-08-21",
+      "latestStopWorkDate": "2022-05-06",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（109建101）和歌誠美新建工程",
+      "recordCount": 5,
+      "businessEntityName": "擎安工程有限公司",
+      "firstStopWorkDate": "2021-10-08",
+      "latestStopWorkDate": "2024-08-18",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（108建050）內湖321K01停車場新建工程",
+      "recordCount": 5,
+      "businessEntityName": "登山營造股份有限公司",
+      "firstStopWorkDate": "2021-12-08",
+      "latestStopWorkDate": "2023-05-19",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（107建039）虹欣建設南港區玉成段三小段住宅大樓新建工程",
+      "recordCount": 5,
+      "businessEntityName": "宏林營造廠股份有限公司",
+      "firstStopWorkDate": "2022-01-07",
+      "latestStopWorkDate": "2023-07-01",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（108建243）台北市南港區重陽里向陽路新建工程",
+      "recordCount": 5,
+      "businessEntityName": "昌譽營造股份有限公司",
+      "firstStopWorkDate": "2022-03-18",
+      "latestStopWorkDate": "2023-06-30",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（108建162）公園大院-森活館新建工程",
+      "recordCount": 5,
+      "businessEntityName": "合聯營造股份有限公司",
+      "firstStopWorkDate": "2022-04-15",
+      "latestStopWorkDate": "2023-06-27",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（107建108）達永秋鄉集合住宅新建工程",
+      "recordCount": 5,
+      "businessEntityName": "建坤營造事業股份有限公司",
+      "firstStopWorkDate": "2022-07-04",
+      "latestStopWorkDate": "2023-11-14",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（109建271）立樺建設石牌住宅新建工程",
+      "recordCount": 5,
+      "businessEntityName": "地樺營造事業股份有限公司",
+      "firstStopWorkDate": "2022-09-25",
+      "latestStopWorkDate": "2024-08-27",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（110建157）晶鑽集合住宅新建工程",
+      "recordCount": 5,
+      "businessEntityName": "弘原營造有限公司",
+      "firstStopWorkDate": "2023-04-17",
+      "latestStopWorkDate": "2024-12-11",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（109建116）大同區大同段522等4筆地號新建工程",
+      "recordCount": 4,
+      "businessEntityName": "興澤營造股份有限公司",
+      "firstStopWorkDate": "2021-07-31",
+      "latestStopWorkDate": "2023-01-05",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（107建085）臺北市萬華區青年公共住宅二期統包工程",
+      "recordCount": 4,
+      "businessEntityName": "偉銓營造有限公司",
+      "firstStopWorkDate": "2021-08-27",
+      "latestStopWorkDate": "2022-08-20",
+      "missingResumeOrReviewDateCount": 0
+    },
+    {
+      "projectName": "（108建057）華誼民權大同段新建工程",
+      "recordCount": 4,
+      "businessEntityName": "震昌工程股份有限公司",
+      "firstStopWorkDate": "2021-09-26",
+      "latestStopWorkDate": "2023-11-05",
+      "missingResumeOrReviewDateCount": 0
+    }
+  ],
+  "byStopWorkReasonCategory": [
+    {
+      "stopWorkReasonCategory": "fall_prevention",
+      "count": 572
+    },
+    {
+      "stopWorkReasonCategory": "scaffold",
+      "count": 269
+    },
+    {
+      "stopWorkReasonCategory": "opening_or_edge",
+      "count": 94
+    },
+    {
+      "stopWorkReasonCategory": "electrical",
+      "count": 4
+    },
+    {
+      "stopWorkReasonCategory": "lifting_equipment",
+      "count": 0
+    },
+    {
+      "stopWorkReasonCategory": "excavation",
+      "count": 10
+    },
+    {
+      "stopWorkReasonCategory": "fire_or_hot_work",
+      "count": 10
+    },
+    {
+      "stopWorkReasonCategory": "machinery",
+      "count": 21
+    },
+    {
+      "stopWorkReasonCategory": "protective_equipment",
+      "count": 1
+    },
+    {
+      "stopWorkReasonCategory": "other",
+      "count": 62
+    },
+    {
+      "stopWorkReasonCategory": "unknown",
+      "count": 0
+    }
+  ],
+  "byStopWorkScopeCategory": [
+    {
+      "stopWorkScopeCategory": "entire_site",
+      "count": 258
+    },
+    {
+      "stopWorkScopeCategory": "scaffold",
+      "count": 425
+    },
+    {
+      "stopWorkScopeCategory": "exterior_wall",
+      "count": 5
+    },
+    {
+      "stopWorkScopeCategory": "opening_or_edge",
+      "count": 8
+    },
+    {
+      "stopWorkScopeCategory": "floor_or_area",
+      "count": 274
+    },
+    {
+      "stopWorkScopeCategory": "equipment",
+      "count": 0
+    },
+    {
+      "stopWorkScopeCategory": "other",
+      "count": 73
+    },
+    {
+      "stopWorkScopeCategory": "unknown",
+      "count": 0
+    }
+  ],
+  "topReasonKeywords": [
+    {
+      "keyword": "開口",
+      "count": 753
+    },
+    {
+      "keyword": "施工架",
+      "count": 518
+    },
+    {
+      "keyword": "安全網",
+      "count": 482
+    },
+    {
+      "keyword": "護欄",
+      "count": 475
+    },
+    {
+      "keyword": "護蓋",
+      "count": 393
+    },
+    {
+      "keyword": "防墜",
+      "count": 334
+    },
+    {
+      "keyword": "安全帶",
+      "count": 258
+    },
+    {
+      "keyword": "邊緣",
+      "count": 256
+    },
+    {
+      "keyword": "墜落",
+      "count": 34
+    },
+    {
+      "keyword": "開挖",
+      "count": 10
+    },
+    {
+      "keyword": "感電",
+      "count": 5
+    }
+  ],
+  "topScopeKeywords": [
+    {
+      "keyword": "施工架",
+      "count": 640
+    },
+    {
+      "keyword": "開口",
+      "count": 15
+    },
+    {
+      "keyword": "開挖",
+      "count": 6
+    },
+    {
+      "keyword": "邊緣",
+      "count": 3
+    },
+    {
+      "keyword": "防墜",
+      "count": 2
+    },
+    {
+      "keyword": "安全帶",
+      "count": 2
+    },
+    {
+      "keyword": "安全網",
+      "count": 2
+    },
+    {
+      "keyword": "護欄",
+      "count": 2
+    },
+    {
+      "keyword": "護蓋",
+      "count": 2
+    }
+  ]
+}

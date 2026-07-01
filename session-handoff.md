@@ -2,7 +2,7 @@
 
 ## Current Objective
 
-- Goal: Add Taipei City Government construction audit records as a standalone public-works oversight module.
+- Goal: Add Taipei construction stop / resume work public information as a standalone labor-safety oversight module.
 - Current status: Implementation and verification complete.
 - Branch / commit: current working tree, not committed in this session.
 
@@ -19,6 +19,11 @@
 - [x] Generated construction audit records, summary, latest, dashboard-summary, and conversion-report JSON.
 - [x] Added a bilingual no-map construction audit dashboard with filters, summary cards, charts, table, and 1999 relationship note.
 - [x] Added regression tests for construction audit date parsing, score bands, amount parsing, district tagging, and deduplication.
+- [x] Added stop/resume work fetch and conversion scripts.
+- [x] Copied uploaded `11005-11504.csv` and fetched the official Taipei Open Data CSV resource.
+- [x] Generated stop/resume records, summary, latest, dashboard-summary, and conversion-report JSON.
+- [x] Added a bilingual no-map stop/resume dashboard with filters, summary cards, charts, table, and 1999 relationship note.
+- [x] Added regression tests for ROC compact dates, duration calculation, reason/scope categories, missing resume dates, and deduplication.
 
 ## Verification Evidence
 
@@ -34,6 +39,9 @@
 | Construction audit fetch | `npm run data:fetch:construction-audits -- --force` | PASS | Downloaded 17 official quarterly resources. |
 | Construction audit conversion | `npm run data:convert:construction-audits` | PASS | Generated 718 records from 17 CSV files. |
 | Construction audit tests | `npm test` | PASS | 22 tests passed across 3 files. |
+| Stop/resume fetch | `npm run data:fetch:stop-resume-work` | PASS | Downloaded the official 1,043-row CSV resource. |
+| Stop/resume conversion | `npm run data:convert:stop-resume-work` | PASS | Generated 1,043 deduplicated records from uploaded and official CSVs. |
+| Stop/resume tests | `npm test` | PASS | 27 tests passed across 4 files. |
 
 ## Files Changed
 
@@ -48,24 +56,36 @@
 - `public/data/public-works-construction-audit-summary.json`
 - `public/data/public-works-construction-audit-latest.json`
 - `public/data/taipei-1999-dashboard-summary.json`
+- `public/data/construction-stop-resume-work-records.json`
+- `public/data/construction-stop-resume-work-summary.json`
+- `public/data/construction-stop-resume-work-latest.json`
 - `data/raw/streetlight-repairs/`
 - `data/raw/public-works-construction-audit-records/`
+- `data/raw/construction-stop-resume-work-records/`
 - `scripts/fetchStreetlightRepairs.ts`
 - `scripts/convertStreetlightRepairs.ts`
 - `scripts/fetchPublicWorksConstructionAuditRecords.ts`
 - `scripts/convertPublicWorksConstructionAuditRecords.ts`
+- `scripts/fetchConstructionStopResumeWorkRecords.ts`
+- `scripts/convertConstructionStopResumeWorkRecords.ts`
+- `scripts/buildConstructionStopResumeWorkSummary.ts`
 - `src/App.tsx`
 - `src/lib/i18n.ts`
 - `src/lib/streetlight.ts`
 - `src/lib/constructionAudit.ts`
+- `src/lib/stopResumeWork.ts`
 - `src/types/streetlight.ts`
 - `src/types/constructionAudit.ts`
+- `src/types/stopResumeWork.ts`
 - `src/hooks/useStreetlightData.ts`
 - `src/hooks/useConstructionAuditData.ts`
+- `src/hooks/useStopResumeWorkData.ts`
 - `src/components/StreetlightRepairs.tsx`
 - `src/components/ConstructionAudits.tsx`
+- `src/components/StopResumeWork.tsx`
 - `tests/streetlight.test.ts`
 - `tests/constructionAudit.test.ts`
+- `tests/stopResumeWork.test.ts`
 - `feature_list.json`
 - `progress.md`
 - `session-handoff.md`
@@ -78,12 +98,16 @@
 - Use CARTO light tiles for the Leaflet base layer because the previous OSM tile endpoint produced marker-only gray maps on GitHub Pages.
 - Keep construction audit records standalone and table/chart based; no map markers and no automatic join to 1999 cases without a reliable shared key.
 - Let `convertPublicWorksConstructionAuditRecords.ts` emit records, summary, latest, dashboard-summary, and conversion report in one pass.
+- Keep stop/resume work records standalone and table/chart based; no map markers and no automatic join to 1999 cases without a reliable shared key.
+- Missing resume/review dates are missing source fields only; do not label them as currently stopped.
+- Let `convertConstructionStopResumeWorkRecords.ts` emit records, summary, latest, dashboard-summary, and conversion report in one pass.
 
 ## Blockers / Risks
 
 - Local `npm run dev` fails under Node 20.2.0 because Vite expects `crypto.hash`; static build verification passed. Use Node 22 or a supported Node 20 patch release for dev-server work.
 - `public/data/streetlight-repairs.json` is about 56 MB. Dashboard summary data is small, but the full table payload remains large.
 - Construction audit records are not live progress, project completion status, safety certification, contractor ranking, legal-liability findings, procurement-fraud evidence, or public-safety warnings.
+- Stop/resume work records are not live construction status, current stop-work/resume status, exact site location, building safety judgment, contractor ranking, legal-liability findings, or public danger warnings.
 
 ## Next Session Startup
 
@@ -94,4 +118,4 @@
 
 ## Recommended Next Step
 
-- Commit the construction audit module when ready.
+- Commit the stop/resume work module when ready.
