@@ -95,6 +95,22 @@
       "dependencies": ["feat-011"],
       "status": "done",
       "evidence": "Replaced the mixed-language README with an English README.md and added a parallel Traditional Chinese README-zh.md covering the same project guidance."
+    },
+    {
+      "id": "feat-013",
+      "name": "PWA update refresh for map tile changes",
+      "description": "Ensure deployed app-shell updates replace stale service-worker content so changed map tile sources appear without a manual cache purge.",
+      "dependencies": ["feat-010"],
+      "status": "done",
+      "evidence": "Versioned the PWA cache, removed obsolete caches during activation, enabled immediate client takeover, added network-first refresh for app assets/data, and triggered service-worker update checks on page load."
+    },
+    {
+      "id": "feat-014",
+      "name": "Automatic deployed app refresh",
+      "description": "Reload controlled PWA windows when a new service worker activates so deployed map-source changes appear without a manual hard refresh.",
+      "dependencies": ["feat-013"],
+      "status": "done",
+      "evidence": "Service-worker activation now claims clients and navigates controlled windows to the current URL after obsolete-cache cleanup; public app/data requests refresh from the network first."
     }
   ]
 }

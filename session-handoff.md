@@ -2,7 +2,7 @@
 
 ## Current Objective
 
-- Goal: Keep the Taipei 1999 map project restartable, use API-key-free map tiles, keep Chinese-mode displays fully localized, and maintain separate English/Traditional Chinese documentation.
+- Goal: Keep the Taipei 1999 map project restartable, refresh deployed PWA content automatically, use API-key-free map tiles, keep Chinese-mode displays fully localized, and maintain separate English/Traditional Chinese documentation.
 - Current status: No active feature; all entries in `feature_list.json` are complete.
 - Branch / commit: current working tree; commit the harness update when ready.
 
@@ -16,6 +16,8 @@
 | Map tile source | `src/App.tsx`, `src/components/StreetlightRepairs.tsx` | PASS — official OSM tiles with visible attribution |
 | Chinese display audit | `npm.cmd test` | PASS — 30 tests, including localized formatting |
 | Documentation split | `README.md`, `README-zh.md` | PASS — English and Traditional Chinese project guides |
+| PWA cache refresh | `public/sw.js`, `src/main.tsx` | PASS — versioned cache and refresh-on-load update check |
+| Automatic PWA refresh | `public/sw.js` | PASS — activation claims and reloads controlled windows |
 | Harness structure | `node C:\Users\150592\.agents\skills\harness-creator\scripts\validate-harness.mjs --target D:\Practice\taipei-1999-map` | PASS — 100/100 |
 
 ## Startup
@@ -33,6 +35,7 @@
 - GitHub Pages must be enabled in repository settings for the Actions deployment workflow.
 - Generated public datasets and raw CSVs are intentionally large; avoid unrelated data regeneration.
 - OpenStreetMap tiles are best-effort; keep usage limited to interactive viewing under the tile usage policy.
+- Existing deployed tabs may briefly reload once for the new service worker to activate; later app/data updates use network-first refresh with offline fallback.
 
 ## Recommended Next Step
 

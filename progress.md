@@ -2,8 +2,8 @@
 
 ## Current State
 
-**Last Updated:** 2026-08-31 15:55 CST
-**Active Feature:** none - bilingual project documentation complete
+**Last Updated:** 2026-08-31 16:15 CST
+**Active Feature:** none - automatic deployed app refresh complete
 
 ## Status
 
@@ -30,6 +30,8 @@
 - [x] Localized visible UI fallbacks, popup headings, construction `PCM` labels, `k NTD` amount output, ISO dates/months/quarters/hours, and streetlight district-status tokens.
 - [x] Added `tests/i18n.test.ts`; the full suite now passes 30 tests and the production build passes.
 - [x] Split project documentation into English `README.md` and Traditional Chinese `README-zh.md`, keeping setup, data, privacy, module, map, deployment, and limitation guidance aligned.
+- [x] Versioned the service-worker cache and added network-first refresh behavior so deployed JavaScript and map-source changes are not hidden behind stale PWA content.
+- [x] Made service-worker activation claim and reload controlled windows once, so the first deployment update replaces the old map bundle without requiring a manual hard refresh.
 
 ### What's In Progress
 
@@ -53,6 +55,7 @@
 - [ ] `npm ci` currently reports 3 dependency audit findings (1 low, 2 high); remediation was not included in this harness-only change.
 - [ ] The restricted Codex sandbox returns `spawn EPERM` when `init.ps1` invokes Vitest through a nested PowerShell layer; top-level `npm.cmd test` and `npm.cmd run build` pass, and the wrapper now propagates failures correctly.
 - [ ] The Codex browser runtime rejected localhost access due its usage/security limit; runtime tab-by-tab visual verification remains for a normal browser session.
+- [ ] Existing deployed tabs may briefly reload once when the new service worker activates; subsequent app/data updates use network-first refresh with offline fallback.
 - [ ] OpenStreetMap tile service is best-effort and subject to its tile usage policy; keep requests limited to interactive map viewing.
 
 ## Decisions Made
@@ -138,3 +141,4 @@ For stop/resume work records, missing resume/review dates are missing source fie
 For map tiles, keep the visible OpenStreetMap attribution and use only interactive requests to `tile.openstreetmap.org`.
 For Chinese mode, keep user-facing units and temporal values localized: construction amounts use `千元`, quarters use `年第N季`, months use `年N月`, and dates use `年N月N日`.
 Keep `README.md` in English and update `README-zh.md` in parallel for user-facing project documentation changes.
+When changing the deployed app shell or generated data, preserve the service worker's cache invalidation, client refresh, and network-first behavior.

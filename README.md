@@ -104,6 +104,7 @@ The public 1999 dataset is capped at the latest 150,000 sanitized records by def
 - The construction-audit module provides filters, summary cards, charts, and a searchable audit directory without map markers.
 - The stop/resume module provides filters, reason/scope summaries, missing-date counts, and a searchable project directory without map markers.
 - A PWA manifest and service worker cache the application shell and generated JSON files.
+- The service worker invalidates older caches and refreshes app/data requests from the network first, with cached content as an offline fallback; controlled windows reload once when a new worker activates.
 
 ## Map tiles
 
