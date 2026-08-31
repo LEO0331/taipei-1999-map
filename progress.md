@@ -2,8 +2,8 @@
 
 ## Current State
 
-**Last Updated:** 2026-08-31 16:15 CST
-**Active Feature:** none - automatic deployed app refresh complete
+**Last Updated:** 2026-08-31 16:35 CST
+**Active Feature:** none - project-wide filtering consistency complete
 
 ## Status
 
@@ -32,6 +32,8 @@
 - [x] Split project documentation into English `README.md` and Traditional Chinese `README-zh.md`, keeping setup, data, privacy, module, map, deployment, and limitation guidance aligned.
 - [x] Versioned the service-worker cache and added network-first refresh behavior so deployed JavaScript and map-source changes are not hidden behind stale PWA content.
 - [x] Made service-worker activation claim and reload controlled windows once, so the first deployment update replaces the old map bundle without requiring a manual hard refresh.
+- [x] Audited all four module filter predicates and fixed the three newer modules so summary cards, charts, top values, maps, tables, and keyword counts all use filtered records.
+- [x] Moved filtering predicates to browser-safe `src/lib/filtering.ts` and added combined-filter plus filtered-summary regression tests; the full suite now passes 34 tests and the production build passes.
 
 ### What's In Progress
 
@@ -56,6 +58,7 @@
 - [ ] The restricted Codex sandbox returns `spawn EPERM` when `init.ps1` invokes Vitest through a nested PowerShell layer; top-level `npm.cmd test` and `npm.cmd run build` pass, and the wrapper now propagates failures correctly.
 - [ ] The Codex browser runtime rejected localhost access due its usage/security limit; runtime tab-by-tab visual verification remains for a normal browser session.
 - [ ] Existing deployed tabs may briefly reload once when the new service worker activates; subsequent app/data updates use network-first refresh with offline fallback.
+- [ ] Browser visual verification remains environment-limited; automated predicate and aggregate coverage is complete.
 - [ ] OpenStreetMap tile service is best-effort and subject to its tile usage policy; keep requests limited to interactive map viewing.
 
 ## Decisions Made
@@ -142,3 +145,4 @@ For map tiles, keep the visible OpenStreetMap attribution and use only interacti
 For Chinese mode, keep user-facing units and temporal values localized: construction amounts use `千元`, quarters use `年第N季`, months use `年N月`, and dates use `年N月N日`.
 Keep `README.md` in English and update `README-zh.md` in parallel for user-facing project documentation changes.
 When changing the deployed app shell or generated data, preserve the service worker's cache invalidation, client refresh, and network-first behavior.
+When adding a module filter, derive every displayed aggregate from its filtered records and add a combined-filter regression test.

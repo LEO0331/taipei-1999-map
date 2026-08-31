@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
 import { CircleMarker, MapContainer, Popup, TileLayer } from 'react-leaflet';
 import { TAIPEI_DISTRICTS, TAIPEI_DISTRICT_CENTROIDS } from '../lib/open1999';
-import { STREETLIGHT_ISSUE_TYPES } from '../lib/streetlight';
+import { buildStreetlightSummary, STREETLIGHT_ISSUE_TYPES } from '../lib/streetlight';
 import { formatDate, formatMonth, type Language } from '../lib/i18n';
+import { filterStreetlightRecords } from '../lib/filtering';
 import { useStreetlightData } from '../hooks/useStreetlightData';
 import type { StreetlightIssueType, StreetlightRepairRecord } from '../types/streetlight';
 
@@ -111,11 +112,12 @@ export function StreetlightRepairs({ language }: { language: Language }) {
   const data = useStreetlightData();
   const t = copy[language];
   const [filters, setFilters] = useState({ year: 'all', district: 'all', issueType: 'all', urgentOnly: false, search: '' });
-  const filtered = useMemo(() => filterRecords(data.records, filters), [data.records, filters]);
+  const filtered = useMemo(() => filterStreetlightRecords(data.records, filters), [data.records, filters]);
+  const summary = useMemo(() => buildStreetlightSummary(filtered), [filtered]);
   const districtRows = useMemo(() => aggregateDistricts(filtered), [filtered]);
   const maxDistrict = Math.max(1, ...districtRows.map((row) => row.recordCount));
-  const topDistrict = data.summary?.byDistrict[0];
-  const topIssue = data.summary?.byIssueType.find((row) => row.count > 0);
+  const topDistrict = summary.byDistrict[0];
+  const topIssue = summary.byIssueType.find((row) => row.count > 0);
 
   return (
     <>
@@ -180,40 +182,28 @@ export function StreetlightRepairs({ language }: { language: Language }) {
           <span>{data.loading ? '...' : `${filtered.length.toLocaleString()} ${t.records}`}</span>
         </div>
         <div className="summary-grid">
-          <Summary label={t.records} value={(data.summary?.totalRecords ?? 0).toLocaleString()} />
-          <Summary label={t.unique} value={(data.summary?.uniqueReportIdCount ?? 0).toLocaleString()} />
-          <Summary label={t.dateRange} value={`${formatDate(data.summary?.minReportedAt?.slice(0, 10), language)} - ${formatDate(data.summary?.maxReportedAt?.slice(0, 10), language)}`} />
-          <Summary label={t.latest} value={formatDate(data.summary?.maxReportedAt?.slice(0, 10), language)} />
+          <Summary label={t.records} value={summary.totalRecords.toLocaleString()} />
+          <Summary label={t.unique} value={summary.uniqueReportIdCount.toLocaleString()} />
+          <Summary label={t.dateRange} value={`${formatDate(summary.minReportedAt?.slice(0, 10), language)} - ${formatDate(summary.maxReportedAt?.slice(0, 10), language)}`} />
+          <Summary label={t.latest} value={formatDate(summary.maxReportedAt?.slice(0, 10), language)} />
           <Summary label={t.topDistrict} value={topDistrict?.district ?? '—'} />
           <Summary label={t.topIssue} value={topIssue ? issueLabels[language][topIssue.issueType] : '—'} />
-          <Summary label={t.urgent} value={(data.summary?.urgentRecordCount ?? 0).toLocaleString()} />
-          <Summary label={t.invalidDistrict} value={(data.summary?.invalidDistrictCount ?? 0).toLocaleString()} />
-          <Summary label={t.missingIssue} value={(data.summary?.missingIssueDescriptionCount ?? 0).toLocaleString()} />
+          <Summary label={t.urgent} value={summary.urgentRecordCount.toLocaleString()} />
+          <Summary label={t.invalidDistrict} value={summary.invalidDistrictCount.toLocaleString()} />
+          <Summary label={t.missingIssue} value={summary.missingIssueDescriptionCount.toLocaleString()} />
         </div>
         <div className="chart-grid">
-          <Bars title={t.byYear} rows={data.summary?.byYear.map((row) => ({ label: String(row.year), count: row.recordCount })) ?? []} />
-          <Bars title={t.byMonth} rows={data.summary?.byMonth.slice(-24).map((row) => ({ label: formatMonth(row.periodKey, language), count: row.recordCount })) ?? []} />
-          <Bars title={t.byDistrict} rows={data.summary?.byDistrict.map((row) => ({ label: row.district, count: row.recordCount })) ?? []} />
-          <Bars title={t.byIssue} rows={data.summary?.byIssueType.map((row) => ({ label: issueLabels[language][row.issueType], count: row.count })) ?? []} />
-          <Bars title={t.byHour} rows={data.summary?.byHour.map((row) => ({ label: String(row.hour), count: row.recordCount })) ?? []} />
-          <Bars title={t.roadNames} rows={data.summary?.byRoadName.slice(0, 10).map((row) => ({ label: row.roadName, count: row.recordCount })) ?? []} />
+          <Bars title={t.byYear} rows={summary.byYear.map((row) => ({ label: String(row.year), count: row.recordCount }))} />
+          <Bars title={t.byMonth} rows={summary.byMonth.slice(-24).map((row) => ({ label: formatMonth(row.periodKey, language), count: row.recordCount }))} />
+          <Bars title={t.byDistrict} rows={summary.byDistrict.map((row) => ({ label: row.district, count: row.recordCount }))} />
+          <Bars title={t.byIssue} rows={summary.byIssueType.map((row) => ({ label: issueLabels[language][row.issueType], count: row.count }))} />
+          <Bars title={t.byHour} rows={summary.byHour.map((row) => ({ label: String(row.hour), count: row.recordCount }))} />
+          <Bars title={t.roadNames} rows={summary.byRoadName.slice(0, 10).map((row) => ({ label: row.roadName, count: row.recordCount }))} />
         </div>
         <StreetlightTable records={filtered.slice(0, 100)} language={language} />
       </section>
     </>
   );
-}
-
-function filterRecords(records: StreetlightRepairRecord[], filters: { year: string; district: string; issueType: string; urgentOnly: boolean; search: string }) {
-  const query = filters.search.trim().toLowerCase();
-  return records.filter((record) => {
-    if (filters.year !== 'all' && String(record.reportedYear) !== filters.year) return false;
-    if (filters.district !== 'all' && record.district !== filters.district) return false;
-    if (filters.issueType !== 'all' && !record.issueTypes.includes(filters.issueType as StreetlightIssueType)) return false;
-    if (filters.urgentOnly && !record.isUrgent) return false;
-    if (!query) return true;
-    return [record.reportId, record.district, record.reportedLocationMasked, record.issueDescription, record.roadName, record.issueTypes.join(' ')].join(' ').toLowerCase().includes(query);
-  });
 }
 
 function aggregateDistricts(records: StreetlightRepairRecord[]) {

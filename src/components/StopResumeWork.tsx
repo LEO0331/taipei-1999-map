@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
 import { formatDate, formatMonth, formatQuarter, type Language } from '../lib/i18n';
+import { buildStopResumeWorkSummary } from '../lib/stopResumeWorkSummary';
+import { filterStopResumeRecords } from '../lib/filtering';
 import { useStopResumeWorkData } from '../hooks/useStopResumeWorkData';
 import type { ConstructionStopResumeWorkRecord, StopWorkReasonCategory, StopWorkScopeCategory } from '../types/stopResumeWork';
 
@@ -110,16 +112,17 @@ export function StopResumeWork({ language }: { language: Language }) {
   const data = useStopResumeWorkData();
   const t = copy[language];
   const [filters, setFilters] = useState({ year: 'all', quarter: 'all', entity: 'all', reasonCategory: 'all', scopeCategory: 'all', missingResume: false, fallPrevention: false, search: '' });
-  const filtered = useMemo(() => filterRecords(data.records, filters), [data.records, filters]);
+  const filtered = useMemo(() => filterStopResumeRecords(data.records, filters), [data.records, filters]);
+  const summary = useMemo(() => buildStopResumeWorkSummary(filtered), [filtered]);
   const options = useMemo(() => buildOptions(data.records), [data.records]);
-  const topReason = data.summary?.byStopWorkReasonCategory.find((row) => row.count > 0);
-  const topScope = data.summary?.byStopWorkScopeCategory.find((row) => row.count > 0);
-  const topEntity = data.summary?.byBusinessEntity[0];
-  const topProject = data.summary?.byProject[0];
+  const topReason = summary.byStopWorkReasonCategory.find((row) => row.count > 0);
+  const topScope = summary.byStopWorkScopeCategory.find((row) => row.count > 0);
+  const topEntity = summary.byBusinessEntity[0];
+  const topProject = summary.byProject[0];
   const keywordRows = [
-    { label: t.fallPrevention, count: data.records.filter((record) => record.hasFallPreventionKeyword).length },
-    { label: reasonLabels[language].scaffold, count: data.records.filter((record) => record.hasScaffoldKeyword).length },
-    { label: reasonLabels[language].opening_or_edge, count: data.records.filter((record) => record.hasOpeningEdgeKeyword).length }
+    { label: t.fallPrevention, count: filtered.filter((record) => record.hasFallPreventionKeyword).length },
+    { label: reasonLabels[language].scaffold, count: filtered.filter((record) => record.hasScaffoldKeyword).length },
+    { label: reasonLabels[language].opening_or_edge, count: filtered.filter((record) => record.hasOpeningEdgeKeyword).length }
   ];
 
   return (
@@ -151,14 +154,14 @@ export function StopResumeWork({ language }: { language: Language }) {
 
       <section className="dashboard">
         <div className="summary-grid">
-          <Summary label={t.records} value={(data.summary?.totalRecords ?? 0).toLocaleString()} />
-          <Summary label={t.latestMonth} value={formatMonth(data.summary?.latestStopWorkMonth, language)} />
-          <Summary label={t.projects} value={(data.summary?.uniqueProjectCount ?? 0).toLocaleString()} />
-          <Summary label={t.entities} value={(data.summary?.uniqueBusinessEntityCount ?? 0).toLocaleString()} />
-          <Summary label={t.withResume} value={(data.summary?.recordsWithResumeOrReviewDate ?? 0).toLocaleString()} />
-          <Summary label={t.withoutResume} value={(data.summary?.recordsMissingResumeOrReviewDate ?? 0).toLocaleString()} />
-          <Summary label={t.avgDays} value={formatNumber(data.summary?.averageDaysUntilResumeOrReview)} />
-          <Summary label={t.medianDays} value={formatNumber(data.summary?.medianDaysUntilResumeOrReview)} />
+          <Summary label={t.records} value={summary.totalRecords.toLocaleString()} />
+          <Summary label={t.latestMonth} value={formatMonth(summary.latestStopWorkMonth, language)} />
+          <Summary label={t.projects} value={summary.uniqueProjectCount.toLocaleString()} />
+          <Summary label={t.entities} value={summary.uniqueBusinessEntityCount.toLocaleString()} />
+          <Summary label={t.withResume} value={summary.recordsWithResumeOrReviewDate.toLocaleString()} />
+          <Summary label={t.withoutResume} value={summary.recordsMissingResumeOrReviewDate.toLocaleString()} />
+          <Summary label={t.avgDays} value={formatNumber(summary.averageDaysUntilResumeOrReview)} />
+          <Summary label={t.medianDays} value={formatNumber(summary.medianDaysUntilResumeOrReview)} />
           <Summary label={t.topReason} value={topReason ? reasonLabels[language][topReason.stopWorkReasonCategory] : '-'} />
           <Summary label={t.topScope} value={topScope ? scopeLabels[language][topScope.stopWorkScopeCategory] : '-'} />
           <Summary label={t.topEntity} value={topEntity?.businessEntityName ?? '-'} />
@@ -166,13 +169,13 @@ export function StopResumeWork({ language }: { language: Language }) {
         </div>
 
         <div className="chart-grid">
-          <Bars title={t.byMonth} rows={data.summary?.byStopWorkMonth.slice(-24).map((row) => ({ label: formatMonth(row.stopWorkMonthKey, language), count: row.recordCount })) ?? []} />
-          <Bars title={t.byQuarter} rows={data.summary?.byStopWorkQuarter.map((row) => ({ label: formatQuarter(row.stopWorkQuarter, language), count: row.recordCount })) ?? []} />
-          <Bars title={t.byReason} rows={data.summary?.byStopWorkReasonCategory.map((row) => ({ label: reasonLabels[language][row.stopWorkReasonCategory], count: row.count })) ?? []} />
-          <Bars title={t.byScope} rows={data.summary?.byStopWorkScopeCategory.map((row) => ({ label: scopeLabels[language][row.stopWorkScopeCategory], count: row.count })) ?? []} />
-          <Bars title={t.byEntity} rows={data.summary?.byBusinessEntity.slice(0, 12).map((row) => ({ label: row.businessEntityName, count: row.recordCount })) ?? []} />
-          <Bars title={t.byProject} rows={data.summary?.byProject.slice(0, 12).map((row) => ({ label: row.projectName, count: row.recordCount })) ?? []} />
-          <Bars title={t.resumeSplit} rows={[{ label: t.withResume, count: data.summary?.recordsWithResumeOrReviewDate ?? 0 }, { label: t.withoutResume, count: data.summary?.recordsMissingResumeOrReviewDate ?? 0 }]} />
+          <Bars title={t.byMonth} rows={summary.byStopWorkMonth.slice(-24).map((row) => ({ label: formatMonth(row.stopWorkMonthKey, language), count: row.recordCount }))} />
+          <Bars title={t.byQuarter} rows={summary.byStopWorkQuarter.map((row) => ({ label: formatQuarter(row.stopWorkQuarter, language), count: row.recordCount }))} />
+          <Bars title={t.byReason} rows={summary.byStopWorkReasonCategory.map((row) => ({ label: reasonLabels[language][row.stopWorkReasonCategory], count: row.count }))} />
+          <Bars title={t.byScope} rows={summary.byStopWorkScopeCategory.map((row) => ({ label: scopeLabels[language][row.stopWorkScopeCategory], count: row.count }))} />
+          <Bars title={t.byEntity} rows={summary.byBusinessEntity.slice(0, 12).map((row) => ({ label: row.businessEntityName, count: row.recordCount }))} />
+          <Bars title={t.byProject} rows={summary.byProject.slice(0, 12).map((row) => ({ label: row.projectName, count: row.recordCount }))} />
+          <Bars title={t.resumeSplit} rows={[{ label: t.withResume, count: summary.recordsWithResumeOrReviewDate }, { label: t.withoutResume, count: summary.recordsMissingResumeOrReviewDate }]} />
           <Bars title={t.keywordTrend} rows={keywordRows} />
         </div>
 
@@ -191,21 +194,6 @@ export function StopResumeWork({ language }: { language: Language }) {
       </section>
     </>
   );
-}
-
-function filterRecords(records: ConstructionStopResumeWorkRecord[], filters: { year: string; quarter: string; entity: string; reasonCategory: string; scopeCategory: string; missingResume: boolean; fallPrevention: boolean; search: string }) {
-  const query = filters.search.trim().toLowerCase();
-  return records.filter((record) => {
-    if (filters.year !== 'all' && String(record.stopWorkYear) !== filters.year) return false;
-    if (filters.quarter !== 'all' && record.stopWorkQuarter !== filters.quarter) return false;
-    if (filters.entity !== 'all' && record.businessEntityName !== filters.entity) return false;
-    if (filters.reasonCategory !== 'all' && record.stopWorkReasonCategory !== filters.reasonCategory) return false;
-    if (filters.scopeCategory !== 'all' && record.stopWorkScopeCategory !== filters.scopeCategory) return false;
-    if (filters.missingResume && !record.isMissingResumeOrReviewDate) return false;
-    if (filters.fallPrevention && !record.hasFallPreventionKeyword) return false;
-    if (!query) return true;
-    return [record.projectName, record.businessEntityName, record.stopWorkScope, record.stopWorkReason, record.stopWorkDate, record.resumeOrReviewDate].join(' ').toLowerCase().includes(query);
-  });
 }
 
 function buildOptions(records: ConstructionStopResumeWorkRecord[]) {

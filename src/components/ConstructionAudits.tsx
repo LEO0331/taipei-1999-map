@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
 import { formatDate, formatQuarter, type Language } from '../lib/i18n';
+import { buildConstructionAuditSummary } from '../lib/constructionAuditSummary';
+import { filterConstructionAuditRecords } from '../lib/filtering';
 import { useConstructionAuditData } from '../hooks/useConstructionAuditData';
 import type { ConstructionAuditScoreBand, PublicWorksConstructionAuditRecord } from '../types/constructionAudit';
 
@@ -107,14 +109,15 @@ export function ConstructionAudits({ language }: { language: Language }) {
   const data = useConstructionAuditData();
   const t = copy[language];
   const [filters, setFilters] = useState({ year: 'all', quarter: 'all', sourceQuarter: 'all', agency: 'all', contractor: 'all', scoreBand: 'all', hasDeduction: false, hasNotes: false, search: '' });
-  const filtered = useMemo(() => filterRecords(data.records, filters), [data.records, filters]);
+  const filtered = useMemo(() => filterConstructionAuditRecords(data.records, filters), [data.records, filters]);
+  const summary = useMemo(() => buildConstructionAuditSummary(filtered), [filtered]);
   const options = useMemo(() => buildOptions(data.records), [data.records]);
-  const topAgency = data.summary?.byResponsibleAgency[0];
-  const topContractor = data.summary?.byContractor[0];
+  const topAgency = summary.byResponsibleAgency[0];
+  const topContractor = summary.byContractor[0];
   const deductionRows = [
-    { label: t.deductionContractor, count: data.summary?.totalContractorDeductionPoints ?? 0 },
-    { label: t.deductionSupervision, count: data.summary?.totalSupervisionDeductionPoints ?? 0 },
-    { label: t.deductionProjectManagement, count: data.summary?.totalPcmDeductionPoints ?? 0 }
+    { label: t.deductionContractor, count: summary.totalContractorDeductionPoints ?? 0 },
+    { label: t.deductionSupervision, count: summary.totalSupervisionDeductionPoints ?? 0 },
+    { label: t.deductionProjectManagement, count: summary.totalPcmDeductionPoints ?? 0 }
   ];
 
   return (
@@ -147,26 +150,26 @@ export function ConstructionAudits({ language }: { language: Language }) {
 
       <section className="dashboard">
         <div className="summary-grid">
-          <Summary label={t.records} value={(data.summary?.totalRecords ?? 0).toLocaleString()} />
-          <Summary label={t.latestQuarter} value={formatQuarter(data.summary?.latestAuditQuarter, language)} />
-          <Summary label={t.projects} value={(data.summary?.uniqueProjectCount ?? 0).toLocaleString()} />
-          <Summary label={t.agencies} value={(data.summary?.responsibleAgencyCount ?? 0).toLocaleString()} />
-          <Summary label={t.contractors} value={(data.summary?.contractorCount ?? 0).toLocaleString()} />
-          <Summary label={t.totalAmount} value={formatMoney(data.summary?.totalContractAmountThousandNtd, language)} />
-          <Summary label={t.averageAmount} value={formatMoney(data.summary?.averageContractAmountThousandNtd, language)} />
-          <Summary label={t.averageScore} value={formatNumber(data.summary?.averageAuditScore)} />
-          <Summary label={t.deductionRecords} value={(data.summary?.recordsWithDeductionPoints ?? 0).toLocaleString()} />
-          <Summary label={t.totalDeduction} value={formatNumber(data.summary?.totalDeductionPoints)} />
+          <Summary label={t.records} value={summary.totalRecords.toLocaleString()} />
+          <Summary label={t.latestQuarter} value={formatQuarter(summary.latestAuditQuarter, language)} />
+          <Summary label={t.projects} value={summary.uniqueProjectCount.toLocaleString()} />
+          <Summary label={t.agencies} value={summary.responsibleAgencyCount.toLocaleString()} />
+          <Summary label={t.contractors} value={summary.contractorCount.toLocaleString()} />
+          <Summary label={t.totalAmount} value={formatMoney(summary.totalContractAmountThousandNtd, language)} />
+          <Summary label={t.averageAmount} value={formatMoney(summary.averageContractAmountThousandNtd, language)} />
+          <Summary label={t.averageScore} value={formatNumber(summary.averageAuditScore)} />
+          <Summary label={t.deductionRecords} value={summary.recordsWithDeductionPoints.toLocaleString()} />
+          <Summary label={t.totalDeduction} value={formatNumber(summary.totalDeductionPoints)} />
           <Summary label={t.topAgency} value={topAgency?.responsibleAgency ?? '-'} />
           <Summary label={t.topContractor} value={topContractor?.contractor ?? '-'} />
         </div>
 
         <div className="chart-grid">
-          <Bars title={t.byQuarter} rows={data.summary?.byAuditQuarter.map((row) => ({ label: formatQuarter(row.auditQuarter, language), count: row.recordCount })) ?? []} />
-          <Bars title={t.byAgency} rows={data.summary?.byResponsibleAgency.slice(0, 12).map((row) => ({ label: row.responsibleAgency, count: row.recordCount })) ?? []} />
-          <Bars title={t.byContractor} rows={data.summary?.byContractor.slice(0, 12).map((row) => ({ label: row.contractor, count: row.recordCount })) ?? []} />
-          <Bars title={t.byScore} rows={data.summary?.byScoreBand.map((row) => ({ label: scoreBandLabels[language][row.auditScoreBand], count: row.count })) ?? []} />
-          <Bars title={t.byNotification} rows={data.summary?.byNotificationMethod.map((row) => ({ label: row.notificationMethod, count: row.count })) ?? []} />
+          <Bars title={t.byQuarter} rows={summary.byAuditQuarter.map((row) => ({ label: formatQuarter(row.auditQuarter, language), count: row.recordCount }))} />
+          <Bars title={t.byAgency} rows={summary.byResponsibleAgency.slice(0, 12).map((row) => ({ label: row.responsibleAgency, count: row.recordCount }))} />
+          <Bars title={t.byContractor} rows={summary.byContractor.slice(0, 12).map((row) => ({ label: row.contractor, count: row.recordCount }))} />
+          <Bars title={t.byScore} rows={summary.byScoreBand.map((row) => ({ label: scoreBandLabels[language][row.auditScoreBand], count: row.count }))} />
+          <Bars title={t.byNotification} rows={summary.byNotificationMethod.map((row) => ({ label: row.notificationMethod, count: row.count }))} />
           <Bars title={t.deductionByType} rows={deductionRows} />
         </div>
 
@@ -185,22 +188,6 @@ export function ConstructionAudits({ language }: { language: Language }) {
       </section>
     </>
   );
-}
-
-function filterRecords(records: PublicWorksConstructionAuditRecord[], filters: { year: string; quarter: string; sourceQuarter: string; agency: string; contractor: string; scoreBand: string; hasDeduction: boolean; hasNotes: boolean; search: string }) {
-  const query = filters.search.trim().toLowerCase();
-  return records.filter((record) => {
-    if (filters.year !== 'all' && String(record.auditYear) !== filters.year) return false;
-    if (filters.quarter !== 'all' && record.auditQuarter !== filters.quarter) return false;
-    if (filters.sourceQuarter !== 'all' && record.resourceQuarterKey !== filters.sourceQuarter) return false;
-    if (filters.agency !== 'all' && record.responsibleAgency !== filters.agency) return false;
-    if (filters.contractor !== 'all' && record.contractor !== filters.contractor) return false;
-    if (filters.scoreBand !== 'all' && record.auditScoreBand !== filters.scoreBand) return false;
-    if (filters.hasDeduction && record.totalDeductionPoints === undefined) return false;
-    if (filters.hasNotes && !record.hasNotes) return false;
-    if (!query) return true;
-    return [record.projectName, record.responsibleAgency, record.designUnit, record.supervisionUnit, record.contractor, record.projectManagementUnit, record.notificationMethod, record.notes, record.auditDate].join(' ').toLowerCase().includes(query);
-  });
 }
 
 function buildOptions(records: PublicWorksConstructionAuditRecord[]) {

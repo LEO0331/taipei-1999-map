@@ -2,7 +2,7 @@
 
 ## Current Objective
 
-- Goal: Keep the Taipei 1999 map project restartable, refresh deployed PWA content automatically, use API-key-free map tiles, keep Chinese-mode displays fully localized, and maintain separate English/Traditional Chinese documentation.
+- Goal: Keep the Taipei 1999 map project restartable, keep deployed PWA content current, use API-key-free map tiles, keep Chinese-mode displays fully localized, ensure all module aggregates honor filters, and maintain separate English/Traditional Chinese documentation.
 - Current status: No active feature; all entries in `feature_list.json` are complete.
 - Branch / commit: current working tree; commit the harness update when ready.
 
@@ -18,6 +18,7 @@
 | Documentation split | `README.md`, `README-zh.md` | PASS — English and Traditional Chinese project guides |
 | PWA cache refresh | `public/sw.js`, `src/main.tsx` | PASS — versioned cache and refresh-on-load update check |
 | Automatic PWA refresh | `public/sw.js` | PASS — activation claims and reloads controlled windows |
+| Filtering consistency | `src/lib/filtering.ts`, module components, `tests/filtering.test.ts` | PASS — 34 tests including filtered aggregate coverage |
 | Harness structure | `node C:\Users\150592\.agents\skills\harness-creator\scripts\validate-harness.mjs --target D:\Practice\taipei-1999-map` | PASS — 100/100 |
 
 ## Startup

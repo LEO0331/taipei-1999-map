@@ -111,6 +111,14 @@
       "dependencies": ["feat-013"],
       "status": "done",
       "evidence": "Service-worker activation now claims clients and navigates controlled windows to the current URL after obsolete-cache cleanup; public app/data requests refresh from the network first."
+    },
+    {
+      "id": "feat-015",
+      "name": "Project-wide filtering consistency",
+      "description": "Ensure every module's filters apply consistently to records, summaries, charts, maps, tables, search, and dependent display values.",
+      "dependencies": ["feat-006", "feat-007", "feat-008", "feat-011"],
+      "status": "done",
+      "evidence": "Fixed unfiltered summary/chart aggregates in streetlight, construction-audit, and stop/resume modules; moved all four predicates to a shared browser-safe library; added combined-filter and filtered-summary regression coverage. npm test passed 34 tests and npm run build passed."
     }
   ]
 }

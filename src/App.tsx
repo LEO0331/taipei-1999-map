@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { CircleMarker, MapContainer, Popup, TileLayer } from 'react-leaflet';
 import { aggregateByCategory, aggregateByDay, aggregateByDistrict, aggregateByHotspot, aggregateByHour, SERVICE_GROUPS, TAIPEI_DISTRICTS } from './lib/open1999';
 import { formatDate, formatHour, serviceGroupLabel, translations, type Language } from './lib/i18n';
+import { filterOpen1999Records } from './lib/filtering';
 import { useOpen1999Data } from './hooks/useOpen1999Data';
 import { StreetlightRepairs } from './components/StreetlightRepairs';
 import { ConstructionAudits } from './components/ConstructionAudits';
@@ -55,7 +56,7 @@ export function App() {
     startDate: filters.startDate || dateBounds.start,
     endDate: filters.endDate || dateBounds.end
   };
-  const filteredRecords = useMemo(() => filterRecords(data.records, effectiveFilters, language), [data.records, effectiveFilters, language]);
+  const filteredRecords = useMemo(() => filterOpen1999Records(data.records, effectiveFilters, language), [data.records, effectiveFilters, language]);
   const districtSummary = useMemo(() => aggregateByDistrict(filteredRecords), [filteredRecords]);
   const hotspotSummary = useMemo(() => aggregateByHotspot(filteredRecords).slice(0, 100), [filteredRecords]);
   const categorySummary = useMemo(() => aggregateByCategory(filteredRecords), [filteredRecords]);
@@ -334,31 +335,6 @@ function usePersistedLanguage(): [Language, (language: Language) => void] {
     setLanguageState(next);
   };
   return [language, setLanguage];
-}
-
-function filterRecords(records: Open1999Record[], filters: Filters, language: Language): Open1999Record[] {
-  const query = filters.search.trim().toLowerCase();
-  return records.filter((record) => {
-    if (filters.startDate && record.createdDate < filters.startDate) return false;
-    if (filters.endDate && record.createdDate > filters.endDate) return false;
-    if (filters.district !== 'all' && record.district !== filters.district) return false;
-    if (filters.serviceGroup !== 'all' && record.serviceGroup !== filters.serviceGroup) return false;
-    if (filters.serviceItem !== 'all' && record.serviceItem !== filters.serviceItem) return false;
-    if (!matchesTimePeriod(record.hour, filters.timePeriod)) return false;
-    if (filters.dayType === 'weekday' && (record.weekday === 0 || record.weekday === 6)) return false;
-    if (filters.dayType === 'weekend' && record.weekday > 0 && record.weekday < 6) return false;
-    if (!query) return true;
-    const haystack = [record.serviceItem, serviceGroupLabel(record.serviceGroup, language), record.district, record.displayLocation, record.road].join(' ').toLowerCase();
-    return haystack.includes(query);
-  });
-}
-
-function matchesTimePeriod(hour: number, period: TimePeriod): boolean {
-  if (period === 'all') return true;
-  if (period === 'morning') return hour >= 6 && hour < 12;
-  if (period === 'afternoon') return hour >= 12 && hour < 17;
-  if (period === 'evening') return hour >= 17 && hour < 21;
-  return hour >= 21 || hour < 6;
 }
 
 function getDateBounds(records: Open1999Record[]): { start: string; end: string } {
