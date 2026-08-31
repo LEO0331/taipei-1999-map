@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { CircleMarker, MapContainer, Popup, TileLayer } from 'react-leaflet';
 import { aggregateByCategory, aggregateByDay, aggregateByDistrict, aggregateByHotspot, aggregateByHour, SERVICE_GROUPS, TAIPEI_DISTRICTS } from './lib/open1999';
-import { serviceGroupLabel, translations, type Language } from './lib/i18n';
+import { formatDate, formatHour, serviceGroupLabel, translations, type Language } from './lib/i18n';
 import { useOpen1999Data } from './hooks/useOpen1999Data';
 import { StreetlightRepairs } from './components/StreetlightRepairs';
 import { ConstructionAudits } from './components/ConstructionAudits';
@@ -72,7 +72,7 @@ export function App() {
     <div className="app-shell">
       <header className="topbar">
         <div>
-          <p className="kicker">1999 Open Data</p>
+          <p className="kicker">{t.openData}</p>
           <h1>{t.appTitle}</h1>
           <p>{activeModule === 'streetlight' ? t.streetlightSubtitle : activeModule === 'constructionAudit' ? t.constructionAuditSubtitle : activeModule === 'stopResumeWork' ? t.stopResumeWorkSubtitle : t.appSubtitle}</p>
         </div>
@@ -82,7 +82,7 @@ export function App() {
       </header>
 
       <main>
-        <div className="mode-toggle module-toggle" role="tablist" aria-label="Data module">
+        <div className="mode-toggle module-toggle" role="tablist" aria-label={t.dataModule}>
           <button className={activeModule === 'open1999' ? 'active' : ''} onClick={() => setActiveModule('open1999')} type="button">
             {t.dispatch1999}
           </button>
@@ -171,13 +171,13 @@ export function App() {
               </select>
             </label>
             <label>
-              {language === 'zh' ? '搜尋' : 'Search'}
+              {t.search}
               <input value={filters.search} onChange={(event) => updateFilter('search', event.target.value)} placeholder={t.searchPlaceholder} />
             </label>
           </aside>
 
           <section className="map-panel">
-            <div className="mode-toggle" role="tablist" aria-label="Map mode">
+            <div className="mode-toggle" role="tablist" aria-label={t.mapMode}>
               {[
                 ['district', t.districtMap],
                 ['hotspot', t.hotspotMap],
@@ -191,7 +191,7 @@ export function App() {
             {mode === 'list' ? (
               <RecordList records={filteredRecords} language={language} />
             ) : (
-              <Open1999Map mode={mode} districts={districtSummary} hotspots={hotspotSummary} language={language} period={`${effectiveFilters.startDate} - ${effectiveFilters.endDate}`} />
+              <Open1999Map mode={mode} districts={districtSummary} hotspots={hotspotSummary} language={language} period={`${formatDate(effectiveFilters.startDate, language)} - ${formatDate(effectiveFilters.endDate, language)}`} />
             )}
           </section>
         </section>
@@ -201,7 +201,7 @@ export function App() {
             <h2>{t.overview}</h2>
             <span>
               {data.loading ? t.noData : `${filteredRecords.length.toLocaleString()} ${t.records}`}
-              {data.report?.period ? ` · ${t.sourcePeriod}: ${data.report.period.start} - ${data.report.period.end}` : ''}
+              {data.report?.period ? ` · ${t.sourcePeriod}: ${formatDate(data.report.period.start, language)} - ${formatDate(data.report.period.end, language)}` : ''}
             </span>
           </div>
           <div className="summary-grid">
@@ -213,16 +213,16 @@ export function App() {
             <SummaryCard label={t.busiestHour} value={stats.busiestHour} />
           </div>
           <div className="chart-grid">
-            <BarChart title={t.requestsByDay} rows={daySummary.slice(-31).map((row) => ({ label: row.date.slice(5), count: row.count }))} />
-            <BarChart title={t.requestsByHour} rows={hourSummary.map((row) => ({ label: `${row.hour}`, count: row.count }))} compact />
+            <BarChart title={t.requestsByDay} rows={daySummary.slice(-31).map((row) => ({ label: formatDate(row.date, language), count: row.count }))} />
+            <BarChart title={t.requestsByHour} rows={hourSummary.map((row) => ({ label: formatHour(row.hour, language), count: row.count }))} compact />
             <BarChart title={t.requestsByDistrict} rows={districtSummary.map((row) => ({ label: row.district, count: row.totalCount }))} />
             <BarChart title={t.requestsByServiceGroup} rows={categorySummary.map((row) => ({ label: serviceGroupLabel(row.serviceGroup, language), count: row.totalCount }))} />
             <BarChart title={t.topServiceItems} rows={topServiceItems(filteredRecords).slice(0, 10)} />
             <BarChart
               title={t.weekdayVsWeekend}
               rows={[
-                { label: language === 'zh' ? '平日' : 'Weekday', count: filteredRecords.filter((record) => record.weekday > 0 && record.weekday < 6).length },
-                { label: language === 'zh' ? '週末' : 'Weekend', count: filteredRecords.filter((record) => record.weekday === 0 || record.weekday === 6).length }
+                { label: t.weekday, count: filteredRecords.filter((record) => record.weekday > 0 && record.weekday < 6).length },
+                { label: t.weekend, count: filteredRecords.filter((record) => record.weekday === 0 || record.weekday === 6).length }
               ]}
             />
           </div>
@@ -240,7 +240,7 @@ function Open1999Map({ mode, districts, hotspots, language, period }: { mode: Ma
   const max = Math.max(1, ...districts.map((district) => district.totalCount), ...hotspots.map((hotspot) => hotspot.totalCount));
   return (
     <MapContainer center={[25.055, 121.55]} zoom={12} minZoom={10} scrollWheelZoom className="map">
-      <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
+      <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {mode === 'district' &&
         districts.map((district) => (
           <CircleMarker key={district.district} center={[district.latitude, district.longitude]} radius={10 + (district.totalCount / max) * 34} pathOptions={{ color: '#0f766e', fillColor: '#14b8a6', fillOpacity: 0.48, weight: 2 }}>
@@ -267,11 +267,13 @@ function PopupContent({ title, count, groups, items, language, period }: { title
       <strong>{title}</strong>
       <span>{count.toLocaleString()} {translations[language].records}</span>
       <small>{period}</small>
+      <strong>{translations[language].topGroups}</strong>
       <ol>
         {topEntries(groups, 3).map(([group, value]) => (
           <li key={group}>{serviceGroupLabel(group as Open1999ServiceGroup, language)} · {value}</li>
         ))}
       </ol>
+      <strong>{translations[language].topItems}</strong>
       <ol>
         {topEntries(items, 5).map(([item, value]) => (
           <li key={item}>{item} · {value}</li>
@@ -291,7 +293,7 @@ function RecordList({ records, language }: { records: Open1999Record[]; language
             <span>{serviceGroupLabel(record.serviceGroup, language)}</span>
           </div>
           <p>{record.district ?? '—'} · {record.displayLocation}</p>
-          <time>{record.createdDate} {record.createdTime.slice(0, 5)}</time>
+      <time>{formatDate(record.createdDate, language)} {record.createdTime.slice(0, 5)}</time>
         </article>
       ))}
     </div>
@@ -389,8 +391,8 @@ function buildStats(records: Open1999Record[], language: Language) {
     topDistrict: districts[0]?.district ?? '—',
     topGroup: categories[0] ? serviceGroupLabel(categories[0].serviceGroup, language) : '—',
     topItem: items[0]?.label ?? '—',
-    busiestDay: days[0]?.date ?? '—',
-    busiestHour: hours[0] ? `${hours[0].hour}:00` : '—'
+    busiestDay: formatDate(days[0]?.date, language),
+    busiestHour: hours[0] ? formatHour(hours[0].hour, language) : '—'
   };
 }
 

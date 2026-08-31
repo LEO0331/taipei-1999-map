@@ -63,6 +63,38 @@
       "dependencies": ["feat-001"],
       "status": "done",
       "evidence": "Fetched the official CSV, converted 1,043 deduplicated stop/resume records from uploaded and official CSVs, added no-map dashboard module, and verified with tests, builds, and browser smoke testing."
+    },
+    {
+      "id": "feat-009",
+      "name": "Cross-platform agent harness startup",
+      "description": "Keep agent startup reproducible on Bash and Windows PowerShell, including dependency bootstrap and matching verification checks.",
+      "dependencies": ["feat-004"],
+      "status": "done",
+      "evidence": "Added dependency bootstrapping and matching Bash/PowerShell startup checks, and verified 27 tests plus npm run build; structural harness validation remains 100/100."
+    },
+    {
+      "id": "feat-010",
+      "name": "API-key-free map tiles",
+      "description": "Use a public map tile source that does not render an API-key-required watermark while preserving required attribution.",
+      "dependencies": ["feat-002"],
+      "status": "done",
+      "evidence": "Switched both Leaflet maps from unauthenticated CARTO raster tiles to the official OpenStreetMap tile endpoint with visible OSM contributor attribution; tests and production build passed."
+    },
+    {
+      "id": "feat-011",
+      "name": "Chinese-mode project-wide display audit",
+      "description": "Audit and localize all visible Chinese-mode labels, descriptions, data units, dates, periods, status values, and chart/table display fields across every module.",
+      "dependencies": ["feat-002", "feat-006", "feat-007", "feat-008"],
+      "status": "done",
+      "evidence": "Localized base-app labels and accessibility text, construction currency/role labels, quarter/month/date/hour values, streetlight status fallbacks, and popup headings; added i18n regression tests. npm test passed 30 tests and npm run build passed."
+    },
+    {
+      "id": "feat-012",
+      "name": "Bilingual project documentation",
+      "description": "Maintain separate English and Traditional Chinese README documentation with synchronized setup, data, privacy, module, map, deployment, and limitation guidance.",
+      "dependencies": ["feat-011"],
+      "status": "done",
+      "evidence": "Replaced the mixed-language README with an English README.md and added a parallel Traditional Chinese README-zh.md covering the same project guidance."
     }
   ]
 }

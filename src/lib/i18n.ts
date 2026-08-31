@@ -5,6 +5,14 @@ export type Language = 'zh' | 'en';
 export const translations = {
   zh: {
     appTitle: '台北1999派工地圖',
+    openData: '1999 公開資料',
+    dataModule: '資料模組',
+    mapMode: '地圖模式',
+    search: '搜尋',
+    weekday: '平日',
+    weekend: '週末',
+    topGroups: '主要服務類型',
+    topItems: '主要派工項目',
     appSubtitle: '探索台北市政府1999派工案件的時間、行政區與類型分布',
     dispatch1999: '1999 派工',
     streetlightRepairs: '路燈維修',
@@ -56,6 +64,14 @@ export const translations = {
   },
   en: {
     appTitle: 'Taipei 1999 Service Request Map',
+    openData: '1999 Open Data',
+    dataModule: 'Data module',
+    mapMode: 'Map mode',
+    search: 'Search',
+    weekday: 'Weekday',
+    weekend: 'Weekend',
+    topGroups: 'Top service types',
+    topItems: 'Top dispatch items',
     appSubtitle: 'Explore the time, district, and category distribution of Taipei 1999 dispatched service requests',
     dispatch1999: '1999 Dispatch',
     streetlightRepairs: 'Streetlight Repairs',
@@ -121,4 +137,29 @@ export function serviceGroupLabel(group: Open1999ServiceGroup, language: Languag
     other: 'other'
   };
   return translations[language][keyByGroup[group]];
+}
+
+export function formatDate(value: string | undefined, language: Language): string {
+  if (!value) return '—';
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match || language === 'en') return value;
+  return `${match[1]}年${Number(match[2])}月${Number(match[3])}日`;
+}
+
+export function formatMonth(value: string | undefined, language: Language): string {
+  if (!value) return '—';
+  const match = value.match(/^(\d{4})-(\d{2})$/);
+  if (!match || language === 'en') return value;
+  return `${match[1]}年${Number(match[2])}月`;
+}
+
+export function formatQuarter(value: string | undefined, language: Language): string {
+  if (!value) return '—';
+  const match = value.match(/^(\d{4})-Q([1-4])$/);
+  if (!match || language === 'en') return value;
+  return `${match[1]}年第${match[2]}季`;
+}
+
+export function formatHour(value: number, language: Language): string {
+  return language === 'zh' ? `${value}時` : `${value}:00`;
 }

@@ -2,8 +2,8 @@
 
 ## Current State
 
-**Last Updated:** 2026-07-01 08:56 CST
-**Active Feature:** none - stop/resume work module complete
+**Last Updated:** 2026-08-31 15:55 CST
+**Active Feature:** none - bilingual project documentation complete
 
 ## Status
 
@@ -22,17 +22,25 @@
 - [x] Downloaded 17 official quarterly construction audit CSV resources and converted 718 records.
 - [x] Added Taipei construction stop/resume work ingestion, summary generation, and a no-map labor-safety oversight dashboard module.
 - [x] Downloaded the official stop/resume work CSV and deduplicated it against the uploaded `11005-11504.csv` sample.
+- [x] Added dependency bootstrap and a Windows PowerShell startup path via `init.ps1`; retained the Bash path in `init.sh`.
+- [x] Kept `npm test` and `npm run build` as separate fail-fast startup checks so their existing proven behavior is unchanged.
+- [x] Validated the harness structure at 100/100 and verified 27 tests plus the production build after `npm ci`.
+- [x] Replaced unauthenticated CARTO raster tiles with official OpenStreetMap tiles to remove the API-key-required watermark while keeping visible OSM attribution.
+- [x] Audited Chinese-mode display across the base 1999, streetlight, construction audit, and stop/resume modules.
+- [x] Localized visible UI fallbacks, popup headings, construction `PCM` labels, `k NTD` amount output, ISO dates/months/quarters/hours, and streetlight district-status tokens.
+- [x] Added `tests/i18n.test.ts`; the full suite now passes 30 tests and the production build passes.
+- [x] Split project documentation into English `README.md` and Traditional Chinese `README-zh.md`, keeping setup, data, privacy, module, map, deployment, and limitation guidance aligned.
 
 ### What's In Progress
 
-- [x] Stop/resume work module verification.
-  - Details: fetch, convert, tests, builds, and static browser smoke testing passed.
+- [x] API-key-free map tile verification.
+  - Details: both Leaflet map components use `https://tile.openstreetmap.org/{z}/{x}/{y}.png`; tests and production build passed.
   - Blockers: none.
 
 ### What's Next
 
-1. Enable GitHub Pages deployment from Actions in repository settings if it is not already enabled.
-2. Commit when ready using the repo Lore Commit Protocol.
+1. Pick the next unfinished feature, or add a narrowly scoped feature entry if all current features remain done.
+2. Run `./init.sh` from Bash or `./init.ps1` from Windows PowerShell before editing.
 
 ## Blockers / Risks
 
@@ -42,6 +50,10 @@
 - [ ] Streetlight public JSON is large (`public/data/streetlight-repairs.json` is about 56 MB) because it includes historical table rows; the summary JSON is much smaller for dashboard views.
 - [ ] Construction audit records are formal audit records, not 1999 complaints, live project status, safety certification, contractor ranking, legal-liability findings, or public-safety warnings.
 - [ ] Stop/resume work records are labor-inspection public records, not live construction status, current stop-work/resume status, exact site location, building safety judgment, contractor ranking, legal-liability findings, or public danger warnings.
+- [ ] `npm ci` currently reports 3 dependency audit findings (1 low, 2 high); remediation was not included in this harness-only change.
+- [ ] The restricted Codex sandbox returns `spawn EPERM` when `init.ps1` invokes Vitest through a nested PowerShell layer; top-level `npm.cmd test` and `npm.cmd run build` pass, and the wrapper now propagates failures correctly.
+- [ ] The Codex browser runtime rejected localhost access due its usage/security limit; runtime tab-by-tab visual verification remains for a normal browser session.
+- [ ] OpenStreetMap tile service is best-effort and subject to its tile usage policy; keep requests limited to interactive map viewing.
 
 ## Decisions Made
 
@@ -60,6 +72,12 @@
 - **Keep stop/resume work standalone and no-map**:
   - Context: the dataset has no official coordinates, addresses, roads, or reliable shared key with 1999 cases.
   - Alternatives considered: map markers and automatic 1999 joins; rejected because they would imply unsupported current-site status, location precision, or causation.
+- **Keep the existing verification checks explicit across platforms**:
+  - Context: the existing Bash startup script was not runnable in the Windows workspace, while the separate test/build commands already passed independently.
+  - Alternatives considered: wrap both checks in a new npm script; rejected because nested/combined npm execution was unreliable in this sandbox.
+- **Use official OpenStreetMap raster tiles without a provider watermark**:
+  - Context: unauthenticated CARTO tiles began displaying an API-key-required watermark.
+  - Alternatives considered: remove the CARTO watermark with CSS; rejected because CARTO requires the mark for unauthenticated requests and prohibits obscuring it.
 
 ## Files Modified This Session
 
@@ -69,7 +87,7 @@
 - `scripts/convertOpen1999.ts` - duplicate case ID removal before public JSON output.
 - `src/App.tsx` - empty dashboard top-group guard.
 - `tests/open1999.test.ts` - regression coverage for invalid times and duplicates.
-- `AGENTS.md`, `feature_list.json`, `progress.md`, `session-handoff.md`, `init.sh` - agent harness.
+- `AGENTS.md`, `feature_list.json`, `progress.md`, `session-handoff.md`, `init.sh`, `init.ps1`, `package.json` - cross-platform agent harness startup and state.
 - `src/hooks/useOpen1999Data.ts`, `src/main.tsx`, `public/sw.js` - GitHub Pages-safe data and service worker paths.
 - `scripts/fetchStreetlightRepairs.ts`, `scripts/convertStreetlightRepairs.ts` - streetlight resource download and JSON conversion.
 - `src/lib/streetlight.ts`, `src/types/streetlight.ts`, `src/hooks/useStreetlightData.ts`, `src/components/StreetlightRepairs.tsx` - streetlight parsing, types, data loading, and UI.
@@ -107,10 +125,16 @@
 - [x] Stop/resume fetch: `npm run data:fetch:stop-resume-work` downloaded the official 1,043-row resource.
 - [x] Stop/resume conversion: `npm run data:convert:stop-resume-work` generated 1,043 deduplicated records from 2 raw CSV files.
 - [x] Stop/resume tests: `npm test` passed 27 tests across 4 files.
+- [x] Harness validation: `node C:\Users\150592\.agents\skills\harness-creator\scripts\validate-harness.mjs --target D:\Practice\taipei-1999-map` scored 100/100.
+- [x] Native verification: `npm.cmd ci`, `npm.cmd test`, and `npm.cmd run build` passed on Windows PowerShell.
+- [x] Map tile source: both Leaflet components reference the official OSM tile URL and retain visible OSM contributor attribution.
 
 ## Notes for Next Session
 
-Use `./init.sh` as the standard startup verification. Keep public UI display paths on `displayLocation`; do not expose `originalAddress` in React components.
+Use `./init.sh` from Bash or `./init.ps1` from Windows PowerShell as the standard startup verification. Both bootstrap dependencies from `package-lock.json` when needed and run `npm test` followed by `npm run build`. Keep public UI display paths on `displayLocation`; do not expose `originalAddress` in React components.
 For streetlight records, keep maps at district-bubble level unless a future source provides validated coordinates and product language is updated to avoid real-time outage or repair-performance claims.
 For construction audit records, keep the module table/chart based unless a future official source provides validated location fields and a reliable key for linking to 1999 cases.
 For stop/resume work records, missing resume/review dates are missing source fields only; do not label them as current stop-work status.
+For map tiles, keep the visible OpenStreetMap attribution and use only interactive requests to `tile.openstreetmap.org`.
+For Chinese mode, keep user-facing units and temporal values localized: construction amounts use `千元`, quarters use `年第N季`, months use `年N月`, and dates use `年N月N日`.
+Keep `README.md` in English and update `README-zh.md` in parallel for user-facing project documentation changes.

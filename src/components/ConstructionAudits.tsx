@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { type Language } from '../lib/i18n';
+import { formatDate, formatQuarter, type Language } from '../lib/i18n';
 import { useConstructionAuditData } from '../hooks/useConstructionAuditData';
 import type { ConstructionAuditScoreBand, PublicWorksConstructionAuditRecord } from '../types/constructionAudit';
 
@@ -17,6 +17,7 @@ const copy = {
     compare: '1999案件與施工查核資料性質不同。1999案件通常反映民眾通報、陳情或派工處理；施工查核情形則反映政府工程查核紀錄。兩者不應在沒有可靠共同鍵的情況下直接合併或推論因果關係。',
     all: '全部',
     search: '搜尋工程名稱、主辦單位、廠商、監造單位、專案管理或備註',
+    searchLabel: '搜尋',
     auditYear: '查核年度',
     auditQuarter: '查核季別',
     sourceQuarter: '來源季別',
@@ -49,7 +50,10 @@ const copy = {
     amount: '契約金額',
     supervisionUnit: '監造單位',
     score: '評分',
-    deductions: '扣點數合計'
+    deductions: '扣點數合計',
+    deductionContractor: '廠商',
+    deductionSupervision: '監造',
+    deductionProjectManagement: '專案管理'
   },
   en: {
     title: 'Public Works Construction Audit Records',
@@ -59,6 +63,7 @@ const copy = {
     compare: '1999 cases and construction audit records have different meanings. 1999 cases usually reflect citizen reports, petitions, or dispatch handling, while construction audit records reflect formal government public works audit records. They should not be directly merged or used to infer causation without reliable shared keys.',
     all: 'All',
     search: 'Search project name, agency, contractor, supervision unit, project management, or notes',
+    searchLabel: 'Search',
     auditYear: 'Audit year',
     auditQuarter: 'Audit quarter',
     sourceQuarter: 'Source quarter',
@@ -91,7 +96,10 @@ const copy = {
     amount: 'Contract amount',
     supervisionUnit: 'Supervision unit',
     score: 'Score',
-    deductions: 'Total deduction points'
+    deductions: 'Total deduction points',
+    deductionContractor: 'Contractor',
+    deductionSupervision: 'Supervision',
+    deductionProjectManagement: 'Project management (PCM)'
   }
 };
 
@@ -104,9 +112,9 @@ export function ConstructionAudits({ language }: { language: Language }) {
   const topAgency = data.summary?.byResponsibleAgency[0];
   const topContractor = data.summary?.byContractor[0];
   const deductionRows = [
-    { label: language === 'zh' ? '廠商' : 'Contractor', count: data.summary?.totalContractorDeductionPoints ?? 0 },
-    { label: language === 'zh' ? '監造' : 'Supervision', count: data.summary?.totalSupervisionDeductionPoints ?? 0 },
-    { label: 'PCM', count: data.summary?.totalPcmDeductionPoints ?? 0 }
+    { label: t.deductionContractor, count: data.summary?.totalContractorDeductionPoints ?? 0 },
+    { label: t.deductionSupervision, count: data.summary?.totalSupervisionDeductionPoints ?? 0 },
+    { label: t.deductionProjectManagement, count: data.summary?.totalPcmDeductionPoints ?? 0 }
   ];
 
   return (
@@ -120,14 +128,14 @@ export function ConstructionAudits({ language }: { language: Language }) {
       <section className="workspace">
         <aside className="filters">
           <Select label={t.auditYear} value={filters.year} options={options.years} all={t.all} onChange={(year) => setFilters({ ...filters, year })} />
-          <Select label={t.auditQuarter} value={filters.quarter} options={options.auditQuarters} all={t.all} onChange={(quarter) => setFilters({ ...filters, quarter })} />
-          <Select label={t.sourceQuarter} value={filters.sourceQuarter} options={options.sourceQuarters} all={t.all} onChange={(sourceQuarter) => setFilters({ ...filters, sourceQuarter })} />
+          <Select label={t.auditQuarter} value={filters.quarter} options={options.auditQuarters} labels={formatQuarterLabels(options.auditQuarters, language)} all={t.all} onChange={(quarter) => setFilters({ ...filters, quarter })} />
+          <Select label={t.sourceQuarter} value={filters.sourceQuarter} options={options.sourceQuarters} labels={formatQuarterLabels(options.sourceQuarters, language)} all={t.all} onChange={(sourceQuarter) => setFilters({ ...filters, sourceQuarter })} />
           <Select label={t.responsibleAgency} value={filters.agency} options={options.agencies} all={t.all} onChange={(agency) => setFilters({ ...filters, agency })} />
           <Select label={t.contractor} value={filters.contractor} options={options.contractors} all={t.all} onChange={(contractor) => setFilters({ ...filters, contractor })} />
           <Select label={t.scoreBand} value={filters.scoreBand} options={Object.keys(scoreBandLabels[language])} labels={scoreBandLabels[language]} all={t.all} onChange={(scoreBand) => setFilters({ ...filters, scoreBand })} />
           <label className="check-row"><input type="checkbox" checked={filters.hasDeduction} onChange={(event) => setFilters({ ...filters, hasDeduction: event.target.checked })} />{t.hasDeduction}</label>
           <label className="check-row"><input type="checkbox" checked={filters.hasNotes} onChange={(event) => setFilters({ ...filters, hasNotes: event.target.checked })} />{t.hasNotes}</label>
-          <label>{language === 'zh' ? '搜尋' : 'Search'}<input value={filters.search} onChange={(event) => setFilters({ ...filters, search: event.target.value })} placeholder={t.search} /></label>
+          <label>{t.searchLabel}<input value={filters.search} onChange={(event) => setFilters({ ...filters, search: event.target.value })} placeholder={t.search} /></label>
         </aside>
 
         <section className="map-panel no-map-panel">
@@ -140,12 +148,12 @@ export function ConstructionAudits({ language }: { language: Language }) {
       <section className="dashboard">
         <div className="summary-grid">
           <Summary label={t.records} value={(data.summary?.totalRecords ?? 0).toLocaleString()} />
-          <Summary label={t.latestQuarter} value={data.summary?.latestAuditQuarter ?? '-'} />
+          <Summary label={t.latestQuarter} value={formatQuarter(data.summary?.latestAuditQuarter, language)} />
           <Summary label={t.projects} value={(data.summary?.uniqueProjectCount ?? 0).toLocaleString()} />
           <Summary label={t.agencies} value={(data.summary?.responsibleAgencyCount ?? 0).toLocaleString()} />
           <Summary label={t.contractors} value={(data.summary?.contractorCount ?? 0).toLocaleString()} />
-          <Summary label={t.totalAmount} value={formatMoney(data.summary?.totalContractAmountThousandNtd)} />
-          <Summary label={t.averageAmount} value={formatMoney(data.summary?.averageContractAmountThousandNtd)} />
+          <Summary label={t.totalAmount} value={formatMoney(data.summary?.totalContractAmountThousandNtd, language)} />
+          <Summary label={t.averageAmount} value={formatMoney(data.summary?.averageContractAmountThousandNtd, language)} />
           <Summary label={t.averageScore} value={formatNumber(data.summary?.averageAuditScore)} />
           <Summary label={t.deductionRecords} value={(data.summary?.recordsWithDeductionPoints ?? 0).toLocaleString()} />
           <Summary label={t.totalDeduction} value={formatNumber(data.summary?.totalDeductionPoints)} />
@@ -154,7 +162,7 @@ export function ConstructionAudits({ language }: { language: Language }) {
         </div>
 
         <div className="chart-grid">
-          <Bars title={t.byQuarter} rows={data.summary?.byAuditQuarter.map((row) => ({ label: row.auditQuarter, count: row.recordCount })) ?? []} />
+          <Bars title={t.byQuarter} rows={data.summary?.byAuditQuarter.map((row) => ({ label: formatQuarter(row.auditQuarter, language), count: row.recordCount })) ?? []} />
           <Bars title={t.byAgency} rows={data.summary?.byResponsibleAgency.slice(0, 12).map((row) => ({ label: row.responsibleAgency, count: row.recordCount })) ?? []} />
           <Bars title={t.byContractor} rows={data.summary?.byContractor.slice(0, 12).map((row) => ({ label: row.contractor, count: row.recordCount })) ?? []} />
           <Bars title={t.byScore} rows={data.summary?.byScoreBand.map((row) => ({ label: scoreBandLabels[language][row.auditScoreBand], count: row.count })) ?? []} />
@@ -167,9 +175,9 @@ export function ConstructionAudits({ language }: { language: Language }) {
           <div className="audit-table">
             {filtered.slice(0, 120).map((record) => (
               <article key={record.id}>
-                <div><strong>{record.projectName}</strong><span>{record.auditDate ?? record.auditDateRaw ?? '-'}</span></div>
+                <div><strong>{record.projectName}</strong><span>{formatDate(record.auditDate ?? record.auditDateRaw, language)}</span></div>
                 <p>{t.responsibleAgency}: {record.responsibleAgency ?? '-'} · {t.contractor}: {record.contractor ?? '-'}</p>
-                <p>{t.amount}: {formatMoney(record.contractAmountThousandNtd)} · {t.supervisionUnit}: {record.supervisionUnit ?? '-'} · {t.score}: {formatNumber(record.auditScore)} · {t.deductions}: {formatNumber(record.totalDeductionPoints)}</p>
+                <p>{t.amount}: {formatMoney(record.contractAmountThousandNtd, language)} · {t.supervisionUnit}: {record.supervisionUnit ?? '-'} · {t.score}: {formatNumber(record.auditScore)} · {t.deductions}: {formatNumber(record.totalDeductionPoints)}</p>
               </article>
             ))}
           </div>
@@ -205,6 +213,10 @@ function buildOptions(records: PublicWorksConstructionAuditRecord[]) {
   };
 }
 
+function formatQuarterLabels(values: string[], language: Language): Record<string, string> {
+  return Object.fromEntries(values.map((value) => [value, formatQuarter(value, language)]));
+}
+
 function Select({ label, value, options, all, labels, onChange }: { label: string; value: string; options: string[]; all: string; labels?: Record<string, string>; onChange: (value: string) => void }) {
   return <label>{label}<select value={value} onChange={(event) => onChange(event.target.value)}><option value="all">{all}</option>{options.map((option) => <option key={option} value={option}>{labels?.[option] ?? option}</option>)}</select></label>;
 }
@@ -226,6 +238,8 @@ function formatNumber(value: number | undefined): string {
   return value === undefined ? '-' : value.toLocaleString();
 }
 
-function formatMoney(thousandNtd: number | undefined): string {
-  return thousandNtd === undefined ? '-' : `${Math.round(thousandNtd).toLocaleString()}k NTD`;
+function formatMoney(thousandNtd: number | undefined, language: Language): string {
+  if (thousandNtd === undefined) return '-';
+  const amount = Math.round(thousandNtd).toLocaleString();
+  return language === 'zh' ? `${amount} 千元` : `${amount}k NTD`;
 }

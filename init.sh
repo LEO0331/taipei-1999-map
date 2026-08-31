@@ -1,7 +1,15 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROJECT_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$PROJECT_ROOT"
 
 echo "=== Harness Initialization ==="
+
+if [[ ! -f node_modules/.bin/vitest || ! -f node_modules/.bin/tsc || ! -f node_modules/.bin/vite ]]; then
+  echo "=== npm ci (dependencies missing) ==="
+  npm ci
+fi
 
 echo "=== npm test ==="
 npm test

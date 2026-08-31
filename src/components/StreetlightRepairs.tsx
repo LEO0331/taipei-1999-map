@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { CircleMarker, MapContainer, Popup, TileLayer } from 'react-leaflet';
 import { TAIPEI_DISTRICTS, TAIPEI_DISTRICT_CENTROIDS } from '../lib/open1999';
 import { STREETLIGHT_ISSUE_TYPES } from '../lib/streetlight';
-import { type Language } from '../lib/i18n';
+import { formatDate, formatMonth, type Language } from '../lib/i18n';
 import { useStreetlightData } from '../hooks/useStreetlightData';
 import type { StreetlightIssueType, StreetlightRepairRecord } from '../types/streetlight';
 
@@ -31,6 +31,11 @@ const issueLabels: Record<Language, Record<StreetlightIssueType, string>> = {
   }
 };
 
+const districtStatusLabels = {
+  zh: { valid: '有效', normalized: '已標準化', missing: '缺漏', invalid: '無效', outside_taipei: '非臺北市' },
+  en: { valid: 'Valid', normalized: 'Normalized', missing: 'Missing', invalid: 'Invalid', outside_taipei: 'Outside Taipei' }
+} as const;
+
 const copy = {
   zh: {
     title: '路燈維修',
@@ -39,6 +44,7 @@ const copy = {
     disclaimer: '路燈維修資料為歷史查報與維修相關公開資料，並不代表即時故障狀態、目前是否已修復、維修績效或道路安全程度。實際路燈故障、維修進度與最新狀態請以主管機關及官方通報系統為準。',
     derived: '故障類型為系統依文字描述衍生分類，並非官方分類。',
     search: '搜尋查報序號、行政區、地點、故障情形或道路名稱',
+    searchLabel: '搜尋',
     year: '年度',
     district: '行政區',
     issueType: '故障類型',
@@ -72,6 +78,7 @@ const copy = {
     disclaimer: 'Streetlight repair data is historical public data related to reported and repaired streetlight issues. It does not represent real-time outage status, whether an issue has already been fixed, repair performance, or road safety level. Actual streetlight issues, repair progress, and latest status should be verified with official authorities and reporting systems.',
     derived: 'Issue types are derived from text descriptions by the system and are not official categories.',
     search: 'Search report ID, district, location, issue description, or road name',
+    searchLabel: 'Search',
     year: 'Year',
     district: 'District',
     issueType: 'Issue type',
@@ -146,14 +153,14 @@ export function StreetlightRepairs({ language }: { language: Language }) {
             {t.urgentOnly}
           </label>
           <label>
-            {language === 'zh' ? '搜尋' : 'Search'}
+            {t.searchLabel}
             <input value={filters.search} onChange={(event) => setFilters({ ...filters, search: event.target.value })} placeholder={t.search} />
           </label>
         </aside>
 
         <section className="map-panel">
           <MapContainer center={[25.055, 121.55]} zoom={12} minZoom={10} scrollWheelZoom className="map">
-            <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
+            <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
             {districtRows.map((row) => (
               <CircleMarker key={row.district} center={[row.latitude, row.longitude]} radius={10 + (row.recordCount / maxDistrict) * 34} pathOptions={{ color: '#854d0e', fillColor: '#facc15', fillOpacity: 0.5, weight: 2 }}>
                 <Popup>
@@ -175,8 +182,8 @@ export function StreetlightRepairs({ language }: { language: Language }) {
         <div className="summary-grid">
           <Summary label={t.records} value={(data.summary?.totalRecords ?? 0).toLocaleString()} />
           <Summary label={t.unique} value={(data.summary?.uniqueReportIdCount ?? 0).toLocaleString()} />
-          <Summary label={t.dateRange} value={`${data.summary?.minReportedAt?.slice(0, 10) ?? '—'} - ${data.summary?.maxReportedAt?.slice(0, 10) ?? '—'}`} />
-          <Summary label={t.latest} value={data.summary?.maxReportedAt?.slice(0, 10) ?? '—'} />
+          <Summary label={t.dateRange} value={`${formatDate(data.summary?.minReportedAt?.slice(0, 10), language)} - ${formatDate(data.summary?.maxReportedAt?.slice(0, 10), language)}`} />
+          <Summary label={t.latest} value={formatDate(data.summary?.maxReportedAt?.slice(0, 10), language)} />
           <Summary label={t.topDistrict} value={topDistrict?.district ?? '—'} />
           <Summary label={t.topIssue} value={topIssue ? issueLabels[language][topIssue.issueType] : '—'} />
           <Summary label={t.urgent} value={(data.summary?.urgentRecordCount ?? 0).toLocaleString()} />
@@ -185,7 +192,7 @@ export function StreetlightRepairs({ language }: { language: Language }) {
         </div>
         <div className="chart-grid">
           <Bars title={t.byYear} rows={data.summary?.byYear.map((row) => ({ label: String(row.year), count: row.recordCount })) ?? []} />
-          <Bars title={t.byMonth} rows={data.summary?.byMonth.slice(-24).map((row) => ({ label: row.periodKey, count: row.recordCount })) ?? []} />
+          <Bars title={t.byMonth} rows={data.summary?.byMonth.slice(-24).map((row) => ({ label: formatMonth(row.periodKey, language), count: row.recordCount })) ?? []} />
           <Bars title={t.byDistrict} rows={data.summary?.byDistrict.map((row) => ({ label: row.district, count: row.recordCount })) ?? []} />
           <Bars title={t.byIssue} rows={data.summary?.byIssueType.map((row) => ({ label: issueLabels[language][row.issueType], count: row.count })) ?? []} />
           <Bars title={t.byHour} rows={data.summary?.byHour.map((row) => ({ label: String(row.hour), count: row.recordCount })) ?? []} />
@@ -248,9 +255,9 @@ function StreetlightTable({ records, language }: { records: StreetlightRepairRec
               <strong>{record.reportId}</strong>
               <span>{record.issueTypes.map((type) => issueLabels[language][type]).join(', ')}</span>
             </div>
-            <p>{record.district ?? record.districtStatus} · {record.reportedLocationMasked ?? '—'}</p>
+            <p>{record.district ?? districtStatusLabels[language][record.districtStatus]} · {record.reportedLocationMasked ?? '—'}</p>
             <p>{record.issueDescription ?? '—'}</p>
-            <time>{record.reportedDate ?? record.reportedAtRaw}</time>
+            <time>{formatDate(record.reportedDate ?? record.reportedAtRaw.slice(0, 10), language)}</time>
           </article>
         ))}
       </div>

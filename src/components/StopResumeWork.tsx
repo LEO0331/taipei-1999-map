@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { type Language } from '../lib/i18n';
+import { formatDate, formatMonth, formatQuarter, type Language } from '../lib/i18n';
 import { useStopResumeWorkData } from '../hooks/useStopResumeWorkData';
 import type { ConstructionStopResumeWorkRecord, StopWorkReasonCategory, StopWorkScopeCategory } from '../types/stopResumeWork';
 
@@ -21,6 +21,7 @@ const copy = {
     disclaimer: '停復工公開資訊為臺北市公開資料中遭勞動檢查處處分停工案件之公開紀錄，僅供查詢來源欄位與統計整理，不代表即時施工狀態、目前是否停工、目前是否復工、工地精確位置、建物安全判定、施工安全保證、廠商品質排名、法律責任認定、公共安全警示、投資建議或官方背書。',
     compare: '1999案件與停復工公開資訊資料性質不同。1999案件通常反映民眾通報、陳情或派工處理；停復工公開資訊則反映勞動檢查處對工地停工處分及復工或復工審查日期之公開紀錄。兩者不應在沒有可靠共同鍵的情況下直接合併或推論因果關係。',
     all: '全部',
+    searchLabel: '搜尋',
     search: '搜尋工程名稱、事業單位、停工範圍、停工原因或日期',
     year: '停工年度',
     quarter: '停工季別',
@@ -65,6 +66,7 @@ const copy = {
     disclaimer: 'Construction stop / resume work public information is Taipei public-data record information about construction-site cases subject to stop-work penalties by the labor inspection authority. It does not represent real-time construction status, whether a site is currently stopped, whether a site has currently resumed work, exact site location, building-safety determination, construction-safety guarantee, contractor quality ranking, legal liability determination, public-safety alert, investment advice, or official endorsement.',
     compare: '1999 cases and construction stop / resume work records have different meanings. 1999 cases usually reflect citizen reports, petitions, or dispatch handling, while stop / resume work records reflect public records of labor-inspection stop-work penalties and resume-work or resume-review dates for construction sites. They should not be directly merged or used to infer causation without reliable shared keys.',
     all: 'All',
+    searchLabel: 'Search',
     search: 'Search project name, business entity, stop-work scope, reason, or date',
     year: 'Stop-work year',
     quarter: 'Stop-work quarter',
@@ -131,13 +133,13 @@ export function StopResumeWork({ language }: { language: Language }) {
       <section className="workspace">
         <aside className="filters">
           <Select label={t.year} value={filters.year} options={options.years} all={t.all} onChange={(year) => setFilters({ ...filters, year })} />
-          <Select label={t.quarter} value={filters.quarter} options={options.quarters} all={t.all} onChange={(quarter) => setFilters({ ...filters, quarter })} />
+          <Select label={t.quarter} value={filters.quarter} options={options.quarters} labels={formatQuarterLabels(options.quarters, language)} all={t.all} onChange={(quarter) => setFilters({ ...filters, quarter })} />
           <Select label={t.entity} value={filters.entity} options={options.entities} all={t.all} onChange={(entity) => setFilters({ ...filters, entity })} />
           <Select label={t.reasonCategory} value={filters.reasonCategory} options={Object.keys(reasonLabels[language])} labels={reasonLabels[language]} all={t.all} onChange={(reasonCategory) => setFilters({ ...filters, reasonCategory })} />
           <Select label={t.scopeCategory} value={filters.scopeCategory} options={Object.keys(scopeLabels[language])} labels={scopeLabels[language]} all={t.all} onChange={(scopeCategory) => setFilters({ ...filters, scopeCategory })} />
           <label className="check-row"><input type="checkbox" checked={filters.missingResume} onChange={(event) => setFilters({ ...filters, missingResume: event.target.checked })} />{t.missingResume}</label>
           <label className="check-row"><input type="checkbox" checked={filters.fallPrevention} onChange={(event) => setFilters({ ...filters, fallPrevention: event.target.checked })} />{t.fallPrevention}</label>
-          <label>{language === 'zh' ? '搜尋' : 'Search'}<input value={filters.search} onChange={(event) => setFilters({ ...filters, search: event.target.value })} placeholder={t.search} /></label>
+          <label>{t.searchLabel}<input value={filters.search} onChange={(event) => setFilters({ ...filters, search: event.target.value })} placeholder={t.search} /></label>
         </aside>
 
         <section className="map-panel no-map-panel">
@@ -150,7 +152,7 @@ export function StopResumeWork({ language }: { language: Language }) {
       <section className="dashboard">
         <div className="summary-grid">
           <Summary label={t.records} value={(data.summary?.totalRecords ?? 0).toLocaleString()} />
-          <Summary label={t.latestMonth} value={data.summary?.latestStopWorkMonth ?? '-'} />
+          <Summary label={t.latestMonth} value={formatMonth(data.summary?.latestStopWorkMonth, language)} />
           <Summary label={t.projects} value={(data.summary?.uniqueProjectCount ?? 0).toLocaleString()} />
           <Summary label={t.entities} value={(data.summary?.uniqueBusinessEntityCount ?? 0).toLocaleString()} />
           <Summary label={t.withResume} value={(data.summary?.recordsWithResumeOrReviewDate ?? 0).toLocaleString()} />
@@ -164,8 +166,8 @@ export function StopResumeWork({ language }: { language: Language }) {
         </div>
 
         <div className="chart-grid">
-          <Bars title={t.byMonth} rows={data.summary?.byStopWorkMonth.slice(-24).map((row) => ({ label: row.stopWorkMonthKey, count: row.recordCount })) ?? []} />
-          <Bars title={t.byQuarter} rows={data.summary?.byStopWorkQuarter.map((row) => ({ label: row.stopWorkQuarter, count: row.recordCount })) ?? []} />
+          <Bars title={t.byMonth} rows={data.summary?.byStopWorkMonth.slice(-24).map((row) => ({ label: formatMonth(row.stopWorkMonthKey, language), count: row.recordCount })) ?? []} />
+          <Bars title={t.byQuarter} rows={data.summary?.byStopWorkQuarter.map((row) => ({ label: formatQuarter(row.stopWorkQuarter, language), count: row.recordCount })) ?? []} />
           <Bars title={t.byReason} rows={data.summary?.byStopWorkReasonCategory.map((row) => ({ label: reasonLabels[language][row.stopWorkReasonCategory], count: row.count })) ?? []} />
           <Bars title={t.byScope} rows={data.summary?.byStopWorkScopeCategory.map((row) => ({ label: scopeLabels[language][row.stopWorkScopeCategory], count: row.count })) ?? []} />
           <Bars title={t.byEntity} rows={data.summary?.byBusinessEntity.slice(0, 12).map((row) => ({ label: row.businessEntityName, count: row.recordCount })) ?? []} />
@@ -179,8 +181,8 @@ export function StopResumeWork({ language }: { language: Language }) {
           <div className="audit-table">
             {filtered.slice(0, 120).map((record) => (
               <article key={record.id}>
-                <div><strong>{record.projectName}</strong><span>{record.stopWorkDate ?? record.stopWorkDateRaw ?? '-'}</span></div>
-                <p>{t.businessEntity}: {record.businessEntityName} · {t.resumeDate}: {record.resumeOrReviewDate ?? '-'}</p>
+                <div><strong>{record.projectName}</strong><span>{formatDate(record.stopWorkDate, language)}{record.stopWorkDate ? '' : record.stopWorkDateRaw ? ` (${record.stopWorkDateRaw})` : ''}</span></div>
+                <p>{t.businessEntity}: {record.businessEntityName} · {t.resumeDate}: {formatDate(record.resumeOrReviewDate, language)}</p>
                 <p>{t.scope}: {record.stopWorkScope ?? '-'} · {t.reason}: {record.stopWorkReason ?? '-'} · {t.days}: {formatNumber(record.daysUntilResumeOrReview)}</p>
               </article>
             ))}
@@ -212,6 +214,10 @@ function buildOptions(records: ConstructionStopResumeWorkRecord[]) {
     quarters: unique(records.map((record) => record.stopWorkQuarter)),
     entities: unique(records.map((record) => record.businessEntityName)).slice(0, 120)
   };
+}
+
+function formatQuarterLabels(values: string[], language: Language): Record<string, string> {
+  return Object.fromEntries(values.map((value) => [value, formatQuarter(value, language)]));
 }
 
 function Select({ label, value, options, all, labels, onChange }: { label: string; value: string; options: string[]; all: string; labels?: Record<string, string>; onChange: (value: string) => void }) {
