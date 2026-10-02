@@ -1,37 +1,12 @@
-import { useEffect, useState } from 'react';
 import type { ConstructionStopResumeWorkRecord, ConstructionStopResumeWorkSummary } from '../types/stopResumeWork';
+import { useDataFile } from './useStaticData';
 
-type State = {
-  records: ConstructionStopResumeWorkRecord[];
-  summary?: ConstructionStopResumeWorkSummary;
-  loading: boolean;
-  error?: string;
-};
-
-export function useStopResumeWorkData(): State {
-  const [state, setState] = useState<State>({ records: [], loading: true });
-
-  useEffect(() => {
-    let cancelled = false;
-    Promise.all([
-      fetchJson<ConstructionStopResumeWorkRecord[]>('construction-stop-resume-work-records.json', []),
-      fetchJson<ConstructionStopResumeWorkSummary | undefined>('construction-stop-resume-work-summary.json', undefined)
-    ])
-      .then(([records, summary]) => {
-        if (!cancelled) setState({ records, summary, loading: false });
-      })
-      .catch((error) => {
-        if (!cancelled) setState({ records: [], loading: false, error: String(error) });
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  return state;
-}
-
-async function fetchJson<T>(fileName: string, fallback: T): Promise<T> {
-  const response = await fetch(`${import.meta.env.BASE_URL}data/${fileName}`);
-  return response.ok ? ((await response.json()) as T) : fallback;
+export function useStopResumeWorkData() {
+  const records = useDataFile<ConstructionStopResumeWorkRecord[]>('construction-stop-resume-work-records.json');
+  const summary = useDataFile<ConstructionStopResumeWorkSummary>('construction-stop-resume-work-summary.json');
+  return {
+    records: records.value ?? [], summary: summary.value,
+    loading: records.loading, error: records.error ?? summary.error,
+    retry: () => { records.retry(); summary.retry(); }
+  };
 }

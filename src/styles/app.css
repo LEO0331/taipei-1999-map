@@ -243,6 +243,10 @@ main {
   gap: 16px;
 }
 
+.dashboard[hidden] {
+  display: none;
+}
+
 .section-heading {
   display: flex;
   justify-content: space-between;

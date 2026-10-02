@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react';
 import { CircleMarker, MapContainer, Popup, TileLayer } from 'react-leaflet';
-import { TAIPEI_DISTRICTS, TAIPEI_DISTRICT_CENTROIDS } from '../lib/open1999';
+import { TAIPEI_DISTRICTS } from '../lib/open1999';
 import { buildStreetlightSummary, STREETLIGHT_ISSUE_TYPES } from '../lib/streetlight';
 import { formatDate, formatMonth, type Language } from '../lib/i18n';
 import { filterStreetlightRecords } from '../lib/filtering';
+import { DataLoading } from './DataLoading';
 import { useStreetlightData } from '../hooks/useStreetlightData';
 import type { StreetlightIssueType, StreetlightRepairRecord } from '../types/streetlight';
 
@@ -109,18 +110,20 @@ const copy = {
 };
 
 export function StreetlightRepairs({ language }: { language: Language }) {
-  const data = useStreetlightData();
   const t = copy[language];
   const [filters, setFilters] = useState({ year: 'all', district: 'all', issueType: 'all', urgentOnly: false, search: '' });
+  const fullRecords = filters.year !== 'all' || filters.district !== 'all' || filters.issueType !== 'all' || filters.urgentOnly || Boolean(filters.search.trim());
+  const data = useStreetlightData(filters.year, fullRecords);
   const filtered = useMemo(() => filterStreetlightRecords(data.records, filters), [data.records, filters]);
-  const summary = useMemo(() => buildStreetlightSummary(filtered), [filtered]);
-  const districtRows = useMemo(() => aggregateDistricts(filtered), [filtered]);
+  const summary = useMemo(() => !fullRecords && data.summary ? data.summary : buildStreetlightSummary(filtered), [fullRecords, data.summary, filtered]);
+  const districtRows = summary.byDistrict;
   const maxDistrict = Math.max(1, ...districtRows.map((row) => row.recordCount));
   const topDistrict = summary.byDistrict[0];
   const topIssue = summary.byIssueType.find((row) => row.count > 0);
 
   return (
     <>
+      <DataLoading loading={data.loading} error={data.error} retry={data.retry} language={language} />
       <section className="notice-band">
         <strong>{t.notice}</strong>
         <span>{t.disclaimer}</span>
@@ -176,10 +179,10 @@ export function StreetlightRepairs({ language }: { language: Language }) {
         </section>
       </section>
 
-      <section className="dashboard">
+      <section className="dashboard" hidden={!data.summary && !fullRecords || fullRecords && (data.loading || Boolean(data.error))}>
         <div className="section-heading">
           <h2>{t.title}</h2>
-          <span>{data.loading ? '...' : `${filtered.length.toLocaleString()} ${t.records}`}</span>
+          <span>{data.loading ? '...' : `${summary.totalRecords.toLocaleString()} ${t.records}`}</span>
         </div>
         <div className="summary-grid">
           <Summary label={t.records} value={summary.totalRecords.toLocaleString()} />
@@ -204,13 +207,6 @@ export function StreetlightRepairs({ language }: { language: Language }) {
       </section>
     </>
   );
-}
-
-function aggregateDistricts(records: StreetlightRepairRecord[]) {
-  return TAIPEI_DISTRICTS.map((district) => {
-    const districtRecords = records.filter((record) => record.district === district);
-    return { district, ...TAIPEI_DISTRICT_CENTROIDS[district], recordCount: districtRecords.length, urgentRecordCount: districtRecords.filter((record) => record.isUrgent).length };
-  }).filter((row) => row.recordCount > 0);
 }
 
 function Summary({ label, value }: { label: string; value: string }) {

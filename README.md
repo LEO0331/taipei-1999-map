@@ -104,7 +104,15 @@ The public 1999 dataset is capped at the latest 150,000 sanitized records by def
 - The construction-audit module provides filters, summary cards, charts, and a searchable audit directory without map markers.
 - The stop/resume module provides filters, reason/scope summaries, missing-date counts, and a searchable project directory without map markers.
 - A PWA manifest and service worker cache the application shell and generated JSON files.
-- The service worker invalidates older caches and refreshes app/data requests from the network first, with cached content as an offline fallback; controlled windows reload once when a new worker activates.
+- Application assets refresh from the network first, with an offline cache fallback. Deployment-versioned data uses cache-first delivery; changed data or generated output changes the version and invalidates older caches. Existing controlled windows reload when a new worker activates; first installation does not reload the page.
+
+## Loading performance
+
+The 1999 and streetlight modules initially load complete aggregate summaries and the same first 300 / 100 table records shown previously. They do not download the full record datasets until a filter needs them. Date or year filters load only the matching year partitions; filters spanning every year still load the full public dataset. Summary counts always describe the complete selected data, not the preview rows.
+
+Parsed JSON, in-flight downloads, and assembled year selections are reused across tabs. The 1999 module runs independently of the app shell, so switching to another module does not recalculate its filters and summaries. Construction audit and stop/resume summaries appear independently of their detail downloads. Loading failures offer a retry, and filtered aggregates stay hidden until the selected records are ready.
+
+Vite generates compact yearly partitions, manifests, and previews under `dist/data/` during both production builds. The development server serves the same generated paths. Source datasets stay under `public/data/`; rerun the normal build after refreshing them. No backend or additional dependencies are required.
 
 ## Map tiles
 

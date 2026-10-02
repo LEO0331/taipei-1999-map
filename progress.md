@@ -2,8 +2,8 @@
 
 ## Current State
 
-**Last Updated:** 2026-08-31 16:35 CST
-**Active Feature:** none - project-wide filtering consistency complete
+**Last Updated:** 2026-10-02 (Asia/Taipei)
+**Active Feature:** none - fast static dataset loading complete
 
 ## Status
 
@@ -144,5 +144,16 @@ For stop/resume work records, missing resume/review dates are missing source fie
 For map tiles, keep the visible OpenStreetMap attribution and use only interactive requests to `tile.openstreetmap.org`.
 For Chinese mode, keep user-facing units and temporal values localized: construction amounts use `千元`, quarters use `年第N季`, months use `年N月`, and dates use `年N月N日`.
 Keep `README.md` in English and update `README-zh.md` in parallel for user-facing project documentation changes.
-When changing the deployed app shell or generated data, preserve the service worker's cache invalidation, client refresh, and network-first behavior.
+When changing deployed app assets or generated data, preserve app-asset network-first refresh, content-versioned cache-first data, cache invalidation, and upgrade client refresh. Include generator/schema changes in the data fingerprint; never cache unversioned data as immutable.
 When adding a module filter, derive every displayed aggregate from its filtered records and add a combined-filter regression test.
+
+
+## 2026-10-02 — Faster static data loading (feat-016)
+
+Implemented summary-first 1999/streetlight dashboards with unchanged initial table slices (300/100 records), compact build-time yearly partitions, and on-demand filtering. Default summaries describe all 150,000 / 65,022 records. Parsed datasets, downloads, and assembled selections are reused across tab switches. Extracted 1999 into `src/components/Open1999.tsx` while keeping its filter/map selections in `src/App.tsx`; other tabs no longer trigger 1999 computations.
+
+Changed loading code in `src/hooks/`, cache/partition helpers in `src/lib/`, all four module components, the loading/error component, and dashboard loading styles. `scripts/buildRecordPartitions.ts` and `vite.config.ts` generate production/dev previews and partitions without tracking duplicate datasets. `public/sw.js` caches deployment-versioned data first, retains network-first app assets, removes bulk dataset precaching, and reloads existing clients only on upgrades. Updated both READMEs and the feature tracker. No new dependencies or backend migration.
+
+Verification: 58 tests pass across 11 files, including request deduplication, parse-error cache bypass, worker upgrade/first-install behavior, partition completeness/order, selected-year fetching, early one-bound date filtering, and summary-first rendering. `npm run build:pages` passes TypeScript and Vite. Build manifests preserve every row; preview payloads are 144,320 bytes (1999) and 89,705 bytes (streetlight), uncompressed. Browser verified 1999/streetlight/audit default totals (150,000; 65,022; 718), stop/resume initial UI, streetlight 2024 count 20,666 and 2024/北投區 count 2,196, and construction 2026 count 30. A final reload after the retry/date-bound edge-case fixes was initially blocked by automatic approval review's usage limit. After the limit reset, reload succeeded; subsequent inspection and a fresh-tab smoke check timed out in the browser API. Final fixes are covered by regression tests, but final browser smoke testing remains incomplete. Standard final ./init.ps1 passed all 58 tests and npm run build; npm run build:pages also passed.
+
+Remaining limits: first-time all-years filtering still downloads large history partitions and performs aggregation in the browser. This is expected; narrower year/date selections reduce transfer. Network performance on the public deployment and upgrade/offline behavior have not been measured live. Implementation is local; deployment requires publishing the commit through the existing GitHub Pages workflow.

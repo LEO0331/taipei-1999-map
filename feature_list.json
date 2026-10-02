@@ -119,6 +119,17 @@
       "dependencies": ["feat-006", "feat-007", "feat-008", "feat-011"],
       "status": "done",
       "evidence": "Fixed unfiltered summary/chart aggregates in streetlight, construction-audit, and stop/resume modules; moved all four predicates to a shared browser-safe library; added combined-filter and filtered-summary regression coverage. npm test passed 34 tests and npm run build passed."
+    },
+    {
+      "id": "feat-016",
+      "name": "Fast static dataset loading",
+      "description": "Reuse parsed data and requests across tabs, isolate 1999 computations, render summaries and previews first, load compact year partitions on demand, and safely cache deployment-versioned data.",
+      "dependencies": [
+        "feat-015",
+        "feat-014"
+      ],
+      "status": "done",
+      "evidence": "./init.ps1 baseline passed 34 tests. Final npm test passed 58 tests; npm run build:pages passed including TypeScript. Partitions preserve 150,000 1999 and 65,022 streetlight rows. Browser checked initial module views plus streetlight year/district and audit-year filters. Final reload succeeded after the approval usage reset, but subsequent browser inspection timed out; final edge cases are covered by tests."
     }
   ]
 }

@@ -1,42 +1,18 @@
-import { useEffect, useState } from 'react';
-import type { ServiceRecordsSummary, StreetlightRepairRecord, StreetlightRepairSummary } from '../types/streetlight';
+import type { StreetlightRepairRecord, StreetlightRepairSummary } from '../types/streetlight';
+import { fetchDataJson, peekDataJson } from '../lib/dataCache';
+import { loadPartitionedRecords, peekPartitionedRecords } from '../lib/recordPartitions';
+import { useDataFile, useStaticData } from './useStaticData';
 
-type StreetlightData = {
-  records: StreetlightRepairRecord[];
-  summary?: StreetlightRepairSummary;
-  serviceSummary?: ServiceRecordsSummary;
-  loading: boolean;
-};
-
-export function useStreetlightData(): StreetlightData {
-  const [data, setData] = useState<StreetlightData>({ records: [], loading: true });
-
-  useEffect(() => {
-    let cancelled = false;
-    Promise.all([
-      fetchJson<StreetlightRepairRecord[]>(dataUrl('streetlight-repairs.json'), []),
-      fetchJson<StreetlightRepairSummary | undefined>(dataUrl('streetlight-repair-summary.json'), undefined),
-      fetchJson<ServiceRecordsSummary | undefined>(dataUrl('service-records-summary.json'), undefined)
-    ]).then(([records, summary, serviceSummary]) => {
-      if (!cancelled) setData({ records, summary, serviceSummary, loading: false });
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  return data;
-}
-
-function dataUrl(fileName: string): string {
-  return `${import.meta.env.BASE_URL}data/${fileName}`;
-}
-
-async function fetchJson<T>(url: string, fallback: T): Promise<T> {
-  try {
-    const response = await fetch(url);
-    return response.ok ? ((await response.json()) as T) : fallback;
-  } catch {
-    return fallback;
-  }
+export function useStreetlightData(year = 'all', fullRecords = false) {
+  const summary = useDataFile<StreetlightRepairSummary>('streetlight-repair-summary.json');
+  const records = useStaticData(`streetlight:${fullRecords ? year : 'preview'}`, () => fullRecords
+    ? loadPartitionedRecords<StreetlightRepairRecord>('streetlight', year === 'all' ? undefined : [year])
+    : fetchDataJson<StreetlightRepairRecord[]>('streetlight-preview.json'), fullRecords
+    ? peekPartitionedRecords<StreetlightRepairRecord>('streetlight', year === 'all' ? undefined : [year])
+    : peekDataJson<StreetlightRepairRecord[]>('streetlight-preview.json'));
+  return {
+    records: records.value ?? [], summary: summary.value,
+    loading: records.loading || (!fullRecords && summary.loading), error: records.error ?? summary.error,
+    retry: () => { records.retry(); summary.retry(); }
+  };
 }

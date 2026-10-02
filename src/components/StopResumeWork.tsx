@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { DataLoading } from './DataLoading';
 import { formatDate, formatMonth, formatQuarter, type Language } from '../lib/i18n';
 import { buildStopResumeWorkSummary } from '../lib/stopResumeWorkSummary';
 import { filterStopResumeRecords } from '../lib/filtering';
@@ -113,7 +114,8 @@ export function StopResumeWork({ language }: { language: Language }) {
   const t = copy[language];
   const [filters, setFilters] = useState({ year: 'all', quarter: 'all', entity: 'all', reasonCategory: 'all', scopeCategory: 'all', missingResume: false, fallPrevention: false, search: '' });
   const filtered = useMemo(() => filterStopResumeRecords(data.records, filters), [data.records, filters]);
-  const summary = useMemo(() => buildStopResumeWorkSummary(filtered), [filtered]);
+  const unfiltered = filters.year === 'all' && filters.quarter === 'all' && filters.entity === 'all' && filters.reasonCategory === 'all' && filters.scopeCategory === 'all' && !filters.missingResume && !filters.fallPrevention && !filters.search.trim();
+  const summary = useMemo(() => unfiltered && data.summary ? data.summary : buildStopResumeWorkSummary(filtered), [unfiltered, data.summary, filtered]);
   const options = useMemo(() => buildOptions(data.records), [data.records]);
   const topReason = summary.byStopWorkReasonCategory.find((row) => row.count > 0);
   const topScope = summary.byStopWorkScopeCategory.find((row) => row.count > 0);
@@ -127,6 +129,7 @@ export function StopResumeWork({ language }: { language: Language }) {
 
   return (
     <>
+      <DataLoading loading={data.loading} error={data.error} retry={data.retry} language={language} />
       <section className="notice-band">
         <strong>{t.notice}</strong>
         <span>{t.disclaimer}</span>
@@ -148,11 +151,11 @@ export function StopResumeWork({ language }: { language: Language }) {
         <section className="map-panel no-map-panel">
           <h2>{t.title}</h2>
           <p>{t.subtitle}</p>
-          <strong>{data.loading ? '...' : `${filtered.length.toLocaleString()} ${language === 'zh' ? '筆' : 'records'}`}</strong>
+          <strong>{data.loading && !data.summary ? '...' : `${summary.totalRecords.toLocaleString()} ${language === 'zh' ? '筆' : 'records'}`}</strong>
         </section>
       </section>
 
-      <section className="dashboard">
+      <section className="dashboard" hidden={!unfiltered && (data.loading || Boolean(data.error))}>
         <div className="summary-grid">
           <Summary label={t.records} value={summary.totalRecords.toLocaleString()} />
           <Summary label={t.latestMonth} value={formatMonth(summary.latestStopWorkMonth, language)} />
@@ -176,7 +179,7 @@ export function StopResumeWork({ language }: { language: Language }) {
           <Bars title={t.byEntity} rows={summary.byBusinessEntity.slice(0, 12).map((row) => ({ label: row.businessEntityName, count: row.recordCount }))} />
           <Bars title={t.byProject} rows={summary.byProject.slice(0, 12).map((row) => ({ label: row.projectName, count: row.recordCount }))} />
           <Bars title={t.resumeSplit} rows={[{ label: t.withResume, count: summary.recordsWithResumeOrReviewDate }, { label: t.withoutResume, count: summary.recordsMissingResumeOrReviewDate }]} />
-          <Bars title={t.keywordTrend} rows={keywordRows} />
+          {!data.loading && <Bars title={t.keywordTrend} rows={keywordRows} />}
         </div>
 
         <section className="chart">

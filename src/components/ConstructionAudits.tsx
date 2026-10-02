@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { DataLoading } from './DataLoading';
 import { formatDate, formatQuarter, type Language } from '../lib/i18n';
 import { buildConstructionAuditSummary } from '../lib/constructionAuditSummary';
 import { filterConstructionAuditRecords } from '../lib/filtering';
@@ -110,7 +111,8 @@ export function ConstructionAudits({ language }: { language: Language }) {
   const t = copy[language];
   const [filters, setFilters] = useState({ year: 'all', quarter: 'all', sourceQuarter: 'all', agency: 'all', contractor: 'all', scoreBand: 'all', hasDeduction: false, hasNotes: false, search: '' });
   const filtered = useMemo(() => filterConstructionAuditRecords(data.records, filters), [data.records, filters]);
-  const summary = useMemo(() => buildConstructionAuditSummary(filtered), [filtered]);
+  const unfiltered = filters.year === 'all' && filters.quarter === 'all' && filters.sourceQuarter === 'all' && filters.agency === 'all' && filters.contractor === 'all' && filters.scoreBand === 'all' && !filters.hasDeduction && !filters.hasNotes && !filters.search.trim();
+  const summary = useMemo(() => unfiltered && data.summary ? data.summary : buildConstructionAuditSummary(filtered), [unfiltered, data.summary, filtered]);
   const options = useMemo(() => buildOptions(data.records), [data.records]);
   const topAgency = summary.byResponsibleAgency[0];
   const topContractor = summary.byContractor[0];
@@ -122,6 +124,7 @@ export function ConstructionAudits({ language }: { language: Language }) {
 
   return (
     <>
+      <DataLoading loading={data.loading} error={data.error} retry={data.retry} language={language} />
       <section className="notice-band">
         <strong>{t.notice}</strong>
         <span>{t.disclaimer}</span>
@@ -144,11 +147,11 @@ export function ConstructionAudits({ language }: { language: Language }) {
         <section className="map-panel no-map-panel">
           <h2>{t.title}</h2>
           <p>{t.subtitle}</p>
-          <strong>{data.loading ? '...' : `${filtered.length.toLocaleString()} ${language === 'zh' ? '筆' : 'records'}`}</strong>
+          <strong>{data.loading && !data.summary ? '...' : `${summary.totalRecords.toLocaleString()} ${language === 'zh' ? '筆' : 'records'}`}</strong>
         </section>
       </section>
 
-      <section className="dashboard">
+      <section className="dashboard" hidden={!unfiltered && (data.loading || Boolean(data.error))}>
         <div className="summary-grid">
           <Summary label={t.records} value={summary.totalRecords.toLocaleString()} />
           <Summary label={t.latestQuarter} value={formatQuarter(summary.latestAuditQuarter, language)} />
