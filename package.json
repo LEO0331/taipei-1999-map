@@ -18,7 +18,9 @@
     "data:summary:construction-audits": "tsx scripts/buildPublicWorksConstructionAuditSummary.ts",
     "data:fetch:stop-resume-work": "tsx scripts/fetchConstructionStopResumeWorkRecords.ts",
     "data:convert:stop-resume-work": "tsx scripts/convertConstructionStopResumeWorkRecords.ts",
-    "data:summary:stop-resume-work": "tsx scripts/buildConstructionStopResumeWorkSummary.ts"
+    "data:summary:stop-resume-work": "tsx scripts/buildConstructionStopResumeWorkSummary.ts",
+    "data:audit:civic": "tsx scripts/auditOpen1999Coverage.ts",
+    "data:build:civic": "tsx scripts/buildCivicDecisionSnapshot.ts"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.2",

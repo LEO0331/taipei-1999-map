@@ -34,3 +34,9 @@ export function fetchDataJson<T>(fileName: string): Promise<T> {
 export function peekDataJson<T>(fileName: string): T | undefined {
   return values.get(fileName) as T | undefined;
 }
+
+/** A rejected schema must be replaceable by a network retry, even after JSON parsing succeeded. */
+export function invalidateDataJson(fileName: string): void {
+  values.delete(fileName);
+  bypassCache.add(fileName);
+}

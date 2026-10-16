@@ -34,7 +34,8 @@ export function partitionRecords<T extends Record<string, unknown>>(dataset: Rec
 /** Generated output stays out of the source tree; dev serves identical virtual data paths. */
 export function staticDataPlugin(root: string): { version: string; plugin: Plugin } {
   const sourceDirectory = resolve(root, 'public/data');
-  const fileNames = readdirSync(sourceDirectory).filter((name) => name.endsWith('.json')).sort();
+  const fileNames = readdirSync(sourceDirectory, { recursive: true })
+    .map(String).filter((name) => name.endsWith('.json')).sort();
   const fingerprint = createHash('sha256');
   // Output schema/preview changes also invalidate cached generated data.
   fingerprint.update(readFileSync(resolve(root, 'scripts/buildRecordPartitions.ts')));

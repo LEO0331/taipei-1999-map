@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { translations, type Language } from './lib/i18n';
 import { Open1999, defaultOpen1999Filters, type MapMode } from './components/Open1999';
 import { StreetlightRepairs } from './components/StreetlightRepairs';
 import { ConstructionAudits } from './components/ConstructionAudits';
 import { StopResumeWork } from './components/StopResumeWork';
 
-type ActiveModule = 'open1999' | 'streetlight' | 'constructionAudit' | 'stopResumeWork';
+const CivicDecisionDashboard = lazy(() => import('./components/CivicDecisionDashboard'));
+
+type ActiveModule = 'open1999' | 'streetlight' | 'constructionAudit' | 'stopResumeWork' | 'civicDecision';
 
 export function App() {
   const [language, setLanguage] = usePersistedLanguage();
@@ -28,6 +30,9 @@ export function App() {
 
       <main>
         <div className="mode-toggle module-toggle" role="tablist" aria-label={t.dataModule}>
+          <button className={activeModule === 'civicDecision' ? 'active' : ''} onClick={() => setActiveModule('civicDecision')} type="button">
+            {language === 'zh' ? '民生通報決策分析' : 'Civic Service Decision Support'}
+          </button>
           <button className={activeModule === 'open1999' ? 'active' : ''} onClick={() => setActiveModule('open1999')} type="button">
             {t.dispatch1999}
           </button>
@@ -42,7 +47,8 @@ export function App() {
           </button>
         </div>
 
-        {activeModule === 'stopResumeWork' ? <StopResumeWork language={language} />
+        {activeModule === 'civicDecision' ? <Suspense fallback={<p role="status">{language === 'zh' ? '載入決策分析…' : 'Loading decision support…'}</p>}><CivicDecisionDashboard language={language} /></Suspense>
+          : activeModule === 'stopResumeWork' ? <StopResumeWork language={language} />
           : activeModule === 'constructionAudit' ? <ConstructionAudits language={language} />
           : activeModule === 'streetlight' ? <StreetlightRepairs language={language} />
           : <Open1999 language={language} filters={filters} setFilters={setFilters} mode={mode} setMode={setMode} />}
