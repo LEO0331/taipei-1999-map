@@ -52,3 +52,5 @@ Small-cell threshold five is an analytical default, not a legal anonymity guaran
 `npm audit` reports one existing high-severity transitive `source-map-js` finding (GHSA-68fv-2mgg-jv7q); lockfile remediation is outside this feature and was not applied automatically. No separate lint script exists; TypeScript build is the configured static check. Actual deployment network performance and end-user offline upgrades were not measured; worker/cache regression tests pass.
 
 Next work: attest historical originals and classification changes, review the existing dependency finding, evaluate matched-season comparisons and lawful authoritative pest-control evidence. Keep other repositories and portfolio unchanged.
+
+Reviewable draft PR: https://github.com/LEO0331/taipei-1999-map/pull/8 . Implementation commit: a37506c. Branch pushed; no automatic merge. Final production Pages-path browser check showed the correct final snapshot, 12/5/1334 metrics and zero console errors; CSV downloaded and parsed back to five correct candidates with final dataset version.
