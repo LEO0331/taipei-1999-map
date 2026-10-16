@@ -1,0 +1,36 @@
+.civic-decision { max-width: 1600px; margin: auto; }
+.civic-decision h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); margin: .3em 0; }
+.civic-eyebrow { color: #0f766e; font-size: .85rem; font-weight: 700; }
+.civic-panel { min-width: 0; padding: 20px; background: #ffffffed; border: 1px solid #d9e2df; border-radius: 8px; }
+.civic-panel h2 { margin-top: 0; font-size: 1.3rem; }
+.civic-panel h3 { font-size: 1.05rem; }
+.civic-panel p { line-height: 1.7; }
+.civic-panel summary { cursor: pointer; font-weight: 700; padding: 8px 0; }
+.civic-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; align-items: start; }
+.civic-controls label { display: grid; gap: 6px; font-size: .9rem; font-weight: 600; }
+.civic-controls select, .civic-controls input { width: 100%; min-height: 44px; padding: 8px; border: 1px solid #94a3b8; border-radius: 4px; background: #fff; color: #172033; }
+.civic-controls fieldset { display: grid; gap: 10px; min-width: 0; border: 1px solid #cbd5e1; }
+.civic-decision button { min-height: 44px; padding: 8px 14px; border: 1px solid #0f766e; background: #e6f5ef; color: #124b41; border-radius: 5px; cursor: pointer; }
+.civic-decision :focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+.civic-table-scroll { overflow-x: auto; margin: 12px 0; }
+.civic-decision table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+.civic-decision caption { text-align: left; padding: 8px 0; color: #475569; }
+.civic-decision th, .civic-decision td { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid #d9e2df; min-width: 100px; }
+.civic-decision thead th { background: #edf5f2; }
+.civic-decision td ul { margin: 0; padding-left: 18px; min-width: 210px; }
+.civic-tier { display: inline-block; padding: 4px 8px; background: #edf2f7; border-radius: 4px; font-weight: 700; }
+.civic-tier-A { background: #fde5cd; color: #793e08; }
+.civic-tier-B { background: #e1eee9; color: #174d3d; }
+.civic-tier-insufficient { background: #f3e7ef; color: #6d3558; }
+.civic-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+.civic-metrics div { padding: 12px; background: #edf5f2; }
+.civic-metrics dt { font-size: .85rem; }
+.civic-metrics dd { font-size: 1.8rem; font-weight: 700; margin: 6px 0 0; }
+.civic-months { columns: 2 260px; line-height: 1.8; }
+.civic-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+.civic-hash { overflow-wrap: anywhere; }
+.civic-json { max-height: 420px; overflow: auto; font-size: .8rem; white-space: pre-wrap; overflow-wrap: anywhere; background: #f1f5f9; padding: 14px; }
+@media (max-width: 600px) { .civic-panel { padding: 14px; } .civic-controls { grid-template-columns: 1fr; } .civic-decision th, .civic-decision td { padding: 8px; } }
+@media print { .topbar, .mode-toggle, .civic-controls, .civic-actions { display: none !important; } .civic-panel { break-inside: avoid; border: 0; } .civic-table-scroll { overflow: visible; } }
+.civic-decision { width: 100%; display: grid; gap: 18px; min-width: 0; overflow-wrap: anywhere; }
+.civic-comparison { padding: 12px; border-left: 4px solid #0f766e; background: #edf5f2; }

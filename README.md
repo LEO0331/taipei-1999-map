@@ -146,3 +146,24 @@ Converters write generated files under `public/data/`, including sanitized 1999 
 - Streetlight records are historical and do not represent real-time outages, repair completion, repair performance, or road safety.
 - Construction audit records are not 1999 complaints, live construction progress, completion status, safety certification, contractor rankings, legal-liability findings, procurement-fraud evidence, or public-safety warnings.
 - Stop/resume records are not 1999 complaints, live construction status, current stop-work/resume status, exact site locations, building-safety judgments, contractor rankings, legal-liability findings, or public-danger warnings.
+
+## Civic Service Decision Support v1.0
+
+Open **Civic Service Decision Support** in the existing navigation to compare verified historical periods, inspect explainable district/topic investigation tiers, limit review capacity, compare assumptions, and export an aggregate JSON briefing or CSV shortlist. The module is lazy loaded and reuses the persisted language and deployment-versioned data cache. It does not download the explorer's historical records.
+
+The 2026-10-16 audit verified the original official monthly publications for **April–September 2026**. Default comparison is April–June versus July–September. Older retained records remain visible in the coverage audit with unknown/partial status; they do not establish comparable trends. The latest catalogue publication observed was September, updated October 5. Consult the generated snapshot for actual refresh coverage.
+
+Five disjoint topics use reviewed exact dispatch-item labels. Illustrative A/B/C investigation rules default to 10 recent records, activity in 2 of 3 months, baseline 5, and growth 25%. Controls expose these assumptions and review slots; suppressed or incomplete evidence is excluded. This is recorded dispatch activity, not severity, confirmed environmental harm, rodent incidence or government assignments.
+
+```bash
+# Refresh six latest monthly originals into private, immutable staging and build aggregates
+npm run data:build:civic -- --refresh
+# Rebuild from retained local sources (no network)
+npm run data:build:civic
+# Inspect source health
+npm run data:audit:civic
+```
+
+New raw downloads are ignored under `data/raw/open1999/civic-staged/`. Only aggregate assets are published. Fixed monthly district/item cells of 1–4 and complementary cells are suppressed; any derived metric touching a suppressed cell remains unavailable. Cross-release/source linkage remains a limitation. No rodent-specific authoritative case series was validated; rodent counts and hotspots are unavailable.
+
+See [methodology and reproduction](docs/civic-decision-methodology.md), [Traditional Chinese product guide](docs/civic-decision-mvp.zh-Hant.md), and [source audit](docs/civic-source-audit.md).

@@ -37,6 +37,19 @@ describe('shared parsed data cache', () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
+  it('reloads cached JSON after downstream schema rejection', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce({ ok: true, json: async () => ({ schemaVersion: 99 }) })
+      .mockResolvedValueOnce({ ok: true, json: async () => ({ schemaVersion: 1 }) });
+    vi.stubGlobal('fetch', fetchMock);
+    const { fetchDataJson, peekDataJson, invalidateDataJson } = await import('../src/lib/dataCache');
+    await fetchDataJson('civic-decision/snapshot.json');
+    invalidateDataJson('civic-decision/snapshot.json');
+    expect(peekDataJson('civic-decision/snapshot.json')).toBeUndefined();
+    expect(await fetchDataJson('civic-decision/snapshot.json')).toEqual({ schemaVersion: 1 });
+    expect(fetchMock.mock.calls[1][1]).toEqual({ cache: 'reload' });
+  });
+
   it('also retries malformed JSON and uses the configured deployment base', async () => {
     vi.stubEnv('BASE_URL', '/taipei-1999-map/');
     const fetchMock = vi.fn()

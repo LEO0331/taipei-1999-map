@@ -130,6 +130,16 @@
       ],
       "status": "done",
       "evidence": "./init.ps1 baseline passed 34 tests. Final npm test passed 58 tests; npm run build:pages passed including TypeScript. Partitions preserve 150,000 1999 and 65,022 streetlight rows. Browser checked initial module views plus streetlight year/district and audit-year filters. Final reload succeeded after the approval usage reset, but subsequent browser inspection timed out; final edge cases are covered by tests."
+    },
+    {
+      "id": "feat-017",
+      "name": "Civic investigation decision support v1",
+      "description": "Audited private-source aggregates, comparable historical investigation priorities, capacity/sensitivity and aggregate briefing in a lazy bilingual module.",
+      "dependencies": [
+        "feat-016"
+      ],
+      "status": "done",
+      "evidence": "Verified official Apr-Sep 2026 originals; lazy bilingual decision module, deterministic priorities/capacity/sensitivity, aggregate briefing and privacy suppression. Final init.ps1: 96 tests/16 files, TypeScript and Vite pass; Pages build and diff check pass; browser bilingual/mobile/filter/capacity/JSON export checks. See docs/civic-decision-delivery.md."
     }
   ]
 }

@@ -41,3 +41,13 @@
 ## Recommended Next Step
 
 Choose the next product feature from `feature_list.json`, or update the tracker with a precise new feature before implementation.
+
+## 2026-10-16 — Current feature delivery
+
+Civic decision support v1.0 implemented on `codex/civic-decision-v1` (feat-017). Latest complete originals: 2026-04 through 2026-09. Default pollution comparison Apr–Jun vs Jul–Sep selects 松山、文山、南港、信義、中山, representing 1334 historical dispatch records under five review slots. See `docs/civic-decision-delivery.md` and methodology for reproduction and boundaries.
+
+Final local verification: `npm ci`, `./init.ps1` (96 tests / 16 files, TypeScript, production build), Pages build and diff check pass. Use project-local TEMP/TMP in restricted sandboxes if default TEMP atomic rename fails. No new dependencies. Browser checks include bilingual desktop/mobile, filtering/capacity and JSON/CSV export. Existing worker/partition regressions pass.
+
+Do not commit `data/raw/open1999/civic-staged/`; it contains raw official addresses. Offline rebuild requires these private staged originals; a fresh checkout can consume the checked-in aggregate or run `npm run data:build:civic -- --refresh` to reacquire. Unknown retained historical hashes must not be promoted to complete. Follow-up dependency review: source-map-js high-severity transitive advisory. Rodent-specific views intentionally unavailable without verified evidence. Do not merge the feature branch automatically.
+
+Review draft PR: https://github.com/LEO0331/taipei-1999-map/pull/8 . Implementation commit a37506c is pushed; review before merging. Production Pages base path and CSV download/parse were also verified against the final snapshot version.
