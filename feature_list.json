@@ -140,6 +140,22 @@
       ],
       "status": "done",
       "evidence": "Verified official Apr-Sep 2026 originals; lazy bilingual decision module, deterministic priorities/capacity/sensitivity, aggregate briefing and privacy suppression. Final init.ps1: 96 tests/16 files, TypeScript and Vite pass; Pages build and diff check pass; browser bilingual/mobile/filter/capacity/JSON export checks. See docs/civic-decision-delivery.md."
+    },
+    {
+      "id": "feat-018",
+      "name": "Security audit of the current branch",
+      "description": "Review public data exposure, npm advisories, deployment permissions, and browser controls. Record evidence and remediation priorities.",
+      "dependencies": ["feat-017"],
+      "status": "done",
+      "evidence": "Reviewed commit 5232010. Confirmed public streetlight location fields and Open1999 raw-data linkage. npm audit reported 2 high and 2 moderate package entries. 96 tests and both production builds passed. Findings and pending remediation are recorded in progress.md."
+    },
+    {
+      "id": "feat-019",
+      "name": "Targeted security remediation",
+      "description": "Patch npm advisories, restrict Pages deployment permissions, and validate Civic refresh sources while preserving published data and dashboard behavior.",
+      "dependencies": ["feat-018"],
+      "status": "done",
+      "evidence": "npm audit reports zero vulnerabilities. init.ps1 passed 102 tests and the production build. Pages build and actionlint passed. Frontend artifacts and the existing Civic snapshot match baseline. Isolated official refresh verified six complete months."
     }
   ]
 }
