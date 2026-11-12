@@ -1,12 +1,92 @@
-import { afterEach, describe, expect, it } from 'vitest';
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { auditCompleteness, auditOpen1999Coverage, monthRange, protectSmallCells, sha256, writeSnapshot } from '../scripts/auditOpen1999Coverage';
+import { acquireOfficialMonths, auditCompleteness, auditOpen1999Coverage, monthRange, protectSmallCells, sha256, writeSnapshot } from '../scripts/auditOpen1999Coverage';
 import { CIVIC_MAPPING_VERSION, CIVIC_TOPICS, classifyCivicItem } from '../src/lib/civicCategoryMapping';
 
 const dirs: string[] = [];
-afterEach(async () => { await Promise.all(dirs.splice(0).map((dir) => rm(dir, { recursive: true, force: true }))); });
+afterEach(async () => {
+  vi.unstubAllGlobals();
+  await Promise.all(dirs.splice(0).map((dir) => rm(dir, { recursive: true, force: true })));
+});
 const valid = { schemaValid: true, integrity: true, monthlyContract: true, period: '2026-06', rows: 20, invalid: 0, outsidePeriod: false, future: false };
+
+describe('Civic source validation', () => {
+  const resource = {
+    rid: '131e3e00-790d-472d-bd2c-326c62268d4e',
+    url: '/download',
+    file_name: 'open1999_202401.csv',
+    size: 3
+  };
+  const catalogue = (entry = resource) => Response.json({ payload: { resources: [entry] } });
+
+  async function sourceDirectory() {
+    const parent = path.resolve('.omx', 'pipeline-tests');
+    await mkdir(parent, { recursive: true });
+    const dir = await mkdtemp(path.join(parent, 'source-'));
+    dirs.push(dir);
+    return dir;
+  }
+
+  it('downloads an official relative URL and follows an official redirect', async () => {
+    const dir = await sourceDirectory();
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(catalogue())
+      .mockResolvedValueOnce(new Response(null, { status: 302, headers: { location: '/original' } }))
+      .mockResolvedValueOnce(new Response('csv'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await acquireOfficialMonths(dir, 1);
+
+    expect(fetchMock.mock.calls.slice(1).map(([url]) => String(url))).toEqual([
+      'https://data.taipei/download', 'https://data.taipei/original'
+    ]);
+    expect(fetchMock.mock.calls.every(([, options]) => options.redirect === 'manual')).toBe(true);
+    const index = JSON.parse(await readFile(path.join(dir, 'civic-staged', 'index.json'), 'utf8'));
+    expect(index.resources[0].url).toBe('https://data.taipei/download');
+    expect(await readFile(path.join(dir, index.resources[0].fileName), 'utf8')).toBe('csv');
+  });
+
+  it.each([
+    [{ url: 'https://other.example/download' }, /Civic source URL/],
+    [{ url: 'http://data.taipei/download' }, /Civic source URL/],
+    [{ rid: 'not-a-uuid' }, /Invalid Civic resource ID/]
+  ])('rejects an invalid catalogue entry before fetching the resource', async (changes, error) => {
+    const dir = await sourceDirectory();
+    const fetchMock = vi.fn().mockResolvedValueOnce(catalogue({ ...resource, ...changes }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(acquireOfficialMonths(dir, 1)).rejects.toThrow(error);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(await readdir(dir)).toEqual([]);
+  });
+
+  it('rejects an off-site redirect without replacing the previous staging index', async () => {
+    const dir = await sourceDirectory();
+    const stage = path.join(dir, 'civic-staged');
+    await mkdir(stage);
+    const indexPath = path.join(stage, 'index.json');
+    const previous = '{"resources":[]}';
+    await writeFile(indexPath, previous);
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(catalogue())
+      .mockResolvedValueOnce(new Response(null, { status: 302, headers: { location: 'https://other.example/original' } }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(acquireOfficialMonths(dir, 1)).rejects.toThrow(/Civic source URL/);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(await readFile(indexPath, 'utf8')).toBe(previous);
+  });
+
+  it('rejects a staged index entry outside the staging directory', async () => {
+    const dir = await sourceDirectory();
+    await mkdir(path.join(dir, 'civic-staged'));
+    await writeFile(path.join(dir, 'resource-index.json'), '{"resources":[]}');
+    await writeFile(path.join(dir, 'civic-staged', 'index.json'), '{"resources":[{"fileName":"other.csv"}]}');
+
+    await expect(auditOpen1999Coverage(dir)).rejects.toThrow(/Invalid Civic staged CSV path/);
+  });
+});
 
 describe('authoritative completeness evidence', () => {
   it('requires a whole-month contract rather than observed dates', () => {

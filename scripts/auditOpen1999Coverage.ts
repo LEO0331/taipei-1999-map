@@ -10,31 +10,62 @@ import { validateSnapshot } from '../src/lib/civicDecision';
 
 export const DATASET_ID = 'b796f87a-0ed8-4e57-89f6-225a4941b1ed';
 export const PROCESSING_VERSION = 'civic-etl-1.0.0';
+const OFFICIAL_ORIGIN = 'https://data.taipei';
+const MAX_REDIRECTS = 5;
+const REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
+const RESOURCE_ID = /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i;
+const STAGED_CSV = /^civic-staged\/[a-z0-9][a-z0-9._-]*\.csv$/i;
 const HEADERS = ['案件編號', '派工項目', '案件地址', '立案日期', '立案時間'];
 export const sha256 = (bytes: Buffer | string): string => createHash('sha256').update(bytes).digest('hex');
 type Entry = { id: string; url: string; fileName: string; downloadedAt: string; sha256: string; period?: string; publishedAt?: string; encoding?: string; originalBytes?: boolean; expectedBytes?: number; expectedRows?: number; monthlyContract?: boolean };
 type Index = { resources: Entry[] };
 
+function officialUrl(value: string, base = OFFICIAL_ORIGIN): URL {
+  if (typeof value !== 'string' || !value.trim()) throw new Error('Missing Civic source URL');
+  const url = new URL(value, base);
+  if (url.protocol !== 'https:' || url.origin !== OFFICIAL_ORIGIN || url.username || url.password) {
+    throw new Error('Civic source URL must use https://data.taipei without credentials');
+  }
+  return url;
+}
+
+async function fetchOfficial(url: URL): Promise<Response> {
+  const signal = AbortSignal.timeout(60000);
+  for (let redirects = 0; ; redirects++) {
+    const response = await fetch(url, { signal, redirect: 'manual' });
+    if (response.ok) return response;
+    await response.body?.cancel();
+    if (!REDIRECT_STATUSES.has(response.status)) throw new Error(`Official source HTTP ${response.status}`);
+    if (redirects >= MAX_REDIRECTS) throw new Error('Too many Civic source redirects');
+    const location = response.headers.get('location');
+    if (!location) throw new Error('Missing Civic source redirect location');
+    url = officialUrl(location, url.href);
+  }
+}
+
 /** Download immutable original monthly files; never replace an audited raw file. */
 export async function acquireOfficialMonths(rawDir: string, limit = 6): Promise<void> {
-  const get = async (url: string) => { const response = await fetch(url, { signal: AbortSignal.timeout(60000) }); if (!response.ok) throw new Error(`Official source HTTP ${response.status}`); return response; };
-  const catalogueUrl = `https://data.taipei/api/frontstage/tpeod/dataset.view?id=${DATASET_ID}`;
-  const catalogueBytes = Buffer.from(await (await get(catalogueUrl)).arrayBuffer());
+  const catalogueUrl = new URL(`/api/frontstage/tpeod/dataset.view?id=${DATASET_ID}`, OFFICIAL_ORIGIN);
+  const catalogueBytes = Buffer.from(await (await fetchOfficial(catalogueUrl)).arrayBuffer());
   const catalogue = JSON.parse(catalogueBytes.toString('utf8')).payload;
   const resources = (catalogue.resources as Array<{ rid: string; url: string; file_name: string; encoding: string; size: number; last_modified: string }>).map((resource) => ({ ...resource, period: resource.file_name.match(/(20\d{2})(\d{2})/)?.slice(1).join('-') })).filter((resource) => resource.period && resource.period < new Date().toISOString().slice(0, 7)).sort((a, b) => b.period!.localeCompare(a.period!)).slice(0, limit);
   if (resources.length !== limit) throw new Error('Insufficient official monthly catalogue entries');
+  const downloads = resources.map((resource) => {
+    if (typeof resource.rid !== 'string' || !RESOURCE_ID.test(resource.rid)) throw new Error('Invalid Civic resource ID');
+    return { resource, url: officialUrl(resource.url) };
+  });
   const stage = path.join(rawDir, 'civic-staged');
   await mkdir(stage, { recursive: true });
   const downloadedAt = new Date().toISOString();
   const entries: Entry[] = [];
-  for (const resource of resources) {
-    const url = new URL(resource.url, 'https://data.taipei').href;
-    const bytes = Buffer.from(await (await get(url)).arrayBuffer());
+  for (const { resource, url } of downloads) {
+    const bytes = Buffer.from(await (await fetchOfficial(url)).arrayBuffer());
     if (bytes.length !== Number(resource.size)) throw new Error(`Catalogue byte size mismatch: ${resource.rid}`);
     const digest = sha256(bytes);
-    const fileName = `civic-staged/${resource.rid}-${digest}.csv`;
-    try { await writeFile(path.join(rawDir, fileName), bytes, { flag: 'wx' }); } catch (error) { if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error; if (sha256(await readFile(path.join(rawDir, fileName))) !== digest) throw new Error('Immutable staged content mismatch'); }
-    entries.push({ id: resource.rid, url, fileName, downloadedAt, sha256: digest, period: resource.period, publishedAt: resource.last_modified ? `${resource.last_modified.replace(' ', 'T')}+08:00` : undefined, encoding: resource.encoding, originalBytes: true, expectedBytes: Number(resource.size), monthlyContract: true });
+    const name = `${resource.rid}-${digest}.csv`;
+    const stagedPath = path.join(stage, name);
+    try { await writeFile(stagedPath, bytes, { flag: 'wx' }); } catch (error) { if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error; if (sha256(await readFile(stagedPath)) !== digest) throw new Error('Immutable staged content mismatch'); }
+    entries.push({ id: resource.rid, url: url.href, fileName: `civic-staged/${name}`, downloadedAt, sha256: digest, period: resource.period, publishedAt: resource.last_modified ? `${resource.last_modified.replace(' ', 'T')}+08:00` : undefined, encoding: resource.encoding, originalBytes: true, expectedBytes: Number(resource.size), monthlyContract: true });
   }
   await writeFile(path.join(stage, `catalogue-${sha256(catalogueBytes)}.json`), catalogueBytes, { flag: 'wx' }).catch((error) => { if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error; });
   await writeFile(path.join(stage, 'index.json'), JSON.stringify({ catalogueUrl, catalogueSha256: sha256(catalogueBytes), downloadedAt, coverageEnd: catalogue.coverage_temporal_end, resources: entries }, null, 2));
@@ -83,7 +114,12 @@ export async function auditOpen1999Coverage(rawDir: string, now = new Date().toI
   const entries = new Map(index.resources.map((entry) => [entry.fileName, entry]));
   // Audit every retained file; immutable originals alone supply their verified month populations.
   const files = (await readdir(rawDir)).filter((name) => name.endsWith('.csv')).sort();
-  for (const entry of staged.resources) { entries.set(entry.fileName, entry); files.push(entry.fileName); }
+  for (const entry of staged.resources) {
+    if (typeof entry.fileName !== 'string' || !STAGED_CSV.test(entry.fileName)) throw new Error('Invalid Civic staged CSV path');
+    officialUrl(entry.url);
+    entries.set(entry.fileName, entry);
+    files.push(entry.fileName);
+  }
   files.sort((a, b) => Number(b.startsWith('civic-staged/')) - Number(a.startsWith('civic-staged/')) || a.localeCompare(b));
   const seen = new Set<string>();
   const counts = new Map<string, number>();
